@@ -9,7 +9,7 @@ public abstract class Person  implements Serializable{
 //Fields
 protected String firstName;
 protected String lastName;
-protected int socialSecurityNumber;
+protected String socialSecurityNumber;
 protected String address;
 protected int zipCode;
 protected Date birthday;
@@ -31,13 +31,13 @@ public void setLogin(UserLogin login) {
 public Person() {
 	firstName = "Default";
 	lastName = "Default";
-	socialSecurityNumber = -1;
+	socialSecurityNumber = "null";
 	address = "Default";
 	zipCode = -1;
 	birthday = new Date();
 	phoneNumber = -1;
 }
-public Person(String firstName, String lastName, int SS, String add, int zC, Date bD, int pN) {
+public Person(String firstName, String lastName, String SS, String add, int zC, Date bD, int pN) {
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.socialSecurityNumber = SS;
@@ -65,10 +65,10 @@ public String getLastName() {
 public void setLastName(String lastName) {
 	this.lastName = lastName;
 }
-public int getSocialSecurityNumber() {
+public String getSocialSecurityNumber() {
 	return socialSecurityNumber;
 }
-public void setSocialSecurityNumber(int socialSecurityNumber) {
+public void setSocialSecurityNumber(String socialSecurityNumber) {
 	this.socialSecurityNumber = socialSecurityNumber;
 }
 public String getAddress() {

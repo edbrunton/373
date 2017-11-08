@@ -26,7 +26,7 @@ public class Mortgage extends BankAccount  implements Serializable{
 		setPrincipal(p);
 		setInterestRate(iR);
 		setRemainingBalance(rB);
-		setMonthlyPayment(mP);
+		setMonthlyPayment(mP);//TODO Ryan. Needs to be calculated, not just set
 		setTerm(t);
 	}
 	

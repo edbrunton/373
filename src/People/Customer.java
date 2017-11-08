@@ -5,6 +5,8 @@ import java.io.Serializable;
 import Accounts.CheckingAccount;
 import Accounts.Mortgage;
 import Accounts.SavingsAccount;
+import Hardware.Date;
+import Hardware.UserLogin;
 
 public class Customer extends Person  implements Serializable{
 
@@ -43,6 +45,17 @@ public Customer(int cN, CheckingAccount cA, Mortgage m) {
 
 
 
+public Customer(String firstName, String lastName, String sS, String address, int zipcode, Date temp, int phoneNum,
+		UserLogin userLogin) {
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.socialSecurityNumber = sS;
+	this.address = address;
+	this.zipCode = zipcode;
+	this.birthday = temp;
+	this.phoneNumber = phoneNum;
+	this.login = userLogin;
+}
 //Methods
 public int getCustomberNumber() {
 	return customberNumber;

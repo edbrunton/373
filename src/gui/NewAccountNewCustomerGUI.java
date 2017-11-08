@@ -20,8 +20,14 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import Accounts.CheckingAccount;
+import Accounts.Mortgage;
+import Accounts.SavingsAccount;
 import Hardware.Bank;
-
+import Hardware.Date;
+import Hardware.UserLogin;
+import People.Customer;
+import People.Employee;
 public class NewAccountNewCustomerGUI extends JFrame   {
 	private Bank bank;
 	private Container inputs;
@@ -35,6 +41,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 	private JPasswordField f3;
 	private JTextField f4;
 	private JPasswordField f5;
+	private JTextField f6;
 	private String[] AccountTypes;
 	//TODO: make type of account have selection box
 	public NewAccountNewCustomerGUI(Bank bank)
@@ -51,6 +58,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 
 		public void actionPerformed(ActionEvent e)
 		{
+			boolean valid = true;
 			String firstName= c1.getText();
 			try {	
 				if (firstName.length() == 0)
@@ -60,6 +68,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			}
 			catch(Exception p)
 			{
+				valid =false;
 				String title = "Error First Name Not Valid";
 				String message ="Enter a valid first name, scum";
 				textParseError(title, message);
@@ -73,6 +82,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			}
 			catch(Exception p)
 			{
+				valid = false;
 				String title = "Error Last Name Not Valid";
 				String message ="Enter a valid last name, scum";
 				textParseError(title, message);
@@ -87,11 +97,12 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			}
 			catch(Exception p)
 			{
+				valid = false;
 				String title = "Error Address Not Valid";
 				String message ="Enter a valid address, scum";
 				textParseError(title, message);
 			}
-			int zipcode;
+			int zipcode = 0;
 			try {
 				zipcode = Integer.parseInt(c4.getText());
 				if(c4.getText().length() != 5)
@@ -101,11 +112,12 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			}
 			catch(Exception p)
 			{
+				valid = false;
 				String title = "Error Zipcode Not Valid";
 				String message ="Enter a valid zipcode, scum";
 				textParseError(title, message);
 			}
-			int phoneNum;
+			int phoneNum = 0;
 			try{
 				phoneNum = Integer.parseInt(c5.getText());
 				if(c5.getText().length() > 12 || c5.getText().length() < 7)
@@ -115,12 +127,31 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			}
 			catch(Exception p)
 			{
+				valid = false;
 				String title = "Error Phone Number Not Valid";
 				String message ="Enter a valid phone number, scum";
 				textParseError(title, message);
 			}
 			String accountType = (String)f1.getSelectedItem();
-			String loanAmount = f2.getText();
+			String loanAmountIn = f2.getText();
+			double loanAmount = -1;
+			if(accountType.compareTo("Mortgage") == 0)
+			{
+				try {
+					loanAmount = Double.parseDouble(loanAmountIn);
+					if (loanAmount <= 0)
+					{
+						throw new Exception("error");
+					}
+				}
+				catch(Exception p)
+				{
+					valid = false;
+					String title = "Error Loan Amount Not Valid";
+					String message ="Enter a valid loan amount";
+					textParseError(title, message);
+				}
+			}
 		//	String SSPreCheck = f3.getPassword().toString();
 			String email = f4.getText();
 			try {
@@ -130,6 +161,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 				}
 			}
 			catch(Exception p){
+				valid = false;
 				String title = "Error Email Address Not Valid";
 				String message ="Enter a valid Email Address number, scum";
 				textParseError(title, message);
@@ -142,22 +174,84 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 				}
 			}
 			catch(Exception p){
+				valid = false;
 				String title = "Error Password Not Valid";
 				String message ="Enter a password of at least eight characters moron";
 				textParseError(title, message);
 			}
-			int socialSecurity;
+			String SS = f3.getPassword().toString();
 			try {
-				socialSecurity = Integer.parseInt(f3.getPassword().toString());
-				if(f3.getPassword().toString().length() != 9)
+				if(f3.getPassword().toString().length() == 0)
 				{
 					throw new Exception("error");
 				}
 			}
 			catch(Exception p){
+				valid = false;
 				String title = "Error Social Security Number Not Valid";
-				String message ="Enter a valid Social Security number, scum";
+				String message = SS + "Enter a valid Social Security number, scum";
 				textParseError(title, message);
+			}
+			int[] dateParts = null;
+			
+			try {
+				String[] tokens = f6.toString().split("/");
+				if(tokens.length != 3)
+				{
+					throw new Exception("error");
+				}
+				int[] temp  = {Integer.parseInt(tokens[0]),Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2])};
+				dateParts = temp;
+				if(dateParts[0] > 12 || dateParts[1] > 31 || dateParts[2] > 2016 || dateParts[0] <1 || dateParts[1] <  1)
+				{
+					throw new Exception("error");
+				}
+				
+			}
+			catch(Exception p){
+				valid = false;
+				String title = "Error Birthday Not Valid";
+				String message = SS + "Enter a valid Birthday, scum";
+				textParseError(title, message);
+			}
+			if(valid == true)
+			{
+				Date temp = new Date(dateParts[0], dateParts[2], dateParts[1]);
+				if(bank.getEmployees().size() == 0 && accountType.compareTo("Manager") == 0)
+				{
+					bank.getEmployees().add(new Employee(firstName, lastName, 
+							SS, address, zipcode, 
+							temp	, phoneNum, 1, new UserLogin(email, password)));
+				}
+				else if(accountType.compareTo("Manager") == 0) {
+					bank.getPendingPeople().add(new Employee(firstName, lastName, 
+							SS, address, zipcode, 
+							temp	, phoneNum, bank.getEmployees().size()+1, 
+							new UserLogin(email, password)));
+				}
+				else
+				{
+					Customer c = new Customer(firstName, lastName, 
+							SS, address, zipcode, 
+							temp	, phoneNum, 
+							new UserLogin(email, password));
+					if(accountType.compareTo("Savings") == 0)
+					{
+						c.setSacingsAccount(new SavingsAccount(0.001, 0.0, 0.0));//TODO Ryan
+					}
+					if(accountType.compareTo("Checking") == 0)
+					{
+						c.setCheckingAccount(new CheckingAccount(0.0));//TODO Ryan
+					}
+					if(accountType.compareTo("Mortgage") == 0)
+					{
+						c.setMortgage(new Mortgage(loanAmount, loanAmount, 7.25, loanAmount, 0, 36));//TODO Ryan
+					}
+					
+					//TODO: different account types and such
+					bank.getPendingPeople().add(c);
+bank.getPendingPeople().get(bank.getPendingPeople().size()-1);
+				}
 			}
 		}
 
@@ -193,10 +287,11 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 		JLabel b5 = new JLabel("Phone Number: ");
 		JLabel e1 = new JLabel("Type of Account: ");
 		JLabel e0 = new JLabel("Account Info: ");
-		JLabel e2 = new JLabel("Loan Amount: ");
+		JLabel e2 = new JLabel("Loan Amount (if applicable): ");
 		JLabel e3 = new JLabel("Social Security: ");
 		JLabel e4 = new JLabel("Email: ");
 		JLabel e5 = new JLabel("Password: ");
+		JLabel e6 = new JLabel("Birthday (MM/DD/YYYY): ");
 		 c1 = new JTextField(10);
 		 c2 = new JTextField(10);
 		 c3 = new JTextField(10);
@@ -206,6 +301,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 		 f3 = new JPasswordField(10);
 		 f4 = new JTextField(10);
 		 f5 = new JPasswordField(10);
+		 f6 = new JTextField(10);
 		 f1 = new JComboBox(AccountTypes);//JTextField(10);
 		JButton d6 = new JButton("Submit");
 		d6.addActionListener(new SubmitApplication());
@@ -224,6 +320,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 		addAt(e3, 3, 4);
 		addAt(e4, 4, 4);
 		addAt(e5, 5, 4);
+		addAt(e6, 7, 4);
 		addAt(c1, 1, 2);
 		addAt(c2, 2, 2);
 		addAt(c3, 3, 2);
@@ -234,7 +331,8 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 		addAt(f3, 3, 5);
 		addAt(f4, 4, 5);
 		addAt(f5, 5, 5);
-		addAt(d6, 6, 3);
+		addAt(f6, 6, 5);
+		addAt(d6, 7, 3);
 		frame.pack();
 		frame.setVisible(true);
 	}

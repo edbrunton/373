@@ -7,6 +7,7 @@ import Accounts.BankAccount;
 import Accounts.Mortgage;
 import People.Customer;
 import People.Employee;
+import People.Person;
 
 public class Bank  implements Serializable{
 	
@@ -21,6 +22,9 @@ public class Bank  implements Serializable{
 	private double monthlyRevenue;
 	private double monthlyProfit;
 	private BankAccount banksBankAccount;
+	private ArrayList<BankAccount> pendingAccounts;
+	private ArrayList<Person> pendingPeople;
+	private ArrayList<Person> suspendedAccounts;
 	
 	//Constructors
 	public Bank() {
@@ -30,6 +34,8 @@ public class Bank  implements Serializable{
 		customers = new ArrayList<Customer>();
 		bankAccounts = new ArrayList<BankAccount>();
 		mortgages = new ArrayList<Mortgage>();
+		setPendingAccounts(new ArrayList<BankAccount>());
+		setSuspendedAccounts(new ArrayList<Person>());
 		Assets = -1;
 		monthlyRevenue = -1;
 		monthlyProfit = -1;
@@ -51,6 +57,7 @@ public class Bank  implements Serializable{
 	
 	
 	//Methods
+
 	public String getAddress() {
 		return address;
 	}
@@ -110,6 +117,24 @@ public class Bank  implements Serializable{
 	}
 	public void setBanksBankAccount(BankAccount banksBankAccount) {
 		this.banksBankAccount = banksBankAccount;
+	}
+	public ArrayList<BankAccount> getPendingAccounts() {
+		return pendingAccounts;
+	}
+	public void setPendingAccounts(ArrayList<BankAccount> pendingAccounts) {
+		this.pendingAccounts = pendingAccounts;
+	}
+	public ArrayList<Person> getPendingPeople() {
+		return pendingPeople;
+	}
+	public void setPendingPeople(ArrayList<Person> pendingPeople) {
+		this.pendingPeople = pendingPeople;
+	}
+	public ArrayList<Person> getSuspendedAccounts() {
+		return suspendedAccounts;
+	}
+	public void setSuspendedAccounts(ArrayList<Person> suspendedAccounts) {
+		this.suspendedAccounts = suspendedAccounts;
 	}
 	
 	

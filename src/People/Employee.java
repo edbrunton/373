@@ -2,7 +2,9 @@ package People;
 
 import java.io.Serializable;
 
+import Hardware.Date;
 import Hardware.Record;
+import Hardware.UserLogin;
 
 public class Employee extends Person  implements Serializable{
 	
@@ -19,7 +21,19 @@ public class Employee extends Person  implements Serializable{
 		employeeNumber = eN;
 		paperWork = new Record();
 	}
-	
+	public Employee(String firstName, String lastName, String SS, String add, int zC, Date bD, int pN,
+			int eN, UserLogin login) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.socialSecurityNumber = SS;
+		this.address = add;
+		this.zipCode = zC;
+		this.birthday = bD;
+		this.phoneNumber = pN;
+		this.login = login;
+		employeeNumber = eN;
+		paperWork = new Record();
+	}
 	
 	
 	
