@@ -117,9 +117,11 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 				String message ="Enter a valid zipcode, scum";
 				textParseError(title, message);
 			}
-			int phoneNum = 0;
+			long phoneNum = 0;
 			try{
-				phoneNum = Integer.parseInt(c5.getText());
+				System.out.println(c5.getText());
+				phoneNum = Long.parseLong(c5.getText());
+				System.out.println(phoneNum);
 				if(c5.getText().length() > 12 || c5.getText().length() < 7)
 				{
 					throw new Exception("error");
@@ -154,19 +156,45 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			}
 		//	String SSPreCheck = f3.getPassword().toString();
 			String email = f4.getText();
+			boolean preExisting = false;
 			try {
 				if(email.contains("@") == false)
 				{
 					throw new Exception("error");
+				}
+				else
+				{
+					for(int i = 0; i < bank.getCustomers().size(); i++)
+					{
+						if(bank.getCustomers().get(i).getLogin().getUsername().compareTo(email) == 0)
+						{
+							preExisting = true;
+							throw new Exception("error");
+						}
+					}
+					for(int i = 0; i < bank.getEmployees().size(); i++)
+					{
+						if(bank.getEmployees().get(i).getLogin().getUsername().compareTo(email) == 0)
+						{
+							preExisting = true;
+							throw new Exception("error");
+						}
+					}
 				}
 			}
 			catch(Exception p){
 				valid = false;
 				String title = "Error Email Address Not Valid";
 				String message ="Enter a valid Email Address number, scum";
+				if(preExisting == true)
+				{
+					title = "Email already registered";
+					message = "Please login to add a new account";
+				}
+				
 				textParseError(title, message);
 			}
-			String password = f5.getPassword().toString();
+			String password = String.valueOf(f5.getPassword());
 			try {
 				if(password.length() < 8)
 				{
@@ -179,9 +207,9 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 				String message ="Enter a password of at least eight characters moron";
 				textParseError(title, message);
 			}
-			String SS = f3.getPassword().toString();
+			String SS = String.valueOf(f3.getPassword());
 			try {
-				if(f3.getPassword().toString().length() == 0)
+				if(String.valueOf(f3.getPassword()).length()== 0)
 				{
 					throw new Exception("error");
 				}
@@ -195,7 +223,8 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			int[] dateParts = null;
 			
 			try {
-				String[] tokens = f6.toString().split("/");
+				String[] tokens = f6.getText().split("/");
+				System.out.println(f6.getText());
 				if(tokens.length != 3)
 				{
 					throw new Exception("error");
@@ -211,7 +240,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			catch(Exception p){
 				valid = false;
 				String title = "Error Birthday Not Valid";
-				String message = SS + "Enter a valid Birthday, scum";
+				String message = "Enter a valid Birthday, scum";
 				textParseError(title, message);
 			}
 			if(valid == true)
@@ -219,6 +248,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 				Date temp = new Date(dateParts[0], dateParts[2], dateParts[1]);
 				if(bank.getEmployees().size() == 0 && accountType.compareTo("Manager") == 0)
 				{
+					
 					bank.getEmployees().add(new Employee(firstName, lastName, 
 							SS, address, zipcode, 
 							temp	, phoneNum, 1, new UserLogin(email, password)));
@@ -250,7 +280,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 					
 					//TODO: different account types and such
 					bank.getPendingPeople().add(c);
-bank.getPendingPeople().get(bank.getPendingPeople().size()-1);
+//bank.getPendingPeople().get(bank.getPendingPeople().size()-1);
 				}
 			}
 		}
@@ -320,7 +350,7 @@ bank.getPendingPeople().get(bank.getPendingPeople().size()-1);
 		addAt(e3, 3, 4);
 		addAt(e4, 4, 4);
 		addAt(e5, 5, 4);
-		addAt(e6, 7, 4);
+		addAt(e6, 6, 4);
 		addAt(c1, 1, 2);
 		addAt(c2, 2, 2);
 		addAt(c3, 3, 2);

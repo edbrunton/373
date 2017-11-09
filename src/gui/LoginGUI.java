@@ -12,8 +12,10 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 import javax.swing.JButton;
@@ -26,8 +28,31 @@ import javax.swing.JTextField;
 
 import Accounts.BankAccount;
 import Hardware.Bank;
-
+import People.Customer;
+import People.Employee;
+import People.Person;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 public class LoginGUI extends JFrame  implements Serializable{
+	private final class SaveFile extends WindowAdapter {
+		public void windowClosing(WindowEvent ev) {
+		    //frame.dispose();
+			FileOutputStream fileOut = null;
+			ObjectOutputStream objOut = null;
+			try {
+				fileOut = new FileOutputStream("bank2.ser");
+				objOut = new ObjectOutputStream(fileOut);
+				objOut.writeObject(myBank);
+				objOut.close();
+				fileOut.close();
+				System.out.println("Made file");
+			}
+			catch(IOException i)
+			{
+				i.printStackTrace();
+			}
+		}
+	}
 	private final class LoginSubmission implements ActionListener {
 		private final JPasswordField dTF;
 		private final JTextField sTF;
@@ -40,19 +65,32 @@ public class LoginGUI extends JFrame  implements Serializable{
 		public void actionPerformed(ActionEvent e)
 		{
 			Boolean foundAccount = false;
+			Boolean lockedAccount = false;
+			Customer customer = null;
+			Employee employee= null;
 			for(int i = 0; i< myBank.getCustomers().size(); i++)
 			{
 				if(myBank.getCustomers().get(i).getLogin().getUsername().compareTo(sTF.getText()) ==0)
 				{
 					foundAccount = true;
-					if(myBank.getCustomers().get(i).getLogin().getPassword().compareTo(dTF.getPassword().toString())==0)
+					customer = myBank.getCustomers().get(i);
+				//	char[] password = dTF.getPassword();
+					//System.out.println(password);
+					if (myBank.getCustomers().get(i).getLogin().getConsecutiveLogins() >= 3)
 					{
-						myBank.getCustomers().get(i).getLogin().setConsecutiveLoginFails(0);			
+						lockedAccount = true;
 					}
 					else
 					{
-						myBank.getCustomers().get(i).getLogin().setConsecutiveLoginFails(myBank.getCustomers().get(i).getLogin().getConsecutiveLogins()+1);	
-						loginError();	
+						if(myBank.getCustomers().get(i).getLogin().getPassword().compareTo(String.valueOf(dTF.getPassword()))==0)
+						{
+							myBank.getCustomers().get(i).getLogin().setConsecutiveLoginFails(0);			
+						}
+						else
+						{
+							myBank.getCustomers().get(i).getLogin().setConsecutiveLoginFails(myBank.getCustomers().get(i).getLogin().getConsecutiveLogins()+1);	
+							loginError("Your account info is wrong. Try again. Wrong Password");	
+						}
 					}
 				}
 			}
@@ -60,20 +98,50 @@ public class LoginGUI extends JFrame  implements Serializable{
 				if(myBank.getEmployees().get(i).getLogin().getUsername().compareTo(sTF.getText()) ==0)
 				{
 					foundAccount = true;
-					if(myBank.getEmployees().get(i).getLogin().getPassword().compareTo(dTF.getPassword().toString())==0)
+					employee = myBank.getEmployees().get(i);
+					char[] password = dTF.getPassword();
+					System.out.println(password);
+					if (myBank.getEmployees().get(i).getLogin().getConsecutiveLogins() >= 3 && myBank.getEmployees().size() != 1)
 					{
-						myBank.getEmployees().get(i).getLogin().setConsecutiveLoginFails(0);
+						lockedAccount = true;
 					}
 					else
 					{
-						myBank.getEmployees().get(i).getLogin().setConsecutiveLoginFails(myBank.getEmployees().get(i).getLogin().getConsecutiveLogins()+1);	
-						loginError();	
+						if(myBank.getEmployees().get(i).getLogin().getPassword().compareTo(String.valueOf(dTF.getPassword()))==0)
+						{
+							myBank.getEmployees().get(i).getLogin().setConsecutiveLoginFails(0);
+						}
+						else
+						{
+						//	System.out.println(myBank.getEmployees().get(i).getLogin().getPassword());
+							System.out.println(dTF.getPassword().toString());
+							myBank.getEmployees().get(i).getLogin().setConsecutiveLoginFails(myBank.getEmployees().get(i).getLogin().getConsecutiveLogins()+1);	
+							loginError("Your account info is wrong. Try again. Wrong Password");	
+						}
 					}
 				}
 			}
-			if(!foundAccount)
+			if(lockedAccount)
 			{
-				loginError();
+				loginError("You have too many failed logins. Contact a banker");
+			}
+			else if(!foundAccount)
+			{
+				loginError("Your account info is wrong. Try again. Email not registered");
+			}
+			else
+			{
+				System.out.println("Got here 1");
+				if(employee == null)
+				{
+					new ManagerClientAccountGUI(customer, myBank);
+					System.out.println("Got here 2");
+				}
+				else
+				{
+					new ManagerPageGUI(employee, myBank);
+					System.out.println("Got here 3");
+				}
 			}
 			
 		}
@@ -101,6 +169,24 @@ public class LoginGUI extends JFrame  implements Serializable{
 		//		"<BR>Choose an action from the above menues.</center></HTML>"));
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		myBank = bank1;
+	 /*   addWindowListener(new WindowAdapter() {
+	        public void windowClosing(WindowEvent e) {
+	        	FileOutputStream fileOut = null;
+	    		ObjectOutputStream objOut = null;
+	    		try {
+	    			fileOut = new FileOutputStream("bank.ser");
+	    			objOut = new ObjectOutputStream(fileOut);
+	    			objOut.writeObject(myBank);
+	    			objOut.close();
+	    			fileOut.close();
+	    		}
+	    		catch(IOException i)
+	    		{
+	    			i.printStackTrace();
+	    		}
+	          System.exit(0);
+	        }
+	      });*/
 		buildGUI();	
 		//this.pack();
 		//setVisible(true);
@@ -109,6 +195,7 @@ public class LoginGUI extends JFrame  implements Serializable{
 	private void buildGUI() {
 		JDialog frame = new JDialog (new JFrame(), "Login To Bank");
 		frame.setSize(500, 900);
+		frame.addWindowListener(new SaveFile());
 		Container inputs = frame.getContentPane();
 		inputs.setLayout (new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
@@ -197,11 +284,12 @@ public class LoginGUI extends JFrame  implements Serializable{
 		inputs.add(cancel,c);
 		c.gridy = 3;
 		c.gridx = 3;
+		System.out.println(myBank.getEmployees().size());
 		frame.pack();
 		frame.setVisible(true);
 	}
 
-	private void loginError() {
+	private void loginError(String error) {
 		JDialog frameTemp = new JDialog (new JFrame(), "Error logging in");
 		 Container contentPane = frameTemp.getContentPane ();
 		    contentPane.setLayout (new BorderLayout());
@@ -211,7 +299,7 @@ public class LoginGUI extends JFrame  implements Serializable{
 		    JPanel p1 = new JPanel();
 		    p1.add(okay);
 		    contentPane.add(p1, BorderLayout.SOUTH);			    	        
-		    JLabel outArea = new JLabel("Your account info is wrong. Try again");
+		    JLabel outArea = new JLabel(error);
 		    contentPane.add(outArea, BorderLayout.CENTER);
 		    frameTemp.pack();
 		    frameTemp.setVisible (true);
@@ -223,11 +311,12 @@ public class LoginGUI extends JFrame  implements Serializable{
 		ObjectInputStream objIn = null;
 		Bank bank1 = new Bank();
 		try {
-			fileIn = new FileInputStream("bank.ser");
+			fileIn = new FileInputStream("bank2.ser");
 			objIn = new ObjectInputStream(fileIn);
 			bank1 = (Bank) objIn.readObject();
 			objIn.close();
 			fileIn.close();
+			System.out.println("Got file");
 		}
 		catch(IOException i)
 		{

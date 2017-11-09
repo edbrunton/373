@@ -21,7 +21,7 @@ public class Employee extends Person  implements Serializable{
 		employeeNumber = eN;
 		paperWork = new Record();
 	}
-	public Employee(String firstName, String lastName, String SS, String add, int zC, Date bD, int pN,
+	public Employee(String firstName, String lastName, String SS, String add, int zC, Date bD, long pN,
 			int eN, UserLogin login) {
 		this.firstName = firstName;
 		this.lastName = lastName;

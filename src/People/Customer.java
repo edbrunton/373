@@ -45,7 +45,7 @@ public Customer(int cN, CheckingAccount cA, Mortgage m) {
 
 
 
-public Customer(String firstName, String lastName, String sS, String address, int zipcode, Date temp, int phoneNum,
+public Customer(String firstName, String lastName, String sS, String address, int zipcode, Date temp, long phoneNum,
 		UserLogin userLogin) {
 	this.firstName = firstName;
 	this.lastName = lastName;

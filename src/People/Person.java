@@ -13,7 +13,7 @@ protected String socialSecurityNumber;
 protected String address;
 protected int zipCode;
 protected Date birthday;
-protected int phoneNumber;
+protected long phoneNumber;
 protected UserLogin login;
 public Date getBirthday() {
 	return birthday;
@@ -37,7 +37,7 @@ public Person() {
 	birthday = new Date();
 	phoneNumber = -1;
 }
-public Person(String firstName, String lastName, String SS, String add, int zC, Date bD, int pN) {
+public Person(String firstName, String lastName, String SS, String add, int zC, Date bD, long pN) {
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.socialSecurityNumber = SS;
@@ -89,10 +89,10 @@ public Date getBirthDay() {
 public void setBirthDay(Date birthday) {
 	this.birthday = birthday;
 }
-public int getPhoneNumber() {
+public long getPhoneNumber() {
 	return phoneNumber;
 }
-public void setPhoneNumber(int phoneNumber) {
+public void setPhoneNumber(long phoneNumber) {
 	this.phoneNumber = phoneNumber;
 }
 	
