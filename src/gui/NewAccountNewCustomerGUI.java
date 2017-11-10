@@ -30,6 +30,7 @@ import People.Customer;
 import People.Employee;
 public class NewAccountNewCustomerGUI extends JFrame   {
 	private Bank bank;
+	private JDialog frame;
 	private Container inputs;
 	private JTextField c1;
 	private JTextField c2;
@@ -282,6 +283,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 					bank.getPendingPeople().add(c);
 //bank.getPendingPeople().get(bank.getPendingPeople().size()-1);
 				}
+				frame.dispose();
 			}
 		}
 
@@ -302,7 +304,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 		}
 	}
 	private void buildGUI() {
-		JDialog frame = new JDialog (new JFrame(), "New Account Request");
+		frame = new JDialog (new JFrame(), "New Account Request");
 		frame.setSize(500, 900);
 		inputs = frame.getContentPane();
 		inputs.setLayout (new GridBagLayout());

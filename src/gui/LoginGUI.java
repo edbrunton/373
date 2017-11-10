@@ -36,7 +36,7 @@ import java.awt.event.WindowEvent;
 public class LoginGUI extends JFrame  implements Serializable{
 	private final class SaveFile extends WindowAdapter {
 		public void windowClosing(WindowEvent ev) {
-		    //frame.dispose();
+		   
 			FileOutputStream fileOut = null;
 			ObjectOutputStream objOut = null;
 			try {
@@ -51,6 +51,7 @@ public class LoginGUI extends JFrame  implements Serializable{
 			{
 				i.printStackTrace();
 			}
+			 //frame.dispose();
 		}
 	}
 	private final class LoginSubmission implements ActionListener {
@@ -218,7 +219,7 @@ public class LoginGUI extends JFrame  implements Serializable{
 		JButton newAccount = new JButton("New? Start Here");
 		newAccount.addActionListener(new AccountSubmission());
 		JButton cancel = new JButton("Cancel");
-		cancel.addActionListener(e -> frame.dispose());
+		cancel.addActionListener(e -> System.exit(0)); //frame.dispose());
 		c.anchor = GridBagConstraints.LINE_START;
 		c.weightx = 15;
 		c.weighty = 15;

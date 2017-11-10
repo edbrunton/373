@@ -3,13 +3,15 @@ package Accounts;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import People.Customer;
+
 public class BankAccount  implements Serializable {
 
 	//Fields
 	private int accountNumber;
 	private ArrayList<MonthlyStatement> monthlyStatements;
 	private ArrayList<Transaction> transactions;
-	
+	private Customer owner;
 	//Constructors
 	public BankAccount() {
 		accountNumber = -1;
