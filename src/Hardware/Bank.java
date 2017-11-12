@@ -34,8 +34,9 @@ public class Bank  implements Serializable{
 		customers = new ArrayList<Customer>();
 		bankAccounts = new ArrayList<BankAccount>();
 		mortgages = new ArrayList<Mortgage>();
-		setPendingAccounts(new ArrayList<BankAccount>());
-		setSuspendedAccounts(new ArrayList<Person>());
+		pendingPeople = new ArrayList<Person>();
+		suspendedAccounts = new ArrayList<Person>();
+		pendingAccounts = new ArrayList<BankAccount>();
 		Assets = -1;
 		monthlyRevenue = -1;
 		monthlyProfit = -1;

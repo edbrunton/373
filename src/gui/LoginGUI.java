@@ -36,6 +36,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 public class LoginGUI extends JFrame  implements Serializable{
 	private JDialog frame;
+	private Bank myBank;
 	private void closeAllDialogs()
 	{
 	    Window[] windows = getWindows();
@@ -49,7 +50,7 @@ public class LoginGUI extends JFrame  implements Serializable{
 	    }
 	}
 	private final class SaveFile extends WindowAdapter {
-		public void windowClosing(WindowEvent ev) {
+	public void windowClosing(WindowEvent ev) {
 			closeAllDialogs();
 			FileOutputStream fileOut = null;
 			ObjectOutputStream objOut = null;
@@ -199,7 +200,7 @@ public class LoginGUI extends JFrame  implements Serializable{
 	public static void main(String[] args) {
 		LoginGUI loginGui = new LoginGUI("First Class Bank", loadData());
 	}
-	private Bank myBank;
+	
 	public LoginGUI(String windowTitle, Bank bank1) {
 		//super(windowTitle);
 		//myBank = bank1;

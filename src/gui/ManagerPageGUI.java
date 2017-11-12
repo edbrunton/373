@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -13,6 +14,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -28,13 +30,14 @@ public class ManagerPageGUI {
 	private JTextField c0;
 	private DefaultListModel<String> listModel;
 	private JList<String> list;
+	private JDialog frame;
 	public ManagerPageGUI(Employee employee, Bank bank)
 	{
 		System.out.println("got here");
 		this.setBank(bank);
 		this.setEmployee(employee);
 		System.out.println("Set bank and Employee info");
-		JDialog frame = new JDialog (new JFrame(), "New Account Request");
+		frame = new JDialog (new JFrame(), "New Account Request");
 		frame.setSize(500, 900);
 		inputs = frame.getContentPane();
 		inputs.setLayout (new GridBagLayout());
@@ -105,7 +108,7 @@ public class ManagerPageGUI {
 
 		public void actionPerformed(ActionEvent e)
 		{
-			
+			new ManagerEditPersonalInfo(employee, bank);
 		}
 	}	
 	private final class DeleteAccount implements ActionListener {
@@ -115,7 +118,18 @@ public class ManagerPageGUI {
 
 		public void actionPerformed(ActionEvent e)
 		{
-			
+			confirmDelete("Your Account is About to be Deleted", "Close this window if you wish to abort the deletion"); 
+		}
+	}
+private final class ActuallyDelete implements ActionListener {
+		
+		private ActuallyDelete(){
+		}
+
+		public void actionPerformed(ActionEvent e)
+		{
+			bank.getEmployees().remove(employee);
+			frame.dispose();
 		}
 	}
 	private final class LockedAccounts implements ActionListener {
@@ -218,5 +232,20 @@ public class ManagerPageGUI {
 		c.gridx = column;
 		c.gridwidth = span;
 		inputs.add(a1, c);	
+	}
+	private void confirmDelete(String title, String message) {
+		JDialog frameTemp = new JDialog (new JFrame(), title);//inspired by https://stackoverflow.com/questions/2665355/how-do-i-remove-the-maximize-and-minimize-buttons-from-a-jframe  
+		        Container contentPane = frameTemp.getContentPane ();
+		        contentPane.setLayout (new BorderLayout());
+		        JButton okay = new JButton("OK");
+		        okay.addActionListener(new ActuallyDelete());
+		        okay.setSize(30, 10);
+		        JPanel p1 = new JPanel();
+		        p1.add(okay);
+		        contentPane.add(p1, BorderLayout.SOUTH);			    	        
+		        JLabel outArea = new JLabel(message);
+		        contentPane.add(outArea, BorderLayout.CENTER);
+		        frameTemp.pack();
+		        frameTemp.setVisible (true);		//need to throw error
 	}
 }
