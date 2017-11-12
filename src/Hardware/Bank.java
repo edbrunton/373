@@ -1,5 +1,5 @@
 package Hardware;
-
+// make a method called print all 
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -41,14 +41,13 @@ public class Bank  implements Serializable{
 		monthlyProfit = -1;
 		banksBankAccount = new BankAccount();
 	}
-	public Bank(String a, int rN, ArrayList<Employee> eS, ArrayList<Customer> cS, ArrayList<BankAccount> bS, ArrayList<Mortgage> mS, double at, double mR, double mP, BankAccount money) {
+	public Bank(String a, int rN, ArrayList<Employee> eS, ArrayList<Customer> cS, ArrayList<BankAccount> bS, ArrayList<Mortgage> mS, double mR, double mP, BankAccount money) {
 		address = a;
 		routingNumber = rN;
 		employees = eS;
 		customers = cS;
 		bankAccounts = bS;
 		mortgages = mS;
-		Assets = at;
 		monthlyRevenue = mR;
 		monthlyProfit = mP;
 		banksBankAccount = money;

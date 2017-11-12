@@ -40,7 +40,9 @@ public class SavingsAccount extends BankAccount  implements Serializable{
 	public void setInterestRate(double interestRate) {
 		this.interestRate = interestRate;
 	}
-	
+	public void monthlyInterest() {
+		balance = balance + (balance * (interestRate/1200));
+	}
 	
 	
 	

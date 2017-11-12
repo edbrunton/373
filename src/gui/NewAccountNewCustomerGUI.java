@@ -272,11 +272,11 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 					}
 					if(accountType.compareTo("Checking") == 0)
 					{
-						c.setCheckingAccount(new CheckingAccount(0.0));//TODO Ryan
+						c.setCheckingAccount(new CheckingAccount(0.0, 0.0));//TODO Ryan
 					}
 					if(accountType.compareTo("Mortgage") == 0)
 					{
-						c.setMortgage(new Mortgage(loanAmount, loanAmount, 7.25, loanAmount, 0, 36));//TODO Ryan
+						c.setMortgage(new Mortgage(loanAmount, loanAmount, 7.25, new CheckingAccount(0.0, 0.0)));//TODO Ryan
 					}
 					
 					//TODO: different account types and such

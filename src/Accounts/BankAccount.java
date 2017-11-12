@@ -12,10 +12,12 @@ public class BankAccount  implements Serializable {
 	private ArrayList<MonthlyStatement> monthlyStatements;
 	private ArrayList<Transaction> transactions;
 	private Customer owner;
+	
 	//Constructors
 	public BankAccount() {
 		accountNumber = -1;
 		monthlyStatements = new ArrayList<MonthlyStatement>();
+		transactions = new ArrayList<Transaction>();
 	}
 	
 	
@@ -59,6 +61,26 @@ public class BankAccount  implements Serializable {
 
 	public void setTransactions(ArrayList<Transaction> transactions) {
 		this.transactions = transactions;
+	}
+
+
+
+
+
+
+
+	public Customer getOwner() {
+		return owner;
+	}
+
+
+
+
+
+
+
+	public void setOwner(Customer owner) {
+		this.owner = owner;
 	}
 
 

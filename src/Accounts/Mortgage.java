@@ -11,6 +11,8 @@ public class Mortgage extends BankAccount  implements Serializable{
 	private double remainingBalance;
 	private double monthlyPayment;
 	private int term;
+	private CheckingAccount paymentAccount;
+	private int month;
 	
 	//Constructors
 	public Mortgage() {
@@ -19,15 +21,20 @@ public class Mortgage extends BankAccount  implements Serializable{
 		setInterestRate(0);
 		setRemainingBalance(0);
 		setMonthlyPayment(0);
-		setTerm(0);
+		setTerm(30);
+		month = 1;
+		paymentAccount = new CheckingAccount();
 	}
-	public Mortgage(double oA, double p, double iR, double rB, double mP, int t) {
+	public Mortgage(double oA, double p, double iR, CheckingAccount cA) {
 		setOriginialAmmount(oA);
 		setPrincipal(p);
 		setInterestRate(iR);
-		setRemainingBalance(rB);
-		setMonthlyPayment(mP);//TODO Ryan. Needs to be calculated, not just set
-		setTerm(t);
+		setTerm(30);
+		paymentAccount = cA;
+		month = 1;
+		setMonthlyPayment();//TODO Ryan. Needs to be calculated, not just set -- Took out, to calculate
+		cA.setDirectDeposit(monthlyPayment); //Direct deposit to be set for monthly payment
+
 	}
 	
 	//Methods
@@ -67,8 +74,27 @@ public class Mortgage extends BankAccount  implements Serializable{
 	public void setTerm(int term) {
 		this.term = term;
 	}
-	
-	
+	public CheckingAccount getPaymentAccount() {
+		return paymentAccount;
+	}
+	public void setPaymentAccount(CheckingAccount paymentAccount) {
+		this.paymentAccount = paymentAccount;
+	}
+	public void setMonthlyPayment() {
+		double c = (interestRate/100)/12;
+		double h = 1+c;
+		monthlyPayment = originialAmmount*(  c  *   (    Math.pow(h,360))    )/(Math.pow(h, 359));
+	}
+	public void monthlyPayment() {
+		paymentAccount.withdraw(monthlyPayment);
+		double c = (interestRate/100)/12;
+		double h = 1+c;
+		remainingBalance = originialAmmount*(  ( (    Math.pow(h,360)) - (Math.pow(h, month)   ))/(Math.pow(h, 360)- 1));
+		principal = originialAmmount - remainingBalance;
+		month++;
+		
+		
+	}
 	
 	
 }
