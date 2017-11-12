@@ -278,7 +278,6 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 					{
 						c.setMortgage(new Mortgage(loanAmount, loanAmount, 7.25, new CheckingAccount(0.0, 0.0)));//TODO Ryan
 					}
-					
 					//TODO: different account types and such
 					bank.getPendingPeople().add(c);
 //bank.getPendingPeople().get(bank.getPendingPeople().size()-1);

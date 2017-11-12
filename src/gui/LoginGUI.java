@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
@@ -34,9 +35,22 @@ import People.Person;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 public class LoginGUI extends JFrame  implements Serializable{
+	private JDialog frame;
+	private void closeAllDialogs()
+	{
+	    Window[] windows = getWindows();
+
+	    for (Window window : windows)
+	    {
+	        if (window instanceof JDialog)
+	        {
+	            window.dispose();
+	        }
+	    }
+	}
 	private final class SaveFile extends WindowAdapter {
 		public void windowClosing(WindowEvent ev) {
-		   
+			closeAllDialogs();
 			FileOutputStream fileOut = null;
 			ObjectOutputStream objOut = null;
 			try {
@@ -157,6 +171,31 @@ public class LoginGUI extends JFrame  implements Serializable{
 			NewAccountNewCustomerGUI newClient = new NewAccountNewCustomerGUI(myBank);	
 		}
 	}
+	private final class SafeExit implements ActionListener {
+		
+		private SafeExit(){
+		}
+
+		public void actionPerformed(ActionEvent e)
+		{
+			closeAllDialogs();
+			FileOutputStream fileOut = null;
+			ObjectOutputStream objOut = null;
+			try {
+				fileOut = new FileOutputStream("bank2.ser");
+				objOut = new ObjectOutputStream(fileOut);
+				objOut.writeObject(myBank);
+				objOut.close();
+				fileOut.close();
+				System.out.println("Made file");
+			}
+			catch(IOException i)
+			{
+				i.printStackTrace();
+			}
+			 frame.dispose();
+		}
+	}
 	public static void main(String[] args) {
 		LoginGUI loginGui = new LoginGUI("First Class Bank", loadData());
 	}
@@ -194,7 +233,7 @@ public class LoginGUI extends JFrame  implements Serializable{
 	}
 	
 	private void buildGUI() {
-		JDialog frame = new JDialog (new JFrame(), "Login To Bank");
+		frame = new JDialog (new JFrame(), "Login To Bank");
 		frame.setSize(500, 900);
 		frame.addWindowListener(new SaveFile());
 		Container inputs = frame.getContentPane();
@@ -219,7 +258,7 @@ public class LoginGUI extends JFrame  implements Serializable{
 		JButton newAccount = new JButton("New? Start Here");
 		newAccount.addActionListener(new AccountSubmission());
 		JButton cancel = new JButton("Cancel");
-		cancel.addActionListener(e -> System.exit(0)); //frame.dispose());
+		cancel.addActionListener(new SafeExit()); //frame.dispose());
 		c.anchor = GridBagConstraints.LINE_START;
 		c.weightx = 15;
 		c.weighty = 15;
