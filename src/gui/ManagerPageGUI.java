@@ -31,6 +31,7 @@ public class ManagerPageGUI {
 	private DefaultListModel<String> listModel;
 	private JList<String> list;
 	private JDialog frame;
+	private JDialog frameTemp; 
 	public ManagerPageGUI(Employee employee, Bank bank)
 	{
 		System.out.println("got here");
@@ -129,6 +130,7 @@ private final class ActuallyDelete implements ActionListener {
 		public void actionPerformed(ActionEvent e)
 		{
 			bank.getEmployees().remove(employee);
+			frameTemp.dispose();
 			frame.dispose();
 		}
 	}
@@ -161,7 +163,7 @@ private final class ActuallyDelete implements ActionListener {
 
 		public void actionPerformed(ActionEvent e)
 		{
-			
+			new ManagerPendingAccountGUI(bank);
 		}
 	}
 
@@ -234,10 +236,10 @@ private final class ActuallyDelete implements ActionListener {
 		inputs.add(a1, c);	
 	}
 	private void confirmDelete(String title, String message) {
-		JDialog frameTemp = new JDialog (new JFrame(), title);//inspired by https://stackoverflow.com/questions/2665355/how-do-i-remove-the-maximize-and-minimize-buttons-from-a-jframe  
+		frameTemp = new JDialog (new JFrame(), title);//inspired by https://stackoverflow.com/questions/2665355/how-do-i-remove-the-maximize-and-minimize-buttons-from-a-jframe  
 		        Container contentPane = frameTemp.getContentPane ();
 		        contentPane.setLayout (new BorderLayout());
-		        JButton okay = new JButton("OK");
+		        JButton okay = new JButton("Confirm Delete");
 		        okay.addActionListener(new ActuallyDelete());
 		        okay.setSize(30, 10);
 		        JPanel p1 = new JPanel();
