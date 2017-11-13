@@ -60,6 +60,8 @@ public class ManagerPageGUI {
 		b7.addActionListener(new OpenAccount());
 		JButton b1 = new JButton("Search");
 		b1.addActionListener(new SearchAccount());
+		JButton monthylButton = new JButton("Monthly Button");
+		monthylButton.addActionListener(new AdvanceMonth());
 		listModel = new DefaultListModel<String>();
 		list = new JList<String>(listModel);
 		JScrollPane scroll = new JScrollPane(list);
@@ -77,6 +79,7 @@ public class ManagerPageGUI {
 		addAt(f0, 0, 5);
 		addAt(b1, 1, 2, 2);
 		addAt(e1, 2, 4);
+		addAt(monthylButton, 3, 4);
 		addAt(e2, 5, 4);
 		addAt(e3, 6, 4);
 		addAt(b7, 7, 1);
@@ -122,7 +125,20 @@ public class ManagerPageGUI {
 			confirmDelete("Your Account is About to be Deleted", "Close this window if you wish to abort the deletion"); 
 		}
 	}
-private final class ActuallyDelete implements ActionListener {
+	private final class AdvanceMonth implements ActionListener {
+		
+		private AdvanceMonth(){
+		}
+
+		public void actionPerformed(ActionEvent e)
+		{
+			
+			//TODO Implement the monthly push here TODO Ryan
+			textParseError("Month Advanced", "The Monthly Button has been sucessfully pressed");
+			
+		}
+	}
+	private final class ActuallyDelete implements ActionListener {
 		
 		private ActuallyDelete(){
 		}
@@ -241,6 +257,21 @@ private final class ActuallyDelete implements ActionListener {
 		        contentPane.setLayout (new BorderLayout());
 		        JButton okay = new JButton("Confirm Delete");
 		        okay.addActionListener(new ActuallyDelete());
+		        okay.setSize(30, 10);
+		        JPanel p1 = new JPanel();
+		        p1.add(okay);
+		        contentPane.add(p1, BorderLayout.SOUTH);			    	        
+		        JLabel outArea = new JLabel(message);
+		        contentPane.add(outArea, BorderLayout.CENTER);
+		        frameTemp.pack();
+		        frameTemp.setVisible (true);		//need to throw error
+	}
+	private void textParseError(String title, String message) {
+		JDialog frameTemp = new JDialog (new JFrame(), title);//inspired by https://stackoverflow.com/questions/2665355/how-do-i-remove-the-maximize-and-minimize-buttons-from-a-jframe  
+		        Container contentPane = frameTemp.getContentPane ();
+		        contentPane.setLayout (new BorderLayout());
+		        JButton okay = new JButton("OK");
+		        okay.addActionListener(e2 -> frameTemp.dispose());
 		        okay.setSize(30, 10);
 		        JPanel p1 = new JPanel();
 		        p1.add(okay);

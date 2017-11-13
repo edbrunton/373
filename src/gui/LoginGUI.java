@@ -139,6 +139,15 @@ public class LoginGUI extends JFrame  implements Serializable{
 			}
 			if(lockedAccount)
 			{
+				if(employee == null)
+				{
+					myBank.getSuspendedAccounts().add(customer);
+				}
+				else
+				{
+					myBank.getSuspendedAccounts().add(employee);
+				}
+				
 				loginError("You have too many failed logins. Contact a banker");
 			}
 			else if(!foundAccount)
