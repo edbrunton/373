@@ -20,6 +20,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import Hardware.Bank;
+import Hardware.MonthlyButton;
 import People.Employee;
 
 
@@ -134,6 +135,9 @@ public class ManagerPageGUI {
 		{
 			
 			//TODO Implement the monthly push here TODO Ryan
+			//add monthly button to bank
+			//MonthlyButton temp = new MonthlyButton();
+			//temp.pushMonthlyButton();
 			textParseError("Month Advanced", "The Monthly Button has been sucessfully pressed");
 			
 		}
