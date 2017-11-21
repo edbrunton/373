@@ -166,11 +166,11 @@ public class ManagerPendingAccountGUI {
 			{
 				if(holder==null)
 				{
-					bank.getPendingAccounts().remove(approvedAccount);
+					bank.getPendingAccounts().remove(approvedAccount);//TODO Edward
 				}
 				else
 				{
-				bank.getPendingAccounts().remove(approvedAccount);
+				bank.getPendingAccounts().remove(approvedAccount);//TODO; change account visible to true
 				}
 				frameHolder.dispose();
 			}
