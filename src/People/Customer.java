@@ -19,7 +19,7 @@ private Mortgage mortgage;
 //Constructors
 public Customer() {
 	customberNumber = -1;
-	savingsAccount = new SavingsAccount();
+	savingsAccount = new SavingsAccount();//TODO Ryan. They should not have a new mortage for just making an account
 	checkingAccount = new CheckingAccount();
 	mortgage = new Mortgage();
 }
@@ -63,10 +63,10 @@ public int getCustomberNumber() {
 public void setCustomberNumber(int customberNumber) {
 	this.customberNumber = customberNumber;
 }
-public SavingsAccount getSacingsAccount() {
+public SavingsAccount getSavingsAccount() {
 	return savingsAccount;
 }
-public void setSacingsAccount(SavingsAccount savingsAccount) {
+public void setSavingsAccount(SavingsAccount savingsAccount) {
 	this.savingsAccount = savingsAccount;
 }
 public CheckingAccount getCheckingAccount() {
@@ -76,33 +76,9 @@ public void setCheckingAccount(CheckingAccount checkingAccount) {
 	this.checkingAccount = checkingAccount;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 public Mortgage getMortgage() {
 	return mortgage;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 public void setMortgage(Mortgage mortgage) {
 	this.mortgage = mortgage;

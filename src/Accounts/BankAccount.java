@@ -12,12 +12,13 @@ public class BankAccount  implements Serializable {
 	private ArrayList<MonthlyStatement> monthlyStatements;
 	private ArrayList<Transaction> transactions;
 	private Customer owner;
-	
+	private boolean visible; //needs to be false until valid
 	//Constructors
 	public BankAccount() {
 		accountNumber = -1;
 		monthlyStatements = new ArrayList<MonthlyStatement>();
 		transactions = new ArrayList<Transaction>();
+		setVisible(false);
 	}
 	
 	
@@ -81,6 +82,26 @@ public class BankAccount  implements Serializable {
 
 	public void setOwner(Customer owner) {
 		this.owner = owner;
+	}
+
+
+
+
+
+
+
+	public boolean isVisible() {
+		return visible;
+	}
+
+
+
+
+
+
+
+	public void setVisible(boolean visible) {
+		this.visible = visible;
 	}
 
 

@@ -268,7 +268,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 							new UserLogin(email, password));
 					if(accountType.compareTo("Savings") == 0)
 					{
-						c.setSacingsAccount(new SavingsAccount(0.001, 0.0, 0.0));//TODO Ryan
+						c.setSavingsAccount(new SavingsAccount(0.001, 0.0, 0.0));//TODO Ryan
 					}
 					if(accountType.compareTo("Checking") == 0)
 					{

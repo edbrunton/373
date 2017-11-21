@@ -41,6 +41,7 @@ public class Bank  implements Serializable{
 		monthlyRevenue = -1;
 		monthlyProfit = -1;
 		banksBankAccount = new BankAccount();
+		banksBankAccount.setVisible(true);
 	}
 	public Bank(String a, int rN, ArrayList<Employee> eS, ArrayList<Customer> cS, ArrayList<BankAccount> bS, ArrayList<Mortgage> mS, double mR, double mP, BankAccount money) {
 		address = a;
