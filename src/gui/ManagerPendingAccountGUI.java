@@ -170,6 +170,7 @@ public class ManagerPendingAccountGUI {
 				}
 				else
 				{
+				//	approvedAccount.
 				bank.getPendingAccounts().remove(approvedAccount);//TODO; change account visible to true
 				}
 				frameHolder.dispose();
