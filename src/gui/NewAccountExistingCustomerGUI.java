@@ -117,7 +117,7 @@ public class NewAccountExistingCustomerGUI {
 			        JLabel outArea = new JLabel(message);
 			        contentPane.add(outArea, BorderLayout.CENTER);
 			        frameTemp.pack();
-			        frameTemp.setVisible (true);		//need to throw error
+			        frameTemp.setVisible (true);	//need to throw error
 		}
 	
 	private void buildGUI() {
