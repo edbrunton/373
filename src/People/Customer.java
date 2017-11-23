@@ -11,14 +11,14 @@ import Hardware.UserLogin;
 public class Customer extends Person  implements Serializable{
 
 //Fields
-private int customberNumber;
+private int customerNumber;
 private SavingsAccount savingsAccount;
 private CheckingAccount checkingAccount;
 private Mortgage mortgage;
 //TODO ryan. Missing credit card
 //Constructors
 public Customer() {
-	customberNumber = -1;// needs to be a value and managed somehow
+	customerNumber = -1;// needs to be a value and managed somehow
 //savingsAccount = new SavingsAccount();//TODO Ryan. They should not have a new mortgage for just making an account
 	//checkingAccount = new CheckingAccount();//TODO Ryan none of these should be initialized. Going to cause major issues
 //	mortgage = new Mortgage();
@@ -58,10 +58,10 @@ public Customer(String firstName, String lastName, String sS, String address, in
 }
 //Methods
 public int getCustomberNumber() {
-	return customberNumber;
+	return customerNumber;
 }
 public void setCustomberNumber(int customberNumber) {
-	this.customberNumber = customberNumber;
+	this.customerNumber = customberNumber;
 }
 public SavingsAccount getSavingsAccount() {
 	return savingsAccount;

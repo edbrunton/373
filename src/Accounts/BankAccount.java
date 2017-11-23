@@ -9,12 +9,12 @@ import People.Customer;
 public class BankAccount  implements Serializable {
 
 	//Fields
-	private double accountNumber;
-	private ArrayList<MonthlyStatement> monthlyStatements;
-	private ArrayList<Transaction> transactions;
-	private Customer owner;
-	private boolean visible; //needs to be false until valid
-	private Bank holdingBank;
+	protected double accountNumber;
+	protected ArrayList<MonthlyStatement> monthlyStatements;
+	protected ArrayList<Transaction> transactions;
+	protected Customer owner;
+	protected boolean visible; //needs to be false until valid
+	protected Bank holdingBank;
 	//Constructors
 	public BankAccount(Bank bank) {
 		holdingBank = bank;
@@ -22,22 +22,14 @@ public class BankAccount  implements Serializable {
 		monthlyStatements = new ArrayList<MonthlyStatement>();
 		transactions = new ArrayList<Transaction>();
 		setVisible(false);
-	}
-	
-	
-	
-	
-	
-	
-	
-	//Methods
+	}	
 	public void addMonthlyStatement(MonthlyStatement mS){
 		monthlyStatements.add(mS);
 	}
 	public double getAccountNumber() {
 		return accountNumber;
 	}
-	public void setAccountNumber(int accountNumber) {
+	public void setAccountNumber(double accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 	public ArrayList<MonthlyStatement> getMonthlyStatements() {
@@ -46,76 +38,22 @@ public class BankAccount  implements Serializable {
 	public void setMonthlyStatements(ArrayList<MonthlyStatement> monthlyStatements) {
 		this.monthlyStatements = monthlyStatements;
 	}
-
-
-
-
-
-
-
 	public ArrayList<Transaction> getTransactions() {
 		return transactions;
 	}
-
-
-
-
-
-
-
 	public void setTransactions(ArrayList<Transaction> transactions) {
 		this.transactions = transactions;
 	}
-
-
-
-
-
-
-
 	public Customer getOwner() {
 		return owner;
 	}
-
-
-
-
-
-
-
 	public void setOwner(Customer owner) {
 		this.owner = owner;
 	}
-
-
-
-
-
-
-
 	public boolean isVisible() {
 		return visible;
 	}
-
-
-
-
-
-
-
 	public void setVisible(boolean visible) {
 		this.visible = visible;
 	}
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
 }
