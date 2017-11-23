@@ -2,6 +2,8 @@ package Accounts;
 
 import java.io.Serializable;
 
+import Hardware.Bank;
+
 public class SavingsAccount extends BankAccount  implements Serializable{
 
 	//Fields
@@ -10,12 +12,14 @@ public class SavingsAccount extends BankAccount  implements Serializable{
 	private double minBalance;
 	
 	//Constructors
-	public SavingsAccount() {
+	public SavingsAccount(Bank bank) {
+		super(bank);
 		setInterestRate(0);
 		setBalance(0);
 		setMinBalance(0);
 	}
-	public SavingsAccount(double iR, double b, double mB) {
+	public SavingsAccount(Bank bank, double iR, double b, double mB) {
+		super(bank);
 		setInterestRate(iR);
 		setBalance(b);
 		setMinBalance(mB);

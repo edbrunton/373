@@ -3,19 +3,22 @@ package Accounts;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import Hardware.Bank;
 import People.Customer;
 
 public class BankAccount  implements Serializable {
 
 	//Fields
-	private int accountNumber;
+	private double accountNumber;
 	private ArrayList<MonthlyStatement> monthlyStatements;
 	private ArrayList<Transaction> transactions;
 	private Customer owner;
 	private boolean visible; //needs to be false until valid
+	private Bank holdingBank;
 	//Constructors
-	public BankAccount() {
-		accountNumber = -1;
+	public BankAccount(Bank bank) {
+		holdingBank = bank;
+		accountNumber = holdingBank.getCurrentAccountNum();
 		monthlyStatements = new ArrayList<MonthlyStatement>();
 		transactions = new ArrayList<Transaction>();
 		setVisible(false);
@@ -31,7 +34,7 @@ public class BankAccount  implements Serializable {
 	public void addMonthlyStatement(MonthlyStatement mS){
 		monthlyStatements.add(mS);
 	}
-	public int getAccountNumber() {
+	public double getAccountNumber() {
 		return accountNumber;
 	}
 	public void setAccountNumber(int accountNumber) {

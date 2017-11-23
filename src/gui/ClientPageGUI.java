@@ -3,29 +3,121 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+import Accounts.BankAccount;
 import Hardware.Bank;
 import People.Customer;
 import People.Employee;
+
 
 public class ClientPageGUI {
 	private Container inputs;
 	private Customer customer;
 	private Bank bank;
+	private JDialog frame;
+	private final class LoadAccount implements ActionListener {
+		private BankAccount bA;
+		private String account;
+		private LoadAccount(BankAccount ba, String account){
+			this.bA = ba;
+			this.account = account;
+		}
+		public void actionPerformed(ActionEvent e)
+		{
+			System.out.println("Looking for user's account");
+			if(bA.equals(null))
+			{
+				System.out.println("User hasn't created the account");
+				System.out.println(account);
+				textParseError("You don't have a " + account, "Please consider opening a " + account + " with us on your home page");
+			}
+			else if(bA.isVisible() == false)
+			{
+				System.out.println("User hasn't been approved for the account");
+				System.out.println(account);
+				textParseError(account + " still pending", "Please contact the bank to speed up the process");
+			}
+			else
+			{
+				System.out.println("User has the account");
+				System.out.println(account);
+				//TODO Edward launch account page
+			}
+		}
+	}
+	private final class EditPersonalInfo implements ActionListener {
+		private EditPersonalInfo(){
+		}
+		public void actionPerformed(ActionEvent e)
+		{
+			//TODO launch personal info editor
+		}
+	}
+	private final class OpenNewAccount implements ActionListener {
+		private Bank bank;
+		private Customer customer;
+		private OpenNewAccount(Bank bank, Customer customer){
+			this.bank = bank;
+			this.customer = customer;
+		}
+		public void actionPerformed(ActionEvent e)
+		{
+			new NewAccountExistingCustomerGUI(bank, customer);
+		}
+	}
 	public ClientPageGUI(Customer customer, Bank bank)
 	{
 		this.setBank(bank);
 		this.setCustomer(customer);
+		System.out.println("Bank and Client info loaded");
+		frame = new JDialog (new JFrame(), customer.getFirstName() + " " + customer.getLastName() + "'s portal");
+		frame.setSize(500, 900);
+		inputs = frame.getContentPane();
+		inputs.setLayout (new GridBagLayout());
+		JLabel a0 = new JLabel("     ");
+		JLabel d0 = new JLabel("     ");
+		JLabel f0 = new JLabel("     ");
+		JButton e0 = new JButton("Checking Account");
+		e0.addActionListener(new LoadAccount(customer.getCheckingAccount(), "Checking Account"));
+		JButton e1 = new JButton("Savings Account");
+		e1.addActionListener(new LoadAccount(customer.getSavingsAccount(), "Savings Account"));
+		JButton e2 = new JButton("Edit Personal Info");
+		e2.addActionListener(new EditPersonalInfo());
+		JButton e3 = new JButton("Mortgage");
+		e3.addActionListener(new LoadAccount(customer.getMortgage(), "Mortgage"));
+		JButton e7  = new JButton("Exit");
+		e7.addActionListener(e -> frame.dispose());
+		JButton b7 = new JButton("Open New Account");
+		b7.addActionListener(new OpenNewAccount(bank, customer));
+		JButton b1 = new JButton("Credit Card");
+	//	b1.addActionListener(new LoadAccount(customer.getCreditCard(), "Credit Card")); //TODO Ryan uncomment when credit card getter made
+		addAt(a0, 0, 0);
+		addAt(d0, 0, 3);
+		addAt(e0, 0, 4);
+		addAt(f0, 0, 5);
+		addAt(b1, 1, 2);
+		addAt(e1, 2, 4);
+		addAt(e2, 5, 4);
+		addAt(e3, 6, 4);
+		addAt(b7, 7, 1);
+		addAt(e7, 7, 4);
+		frame.pack();
+		frame.setVisible(true);
 	}
 	private void addAt(JScrollPane scroll, int row, int column, int rowSpan, int colSpan) {
 		GridBagConstraints c = new GridBagConstraints();

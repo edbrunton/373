@@ -18,14 +18,14 @@ public class Bank  implements Serializable{
 	private ArrayList<Customer> customers;
 	private ArrayList<BankAccount> bankAccounts;
 	private ArrayList<Mortgage> mortgages;
-	private double Assets;
-	private double monthlyRevenue;
-	private double monthlyProfit;
+	private double Assets;//should be a function
+	private double monthlyRevenue;//should be a function
+	private double monthlyProfit;//should be a function
 	private BankAccount banksBankAccount;
 	private ArrayList<BankAccount> pendingAccounts;
 	private ArrayList<Person> pendingPeople;
 	private ArrayList<Person> suspendedAccounts;
-	
+	private double currentAccountNum;
 	//Constructors
 	public Bank() {
 		address = "Default";
@@ -40,8 +40,9 @@ public class Bank  implements Serializable{
 		Assets = -1;
 		monthlyRevenue = -1;
 		monthlyProfit = -1;
-		banksBankAccount = new BankAccount();
+		banksBankAccount = new BankAccount(this);//if problems, look here
 		banksBankAccount.setVisible(true);
+		currentAccountNum = 1;
 	}
 	public Bank(String a, int rN, ArrayList<Employee> eS, ArrayList<Customer> cS, ArrayList<BankAccount> bS, ArrayList<Mortgage> mS, double mR, double mP, BankAccount money) {
 		address = a;
@@ -136,6 +137,10 @@ public class Bank  implements Serializable{
 	}
 	public void setSuspendedAccounts(ArrayList<Person> suspendedAccounts) {
 		this.suspendedAccounts = suspendedAccounts;
+	}
+	public double getCurrentAccountNum() {
+		currentAccountNum +=1;
+		return currentAccountNum-1;
 	}
 	
 	

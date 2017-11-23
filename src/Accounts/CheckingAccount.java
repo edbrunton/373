@@ -2,6 +2,8 @@ package Accounts;
 
 import java.io.Serializable;
 
+import Hardware.Bank;
+
 public class CheckingAccount extends BankAccount  implements Serializable{
 
 	//Fields
@@ -10,10 +12,12 @@ public class CheckingAccount extends BankAccount  implements Serializable{
 	
 	
 	//Constructors
-	public CheckingAccount() {
+	public CheckingAccount(Bank bank) {
+		super(bank);
 		balance = 0;
 	}
-	public CheckingAccount(double b, double dD) {
+	public CheckingAccount(Bank bank, double b, double dD) {
+		super(bank);
 		balance = b;
 		directDeposit = dD;
 	}

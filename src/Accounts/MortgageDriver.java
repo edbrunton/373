@@ -6,8 +6,8 @@ import java.util.*;
 public class MortgageDriver { 
 	
     public static void main(String Args[]) {
-    	
-    	CheckingAccount cA = new  CheckingAccount(10000.0,0.0);
+    	//need to know holding bank
+    /*	CheckingAccount cA = new  CheckingAccount(10000.0,0.0);
     	Mortgage m1 = new Mortgage(200000.0, 0.0, 5, cA);
     	System.out.println("The Original Ammount is : " + m1.getOriginialAmmount() + "\n");
     	System.out.println("The monthly payment is: " + m1.getMonthlyPayment() +"\n");

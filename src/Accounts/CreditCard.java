@@ -2,6 +2,8 @@ package Accounts;
 
 import java.io.Serializable;
 
+import Hardware.Bank;
+
 public class CreditCard extends BankAccount  implements Serializable{
 
 	//Fields
@@ -10,12 +12,14 @@ public class CreditCard extends BankAccount  implements Serializable{
 	private double limit;
 	
 	//Constructors
-	public CreditCard() {
+	public CreditCard(Bank bank) {
+		super(bank);
 		interestRate = 0;
 		balance = 0;
 		limit = 0;
 	}
-	public CreditCard(double iR, double b, double l) {
+	public CreditCard(Bank bank, double iR, double b, double l) {
+		super(bank);
 		interestRate = iR;
 		balance = b;
 		limit = l;

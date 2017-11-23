@@ -2,6 +2,8 @@ package Accounts;
 
 import java.io.Serializable;
 
+import Hardware.Bank;
+
 public class Mortgage extends BankAccount  implements Serializable{
 	
 	//Fields
@@ -15,7 +17,8 @@ public class Mortgage extends BankAccount  implements Serializable{
 	private int month;
 	
 	//Constructors
-	public Mortgage() {
+	public Mortgage(Bank bank) {
+		super(bank);
 		setOriginialAmmount(0);
 		setPrincipal(0);
 		setInterestRate(0);
@@ -23,9 +26,10 @@ public class Mortgage extends BankAccount  implements Serializable{
 		setMonthlyPayment(0);
 		setTerm(30);
 		month = 1;
-		paymentAccount = new CheckingAccount();
+		paymentAccount = new CheckingAccount(bank);
 	}
-	public Mortgage(double oA, double p, double iR, CheckingAccount cA) {
+	public Mortgage(Bank bank, double oA, double p, double iR, CheckingAccount cA) {
+		super(bank);
 		setOriginialAmmount(oA);
 		setPrincipal(p);
 		setInterestRate(iR);

@@ -72,10 +72,11 @@ public class LoginGUI extends JFrame  implements Serializable{
 	private final class LoginSubmission implements ActionListener {
 		private final JPasswordField dTF;
 		private final JTextField sTF;
-
-		private LoginSubmission(JPasswordField dTF, JTextField sTF) {
+		private Bank bank;
+		private LoginSubmission(JPasswordField dTF, JTextField sTF, Bank bank) {
 			this.dTF = dTF;
 			this.sTF = sTF;
+			this.bank = bank;
 		}
 
 		public void actionPerformed(ActionEvent e)
@@ -156,16 +157,17 @@ public class LoginGUI extends JFrame  implements Serializable{
 			}
 			else
 			{
-				System.out.println("Got here 1");
+				System.out.println("Login info was valid");
 				if(employee == null)
 				{
-					new ManagerClientAccountGUI(customer, myBank);
-					System.out.println("Got here 2");
+				//	new ManagerClientAccountGUI(customer, myBank);
+					new ClientPageGUI(customer, bank);
+					System.out.println("Launching Client Gui");
 				}
 				else
 				{
 					new ManagerPageGUI(employee, myBank);
-					System.out.println("Got here 3");
+					System.out.println("Launchuing Manager Gui");
 				}
 			}
 			
@@ -283,7 +285,7 @@ public class LoginGUI extends JFrame  implements Serializable{
 		JLabel b9 = new JLabel("     ");
 		JLabel b10 = new JLabel("     ");
 		JButton okay = new JButton("OK");
-		okay.addActionListener(new LoginSubmission(dTF, sTF));
+		okay.addActionListener(new LoginSubmission(dTF, sTF, myBank));
 		JButton newAccount = new JButton("New? Start Here");
 		newAccount.addActionListener(new AccountSubmission());
 		JButton cancel = new JButton("Shutdown System");

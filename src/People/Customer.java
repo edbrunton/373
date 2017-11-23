@@ -15,26 +15,26 @@ private int customberNumber;
 private SavingsAccount savingsAccount;
 private CheckingAccount checkingAccount;
 private Mortgage mortgage;
-
+//TODO ryan. Missing credit card
 //Constructors
 public Customer() {
-	customberNumber = -1;
-	savingsAccount = new SavingsAccount();//TODO Ryan. They should not have a new mortage for just making an account
-	checkingAccount = new CheckingAccount();
-	mortgage = new Mortgage();
+	customberNumber = -1;// needs to be a value and managed somehow
+//savingsAccount = new SavingsAccount();//TODO Ryan. They should not have a new mortgage for just making an account
+	//checkingAccount = new CheckingAccount();//TODO Ryan none of these should be initialized. Going to cause major issues
+//	mortgage = new Mortgage();
 }
-public Customer(int cN, SavingsAccount sA) {
+/*public Customer(int cN, SavingsAccount sA) {//this is never used
 	customberNumber = cN;
 	savingsAccount = sA;
 	checkingAccount = new CheckingAccount();
 	mortgage = new Mortgage();
-}
-public Customer(int cN, CheckingAccount cA, Mortgage m) {
+}*/
+/*public Customer(int cN, CheckingAccount cA, Mortgage m) {//this is never used
 	customberNumber = cN;
 	savingsAccount = new SavingsAccount();
 	checkingAccount = cA;
 	mortgage = m;
-}
+}*/
 
 
 

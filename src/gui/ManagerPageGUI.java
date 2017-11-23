@@ -37,7 +37,7 @@ public class ManagerPageGUI {
 	{
 		this.setBank(bank);
 		this.setEmployee(employee);
-		System.out.println("Set bank and Employee info");
+		System.out.println("Bank and Employee info loaded");
 		frame = new JDialog (new JFrame(), employee.getFirstName() + " " + employee.getLastName() + "'s portal");
 		frame.setSize(500, 900);
 		inputs = frame.getContentPane();
@@ -67,10 +67,10 @@ public class ManagerPageGUI {
 		JScrollPane scroll = new JScrollPane(list);
 		addAt(scroll, 2, 1, 4, 2);
 		c0 = new JTextField(10);
-		listModel.addElement("new");
-		System.out.println("Removing trial element");
+		listModel.addElement("new");//example of how to have a search element
+	//	System.out.println("Removing trial element");
 		listModel.remove(0);
-		System.out.println("Trial element removed");
+	//	System.out.println("Trial element removed");
 		addAt(a0, 0, 0);
 		addAt(b0, 0, 1);
 		addAt(c0, 0, 2);
@@ -84,8 +84,6 @@ public class ManagerPageGUI {
 		addAt(e3, 6, 4);
 		addAt(b7, 7, 1);
 		addAt(e7, 7, 4);
-		
-		System.out.println("about to show");
 		frame.pack();
 		frame.setVisible(true);
 	}
