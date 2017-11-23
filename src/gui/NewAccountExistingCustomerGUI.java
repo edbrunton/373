@@ -79,14 +79,17 @@ public class NewAccountExistingCustomerGUI {
 						tempBA = new SavingsAccount(0.001, 0.0, 0.0);
 						customer.setSavingsAccount((SavingsAccount)tempBA);//TODO Ryan
 					}
-					if(accountType.compareTo("Checking") == 0 && customer.getSavingsAccount().equals(null))
+					if(accountType.compareTo("Checking") == 0 && customer.getCheckingAccount().equals(null))
 					{
 						tempBA = new CheckingAccount(0.0, 0.0);
 						customer.setCheckingAccount((CheckingAccount)tempBA);//TODO Ryan
 					}
 					if(accountType.compareTo("Mortgage") == 0 && customer.getCheckingAccount().equals(null))
 					{
-						tempBA =new Mortgage(loanAmount, loanAmount, 7.25, new CheckingAccount(0.0, 0.0));
+						CheckingAccount tempCA = new CheckingAccount(0.0, 0.0);
+						customer.setCheckingAccount(tempCA);//TODO Ryan
+						bank.getPendingAccounts().add(tempCA);
+						tempBA =new Mortgage(loanAmount, loanAmount, 7.25, tempCA);
 						customer.setMortgage((Mortgage)tempBA);//TODO Ryan
 					}
 					//TODO: different account types and such

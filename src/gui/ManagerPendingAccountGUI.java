@@ -130,6 +130,7 @@ public class ManagerPendingAccountGUI {
 			{
 				if(holder==null)
 				{
+					approvedAccount.setVisible(true);
 					bank.getBankAccounts().add(approvedAccount);
 					bank.getPendingAccounts().remove(approvedAccount);
 				}
@@ -166,12 +167,14 @@ public class ManagerPendingAccountGUI {
 			{
 				if(holder==null)
 				{
-					bank.getPendingAccounts().remove(approvedAccount);//TODO Edward
+					approvedAccount.setVisible(false);
+					bank.getPendingAccounts().remove(approvedAccount);
 				}
 				else
 				{
 				//	approvedAccount.
-				bank.getPendingAccounts().remove(approvedAccount);//TODO; change account visible to true
+					approvedAccount.setVisible(false);
+				bank.getPendingAccounts().remove(approvedAccount);
 				}
 				frameHolder.dispose();
 			}

@@ -35,11 +35,10 @@ public class ManagerPageGUI {
 	private JDialog frameTemp; 
 	public ManagerPageGUI(Employee employee, Bank bank)
 	{
-		System.out.println("got here");
 		this.setBank(bank);
 		this.setEmployee(employee);
 		System.out.println("Set bank and Employee info");
-		frame = new JDialog (new JFrame(), "New Account Request");
+		frame = new JDialog (new JFrame(), employee.getFirstName() + " " + employee.getLastName() + "'s portal");
 		frame.setSize(500, 900);
 		inputs = frame.getContentPane();
 		inputs.setLayout (new GridBagLayout());
@@ -200,8 +199,6 @@ public class ManagerPageGUI {
 	public void setBank(Bank bank) {
 		this.bank = bank;
 	}
-	
-	
 	private void addAt(JScrollPane scroll, int row, int column, int rowSpan, int colSpan) {
 		GridBagConstraints c = new GridBagConstraints();
 		c.gridy =row;
@@ -216,8 +213,7 @@ public class ManagerPageGUI {
 		c.gridx = column;
 		c.gridwidth = span;
 		inputs.add(a1, c);	
-	}
-	
+	}	
 	private void addAt(JLabel a1, int row, int column) {
 		GridBagConstraints c = new GridBagConstraints();
 		c.gridy =row;

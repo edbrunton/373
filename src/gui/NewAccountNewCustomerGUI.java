@@ -268,15 +268,23 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 							new UserLogin(email, password));
 					if(accountType.compareTo("Savings") == 0)
 					{
-						c.setSavingsAccount(new SavingsAccount(0.001, 0.0, 0.0));//TODO Ryan
+						SavingsAccount SA = new SavingsAccount(0.001, 0.0, 0.0);//TODO Ryan
+						SA.setVisible(true);
+						c.setSavingsAccount(SA);
 					}
 					if(accountType.compareTo("Checking") == 0)
 					{
-						c.setCheckingAccount(new CheckingAccount(0.0, 0.0));//TODO Ryan
+						CheckingAccount CA =new CheckingAccount(0.0, 0.0);
+						CA.setVisible(true);
+						c.setCheckingAccount(CA);//TODO Ryan
 					}
 					if(accountType.compareTo("Mortgage") == 0)
 					{
-						c.setMortgage(new Mortgage(loanAmount, loanAmount, 7.25, new CheckingAccount(0.0, 0.0)));//TODO Ryan
+						CheckingAccount CA =new CheckingAccount(0.0, 0.0);
+						CA.setVisible(true);
+						Mortgage M = new Mortgage(loanAmount, loanAmount, 7.25, CA);
+						M.setVisible(true);
+						c.setMortgage(M);//TODO Ryan
 					}
 					//TODO: different account types and such
 					bank.getPendingPeople().add(c);
