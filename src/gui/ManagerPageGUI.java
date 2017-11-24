@@ -54,7 +54,7 @@ public class ManagerPageGUI {
 		e2.addActionListener(new EditPersonalInfo());
 		JButton e3 = new JButton("Delete Account");
 		e3.addActionListener(new DeleteAccount());
-		JButton e7  = new JButton("Exit");
+		JButton e7  = new JButton("Log Out");
 		e7.addActionListener(e -> frame.dispose());
 		JButton b7 = new JButton("Open Selected");
 		b7.addActionListener(new OpenAccount());

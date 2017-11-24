@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -32,6 +34,7 @@ public class AccountGUI {
 	private JDialog frame;
 	private DefaultListModel<String> listModel;
 	private JList<String> list;
+	private JDialog frameTemp; 
 	public AccountGUI(BankAccount account, Bank bank)
 	{
 		this.setBank(bank);
@@ -59,46 +62,121 @@ public class AccountGUI {
 		{
 			windowTitle += "Master Account";
 		}
-		frame = new JDialog (new JFrame(), );
+		frame = new JDialog (new JFrame(), windowTitle);
 		frame.setSize(500, 900);
 		inputs = frame.getContentPane();
 		inputs.setLayout (new GridBagLayout());
 		JLabel a0 = new JLabel("     ");
 		JLabel d0 = new JLabel("     ");
 		JLabel f0 = new JLabel("     ");
-		JButton e0 = new JButton("Checking Account");
-		e0.addActionListener(new LoadAccount(customer.getCheckingAccount(), "Checking Account"));
-		JButton e1 = new JButton("Savings Account");
-		e1.addActionListener(new LoadAccount(customer.getSavingsAccount(), "Savings Account"));
-		JButton e2 = new JButton("Edit Personal Info");
+		JLabel b0 = new JLabel("Transactions: ");
+		JButton e0 = new JButton("Make Transfer");
+		e0.addActionListener(new Transfer());
+		JButton e1 = new JButton("View Statement");
+		e1.addActionListener(new ViewStatment());
+		JButton e2 = new JButton("Edit Personal Info");//only for manager, check that
 		e2.addActionListener(new EditPersonalInfo());
-		JButton e3 = new JButton("Mortgage");
-		e3.addActionListener(new LoadAccount(customer.getMortgage(), "Mortgage"));
+		JButton e3 = new JButton("Delete Account");//differet action depending on person
+		e3.addActionListener(new DeleteAccount());
 		JButton e7  = new JButton("Exit");
 		e7.addActionListener(e -> frame.dispose());
-		JButton b7 = new JButton("Open New Account");
-		b7.addActionListener(new OpenNewAccount(bank, customer));
-		JButton b1 = new JButton("Credit Card");
-	//	b1.addActionListener(new LoadAccount(customer.getCreditCard(), "Credit Card")); //TODO Ryan uncomment when credit card getter made
+	//	JButton b7 = new JButton("Open Selected");
+	//	b7.addActionListener(new OpenAccount());
+		//JButton b1 = new JButton("Search");
+	//	b1.addActionListener(new SearchAccount());
+		JButton monthylButton = new JButton("Monthly Button");
+		monthylButton.addActionListener(new AdvanceMonth());
 		listModel = new DefaultListModel<String>();
 		list = new JList<String>(listModel);
 		JScrollPane scroll = new JScrollPane(list);
-		listModel.addElement("new");//TODO Ryan. Add transactions using this model
-		System.out.println("Removing trial element");
-		listModel.remove(0);//obvs you won't remove, this is just an example of how to
-		System.out.println("Trial element removed");
+		addAt(scroll, 2, 1, 4, 2);
+		c0 = new JTextField(10);
+		listModel.addElement("new");//example of how to have a search element
+	//	System.out.println("Removing trial element");
+		listModel.remove(0);
+	//	System.out.println("Trial element removed");
 		addAt(a0, 0, 0);
+		addAt(b0, 0, 1, 2);
+		//addAt(c0, 0, 2);
 		addAt(d0, 0, 3);
-		addAt(e0, 0, 1);
+		addAt(e0, 0, 4);
 		addAt(f0, 0, 5);
-		addAt(b1, 2, 1);
+		//addAt(b1, 1, 2, 2);
 		addAt(e1, 2, 4);
+		addAt(monthylButton, 3, 4);
 		addAt(e2, 5, 4);
-		addAt(e3, 5, 1);
-		addAt(b7, 7, 1);
+		addAt(e3, 6, 4);
+	//	addAt(b7, 7, 1);
 		addAt(e7, 7, 4);
 		frame.pack();
 		frame.setVisible(true);
+	}
+	private final class Transfer implements ActionListener {
+		
+		private Transfer(){
+		}
+
+		public void actionPerformed(ActionEvent e)
+		{
+			new TransferGUI();
+		}
+	}
+	private final class ViewStatment implements ActionListener {
+		
+		private ViewStatment(){
+		}
+
+		public void actionPerformed(ActionEvent e)
+		{
+			new StatementGUI();
+		}
+	}
+	private final class EditPersonalInfo implements ActionListener {
+		
+		private EditPersonalInfo(){
+		}
+
+		public void actionPerformed(ActionEvent e)
+		{
+			new ManagerEditPersonalInfo(employee, bank);
+		}
+	}	
+	private final class DeleteAccount implements ActionListener {
+		
+		private DeleteAccount(){
+		}
+
+		public void actionPerformed(ActionEvent e)
+		{
+			confirmDelete("Your Account is About to be Deleted", "Close this window if you wish to abort the deletion"); 
+		}
+	}
+	private void confirmDelete(String title, String message) {
+		frameTemp = new JDialog (new JFrame(), title);//inspired by https://stackoverflow.com/questions/2665355/how-do-i-remove-the-maximize-and-minimize-buttons-from-a-jframe  
+		        Container contentPane = frameTemp.getContentPane ();
+		        contentPane.setLayout (new BorderLayout());
+		        JButton okay = new JButton("Confirm Delete");
+		        okay.addActionListener(new ActuallyDelete());
+		        okay.setSize(30, 10);
+		        JPanel p1 = new JPanel();
+		        p1.add(okay);
+		        contentPane.add(p1, BorderLayout.SOUTH);			    	        
+		        JLabel outArea = new JLabel(message);
+		        contentPane.add(outArea, BorderLayout.CENTER);
+		        frameTemp.pack();
+		        frameTemp.setVisible (true);		//need to throw error
+	}
+	private final class ActuallyDelete implements ActionListener {
+		
+		private ActuallyDelete(){
+		}
+
+		public void actionPerformed(ActionEvent e)
+		{
+			bank.getEmployees().remove(employee);//TODO modify to customer
+			frameTemp.dispose();
+			frame.dispose();
+		}
 	}
 	private void addAt(JScrollPane scroll, int row, int column, int rowSpan, int colSpan) {
 		GridBagConstraints c = new GridBagConstraints();
