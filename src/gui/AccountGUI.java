@@ -4,8 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -20,73 +18,48 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import Accounts.BankAccount;
+import Accounts.CheckingAccount;
+import Accounts.CreditCard;
+import Accounts.Mortgage;
+import Accounts.SavingsAccount;
 import Hardware.Bank;
 import People.Customer;
-import People.Employee;
 
-
-public class ClientPageGUI {
+public class AccountGUI {
 	private Container inputs;
-	private Customer customer;
+	private BankAccount bankaccount;
 	private Bank bank;
 	private JDialog frame;
-	private final class LoadAccount implements ActionListener {
-		private BankAccount bA;
-		private String account;
-		private LoadAccount(BankAccount ba, String account){
-			this.bA = ba;
-			this.account = account;
-		}
-		public void actionPerformed(ActionEvent e)
-		{
-			System.out.println("Looking for user's account");
-		//	if(bA.equals(null))
-			if(bA == null)
-			{
-				System.out.println("User hasn't created the account");
-				System.out.println(account);
-				textParseError("You don't have a " + account, "Please consider opening a " + account + " with us on your home page");
-			}
-			else if(bA.isVisible() == false)
-			{
-				System.out.println("User hasn't been approved for the account");
-				System.out.println(account);
-				textParseError(account + " still pending", "Please contact the bank to speed up the process");
-			}
-			else
-			{
-				System.out.println("User has the account");
-				System.out.println(account);
-				//TODO Edward launch account page
-			}
-		}
-	}
-	private final class EditPersonalInfo implements ActionListener {
-		private EditPersonalInfo(){
-		}
-		public void actionPerformed(ActionEvent e)
-		{
-			//TODO launch personal info editor
-		}
-	}
-	private final class OpenNewAccount implements ActionListener {
-		private Bank bank;
-		private Customer customer;
-		private OpenNewAccount(Bank bank, Customer customer){
-			this.bank = bank;
-			this.customer = customer;
-		}
-		public void actionPerformed(ActionEvent e)
-		{
-			new NewAccountExistingCustomerGUI(bank, customer);
-		}
-	}
-	public ClientPageGUI(Customer customer, Bank bank)
+	private DefaultListModel<String> listModel;
+	private JList<String> list;
+	public AccountGUI(BankAccount account, Bank bank)
 	{
 		this.setBank(bank);
-		this.setCustomer(customer);
+		this.setBankaccount(account);
 		System.out.println("Bank and Client info loaded");
-		frame = new JDialog (new JFrame(), customer.getFirstName() + " " + customer.getLastName() + "'s portal");
+		String windowTitle = account.getOwner().getFirstName() + " " + account.getOwner().getLastName() + "'s ";
+		//for Bank's account, getOwner may throw an error. Needs to be resolved at some point
+		if(account instanceof CheckingAccount)
+		{
+			windowTitle += "Checking Account";
+		}
+		else if(account instanceof SavingsAccount)
+		{
+			windowTitle += "Savings Account";
+		}
+		else if(account instanceof CreditCard)
+		{
+			windowTitle += "Credit Card";
+		}
+		else if(account instanceof Mortgage)
+		{
+			windowTitle += "Mortgage";
+		}
+		else
+		{
+			windowTitle += "Master Account";
+		}
+		frame = new JDialog (new JFrame(), );
 		frame.setSize(500, 900);
 		inputs = frame.getContentPane();
 		inputs.setLayout (new GridBagLayout());
@@ -107,6 +80,13 @@ public class ClientPageGUI {
 		b7.addActionListener(new OpenNewAccount(bank, customer));
 		JButton b1 = new JButton("Credit Card");
 	//	b1.addActionListener(new LoadAccount(customer.getCreditCard(), "Credit Card")); //TODO Ryan uncomment when credit card getter made
+		listModel = new DefaultListModel<String>();
+		list = new JList<String>(listModel);
+		JScrollPane scroll = new JScrollPane(list);
+		listModel.addElement("new");//TODO Ryan. Add transactions using this model
+		System.out.println("Removing trial element");
+		listModel.remove(0);//obvs you won't remove, this is just an example of how to
+		System.out.println("Trial element removed");
 		addAt(a0, 0, 0);
 		addAt(d0, 0, 3);
 		addAt(e0, 0, 1);
@@ -187,17 +167,16 @@ public class ClientPageGUI {
 		        frameTemp.pack();
 		        frameTemp.setVisible (true);		//need to throw error
 	}
-	public Customer getCustomer() {
-		return customer;
-	}
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
 	public Bank getBank() {
 		return bank;
 	}
 	public void setBank(Bank bank) {
 		this.bank = bank;
 	}
-        
+	public BankAccount getBankaccount() {
+		return bankaccount;
+	}
+	public void setBankaccount(BankAccount bankaccount) {
+		this.bankaccount = bankaccount;
+	}
 }
