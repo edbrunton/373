@@ -14,6 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Accounts.BankAccount;
+import Accounts.CheckingAccount;
+import Accounts.CreditCard;
+import Accounts.Mortgage;
+import Accounts.SavingsAccount;
 import Hardware.Bank;
 import People.Customer;
 import People.Employee;
@@ -74,7 +78,7 @@ public class ManagerUnlockAccount {
 		        frameTemp.pack();
 		        frameTemp.setVisible (true);		//need to throw error
 	}
-	private void approvalMessage(String title, Person bA) {
+	private void approvalMessage(String title, Person accountOwner) {
 		JDialog frame = new JDialog (new JFrame(), title);//inspired by https://stackoverflow.com/questions/2665355/how-do-i-remove-the-maximize-and-minimize-buttons-from-a-jframe  
 		frame = new JDialog (new JFrame(), "Locked Account");
 		frame.setSize(500, 900);
@@ -87,16 +91,27 @@ public class ManagerUnlockAccount {
 		JLabel b4 = new JLabel("     ");
 		JLabel b5 = new JLabel("     ");
 		JLabel sName = new JLabel("Client Name: ");
-		JLabel sTF = new JLabel(bA.getFirstName() + " " + bA.getLastName());			
+		JLabel sTF = new JLabel(accountOwner.getFirstName() + " " + accountOwner.getLastName());			
 		JLabel b6 = new JLabel("     ");
 		JLabel b7 = new JLabel("     ");
 		JLabel dName = new JLabel("Account Info: ");
-		JLabel dTF = new JLabel("Account Info Summery"); //TODO Ryan. Need method to get pending account's info in a single line
+		String accountInfo ="";
+		if(accountOwner instanceof Customer)
+		{
+			Customer tempCust = (Customer)accountOwner;
+			accountInfo += "Customer " + tempCust.getCustomberNumber();
+		}
+		else if(accountOwner instanceof Employee)
+		{
+			Employee tempEmp = (Employee)accountOwner;
+			accountInfo += "Employee " + tempEmp.getEmployeeNumber();
+		}
+		JLabel dTF = new JLabel(accountInfo);
 		JLabel b8 = new JLabel("     ");
 		JLabel b9 = new JLabel("     ");
 		JLabel b10 = new JLabel("     ");
 		JButton okay = new JButton("Unlock");
-		okay.addActionListener(new UnlockAccount(bA, frame));
+		okay.addActionListener(new UnlockAccount(accountOwner, frame));
 		JButton cancel = new JButton("Ignore");
 		cancel.addActionListener(new Ignore(frame)); //frame.dispose());
 		c.anchor = GridBagConstraints.LINE_START;
