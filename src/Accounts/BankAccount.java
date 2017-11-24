@@ -15,6 +15,7 @@ public class BankAccount  implements Serializable {
 	protected Customer owner;
 	protected boolean visible; //needs to be false until valid
 	protected Bank holdingBank;
+	protected double balance;
 	//Constructors
 	public BankAccount(Bank bank) {
 		holdingBank = bank;
@@ -55,5 +56,11 @@ public class BankAccount  implements Serializable {
 	}
 	public void setVisible(boolean visible) {
 		this.visible = visible;
+	}
+	public double getBalance() {
+		return balance;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
 	}
 }

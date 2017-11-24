@@ -6,6 +6,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -33,8 +35,8 @@ public class NewAccountExistingCustomerGUI {
 	private Container inputs;
 	private JComboBox f1;
 	private JTextField f2;
+	private JLabel e2;
 	private String[] AccountTypes;
-	//TODO: make type of account have selection box
 	public NewAccountExistingCustomerGUI(Bank bank, Customer customer)
 	{
 		String[] temp = {"Savings", "Checking", "Credit", "Mortgage"};
@@ -42,6 +44,38 @@ public class NewAccountExistingCustomerGUI {
 		this.bank = bank;
 		this.customer = customer;
 		buildGUI();
+	}
+private final class SelectionChanged implements ItemListener {
+		
+		private SelectionChanged(){
+		}
+
+		public void itemStateChanged(ItemEvent e)
+		{
+			String accountType = (String)f1.getSelectedItem();
+			f2.show();
+			if(accountType.compareTo("Savings") == 0)
+			{
+				e2.setText("Amount Depositing");
+			}
+			else if(accountType.compareTo("Checking") ==0)
+			{
+				e2.setText("Amount Depositing");
+			}
+			else if(accountType.compareTo("Credit")==0)
+			{
+				e2.setText("Limit Request");
+			}
+			else if(accountType.compareTo("Mortgage")==0)
+			{
+				e2.setText("Principle");
+			}
+			else if(accountType.compareTo("Manager")==0)
+			{
+				e2.setText("");
+				f2.hide();
+			}
+		}
 	}
 	private final class SubmitApplication implements ActionListener {
 		
@@ -76,23 +110,23 @@ public class NewAccountExistingCustomerGUI {
 				BankAccount tempBA = null;
 					if(accountType.compareTo("Savings") == 0 && customer.getSavingsAccount().equals(null))
 					{
-						tempBA = new SavingsAccount(bank, 0.001, 0.0, 0.0);
-						customer.setSavingsAccount((SavingsAccount)tempBA);//TODO Ryan
+						tempBA = new SavingsAccount(bank, bank.getBankPolicy().getSavingsAccountinterestRate(),
+								loanAmount, bank.getBankPolicy().getSavingsAccountminBalance());
+						customer.setSavingsAccount((SavingsAccount)tempBA);
 					}
 					if(accountType.compareTo("Checking") == 0 && customer.getCheckingAccount().equals(null))
 					{
-						tempBA = new CheckingAccount(bank, 0.0, 0.0);
-						customer.setCheckingAccount((CheckingAccount)tempBA);//TODO Ryan
+						tempBA = new CheckingAccount(bank,loanAmount, 0.0);//TODO Ryan figure out to do your direct deposit thing
+						customer.setCheckingAccount((CheckingAccount)tempBA);
 					}
 					if(accountType.compareTo("Mortgage") == 0 && customer.getCheckingAccount().equals(null))
 					{
-						CheckingAccount tempCA = new CheckingAccount(bank, 0.0, 0.0);
-						customer.setCheckingAccount(tempCA);//TODO Ryan
+						CheckingAccount tempCA = new CheckingAccount(bank, 0.0, 0.0);//TODO Ryan figure out to do your direct deposit thing
+						customer.setCheckingAccount(tempCA);
 						bank.getPendingAccounts().add(tempCA);
-						tempBA =new Mortgage(bank, loanAmount, loanAmount, 7.25, tempCA);
-						customer.setMortgage((Mortgage)tempBA);//TODO Ryan
+						tempBA =new Mortgage(bank, loanAmount, loanAmount,bank.getBankPolicy().getMortgageInterestRate(), tempCA);
+						customer.setMortgage((Mortgage)tempBA);
 					}
-					//TODO: different account types and such
 					if(tempBA.equals(null))
 					{
 						textParseError("Account Exists", "You already have this type of account");
@@ -101,7 +135,6 @@ public class NewAccountExistingCustomerGUI {
 					{
 						bank.getPendingAccounts().add(tempBA);	
 					}
-//bank.getPendingPeople().get(bank.getPendingPeople().size()-1);
 				}
 				frame.dispose();
 			}
@@ -133,7 +166,7 @@ public class NewAccountExistingCustomerGUI {
 		JLabel g0 = new JLabel("  g0   ");
 		JLabel e0 = new JLabel("Account Info: ");
 		JLabel e1 = new JLabel("Type of Account: ");
-		JLabel e2 = new JLabel("Loan Amount (if applicable): ");
+		e2 = new JLabel("Loan Amount (if applicable): ");
 		 f2 = new JTextField(10);
 		 f1 = new JComboBox(AccountTypes);//JTextField(10);
 		JButton d6 = new JButton("Submit");

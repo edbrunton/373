@@ -10,7 +10,7 @@ public class Mortgage extends BankAccount  implements Serializable{
 	private double originialAmmount;
 	private double principal;
 	private double interestRate;
-	private double remainingBalance;
+
 	private double monthlyPayment;
 	private int term;
 	private CheckingAccount paymentAccount;
@@ -61,10 +61,10 @@ public class Mortgage extends BankAccount  implements Serializable{
 		this.interestRate = interestRate;
 	}
 	public double getRemainingBalance() {
-		return remainingBalance;
+		return balance;
 	}
 	public void setRemainingBalance(double remainingBalance) {
-		this.remainingBalance = remainingBalance;
+		this.balance = remainingBalance;
 	}
 	public double getMonthlyPayment() {
 		return monthlyPayment;
@@ -87,18 +87,14 @@ public class Mortgage extends BankAccount  implements Serializable{
 	public void setMonthlyPayment() {
 		double c = (interestRate/100)/12;
 		double h = 1+c;
-		monthlyPayment = originialAmmount*(  c  *   (    Math.pow(h,360))    )/(Math.pow(h, 359));
+		monthlyPayment = originialAmmount*(c*(Math.pow(h,360)))/(Math.pow(h, 359));
 	}
 	public void monthlyPayment() {
 		paymentAccount.withdraw(monthlyPayment);
 		double c = (interestRate/100)/12;
 		double h = 1+c;
-		remainingBalance = originialAmmount*(  ( (    Math.pow(h,360)) - (Math.pow(h, month)   ))/(Math.pow(h, 360)- 1));
-		principal = originialAmmount - remainingBalance;
-		month++;
-		
-		
+		balance = originialAmmount*(((Math.pow(h,360)) - (Math.pow(h, month)))/(Math.pow(h, 360)- 1));
+		principal = originialAmmount - balance;
+		month++;	
 	}
-	
-	
 }

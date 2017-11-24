@@ -7,8 +7,7 @@ import Hardware.Bank;
 public class CheckingAccount extends BankAccount  implements Serializable{
 
 	//Fields
-	private double balance;
-	private double directDeposit;
+	private double directDeposit;//TODO Ryan: he is 100% in charge of this
 	
 	
 	//Constructors
