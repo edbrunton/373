@@ -171,6 +171,9 @@ public class ManagerPageGUI {
 		{
 		//TODO Ryan. 
 			//go through all customer accounts, search first names, last names, emails and account numbers; return email + acccount number
+			//if a spoken in class just using bankaccount number
+			//assign bankaccount to bA and uncomment following line
+			//new AccountGUI(bA, bank, true);
 		}
 	}
 	private final class PendingAccounts implements ActionListener {
