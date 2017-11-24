@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JButton;
@@ -43,14 +45,46 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 	private JTextField f4;
 	private JPasswordField f5;
 	private JTextField f6;
+	private JLabel e2;
 	private String[] AccountTypes;
-	//TODO: make type of account have selection box
 	public NewAccountNewCustomerGUI(Bank bank)
 	{
 		String[] temp = {"Savings", "Checking", "Credit", "Mortgage", "Manager"};
 		AccountTypes = temp;
 		this.bank = bank;
 		buildGUI();
+	}
+	private final class SelectionChanged implements ItemListener {
+		
+		private SelectionChanged(){
+		}
+
+		public void itemStateChanged(ItemEvent e)
+		{
+			String accountType = (String)f1.getSelectedItem();
+			f2.show();
+			if(accountType.compareTo("Savings") == 0)
+			{
+				e2.setText("Amount Depositing");
+			}
+			else if(accountType.compareTo("Checking") ==0)
+			{
+				e2.setText("Amount Depositing");
+			}
+			else if(accountType.compareTo("Credit")==0)
+			{
+				e2.setText("Limit Request");
+			}
+			else if(accountType.compareTo("Mortgage")==0)
+			{
+				e2.setText("Principle");
+			}
+			else if(accountType.compareTo("Manager")==0)
+			{
+				e2.setText("");
+				f2.hide();
+			}
+		}
 	}
 	private final class SubmitApplication implements ActionListener {
 		
@@ -264,27 +298,26 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 							new UserLogin(email, password));
 					if(accountType.compareTo("Savings") == 0)
 					{
-						SavingsAccount SA = new SavingsAccount(bank, 0.001, 0.0, 0.0);//TODO Ryan
+						SavingsAccount SA = new SavingsAccount(bank, bank.getBankPolicy().getSavingsAccountinterestRate(),
+								loanAmount, bank.getBankPolicy().getSavingsAccountminBalance());
 						SA.setVisible(true);
 						c.setSavingsAccount(SA);
 					}
 					if(accountType.compareTo("Checking") == 0)
 					{
-						CheckingAccount CA =new CheckingAccount(bank, 0.0, 0.0);
+						CheckingAccount CA =new CheckingAccount(bank,loanAmount, 0.0);//TODO Ryan figure out to do your direct deposit thing
 						CA.setVisible(true);
-						c.setCheckingAccount(CA);//TODO Ryan
+						c.setCheckingAccount(CA);
 					}
 					if(accountType.compareTo("Mortgage") == 0)
 					{
 						CheckingAccount CA =new CheckingAccount(bank, 0.0, 0.0);
 						CA.setVisible(true);
-						Mortgage M = new Mortgage(bank, loanAmount, loanAmount, 7.25, CA);
+						Mortgage M = new Mortgage(bank, loanAmount, loanAmount,bank.getBankPolicy().getMortgageInterestRate(), CA);//TODO Ryan figure out to do your direct deposit thing
 						M.setVisible(true);
-						c.setMortgage(M);//TODO Ryan
+						c.setMortgage(M);
 					}
-					//TODO: different account types and such
 					bank.getPendingPeople().add(c);
-//bank.getPendingPeople().get(bank.getPendingPeople().size()-1);
 				}
 				frame.dispose();
 			}
@@ -322,7 +355,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 		JLabel b5 = new JLabel("Phone Number: ");
 		JLabel e1 = new JLabel("Type of Account: ");
 		JLabel e0 = new JLabel("Account Info: ");
-		JLabel e2 = new JLabel("Loan Amount (if applicable): ");
+		e2 = new JLabel("Amount Depositing (if applicable): ");
 		JLabel e3 = new JLabel("Social Security: ");
 		JLabel e4 = new JLabel("Email: ");
 		JLabel e5 = new JLabel("Password: ");
@@ -338,6 +371,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 		 f5 = new JPasswordField(10);
 		 f6 = new JTextField(10);
 		 f1 = new JComboBox(AccountTypes);//JTextField(10);
+		 f1.addItemListener(new SelectionChanged());
 		JButton d6 = new JButton("Submit");
 		d6.addActionListener(new SubmitApplication());
 		addAt(a0, 0, 0);

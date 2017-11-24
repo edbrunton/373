@@ -8,7 +8,6 @@ public class CreditCard extends BankAccount  implements Serializable{
 
 	//Fields
 	private double interestRate;
-	private double balance;
 	private double limit;
 	
 	//Constructors
@@ -23,11 +22,7 @@ public class CreditCard extends BankAccount  implements Serializable{
 		interestRate = iR;
 		balance = b;
 		limit = l;
-	}
-	
-	
-	
-	
+	}	
 	//Methods
 	public double getInterestRate() {
 		return interestRate;
@@ -35,21 +30,11 @@ public class CreditCard extends BankAccount  implements Serializable{
 	public void setInterestRate(double interestRate) {
 		this.interestRate = interestRate;
 	}
-	public double getBalance() {
-		return balance;
-	}
-	public void setBalance(double balance) {
-		this.balance = balance;
-	}
 	public double getLimit() {
 		return limit;
 	}
 	public void setLimit(double limit) {
 		this.limit = limit;
 	}
-	
-	
-	
-	
 	
 }

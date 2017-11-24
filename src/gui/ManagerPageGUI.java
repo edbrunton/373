@@ -19,6 +19,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+import Accounts.BankAccount;
 import Hardware.Bank;
 import Hardware.MonthlyButton;
 import People.Employee;
@@ -56,21 +57,23 @@ public class ManagerPageGUI {
 		e3.addActionListener(new DeleteAccount());
 		JButton e7  = new JButton("Log Out");
 		e7.addActionListener(e -> frame.dispose());
-		JButton b7 = new JButton("Open Selected");
-		b7.addActionListener(new OpenAccount());
-		JButton b1 = new JButton("Search");
-		b1.addActionListener(new SearchAccount());
+	//	JButton b7 = new JButton("Open Selected");
+	//	b7.addActionListener(new OpenAccount());
+	//	JButton b1 = new JButton("Search");
+	//	b1.addActionListener(new SearchAccount());
+		JButton b1 = new JButton("Find and Open Account");
+		b1.addActionListener(new OpenAccount());
 		JButton monthylButton = new JButton("Monthly Button");
 		monthylButton.addActionListener(new AdvanceMonth());
-		listModel = new DefaultListModel<String>();
+	/*	listModel = new DefaultListModel<String>();
 		list = new JList<String>(listModel);
 		JScrollPane scroll = new JScrollPane(list);
-		addAt(scroll, 2, 1, 4, 2);
+		addAt(scroll, 2, 1, 4, 2);*/
 		c0 = new JTextField(10);
-		listModel.addElement("new");//example of how to have a search element
+	/*	listModel.addElement("new");//example of how to have a search element
 	//	System.out.println("Removing trial element");
 		listModel.remove(0);
-	//	System.out.println("Trial element removed");
+	//	System.out.println("Trial element removed");*/
 		addAt(a0, 0, 0);
 		addAt(b0, 0, 1);
 		addAt(c0, 0, 2);
@@ -82,7 +85,7 @@ public class ManagerPageGUI {
 		addAt(monthylButton, 3, 4);
 		addAt(e2, 5, 4);
 		addAt(e3, 6, 4);
-		addAt(b7, 7, 1);
+		//addAt(b7, 7, 1);
 		addAt(e7, 7, 4);
 		frame.pack();
 		frame.setVisible(true);
@@ -94,13 +97,40 @@ public class ManagerPageGUI {
 
 		public void actionPerformed(ActionEvent e)
 		{
-			try {
-				String result = list.getSelectedValue();
-				//TODO Ryan. Parse result and find associate account and customer
-			}
-			catch(Exception p){
+			//String result = list.getSelectedValue();
+			//originally intend to have a search box with multiple results. Do do time constraints, not happening as such	
+			String result = c0.getText();
+				int accountNum = -1;
+				try {
+					accountNum = Integer.parseInt(result);
+					if(accountNum <= 0)
+					{
+						throw new Exception("badAccountNum");
+					}
+				}
+				catch(Exception p){
+					textParseError("Not an account number", "Please enter a valid account number");
 				
-			}
+				}
+				int i = 0;
+				BankAccount bA = null;
+				for(i = 0; i < bank.getBankAccounts().size(); i++)
+				{
+					if(bank.getBankAccounts().get(i).getAccountNumber() == accountNum)
+					{
+						bA = bank.getBankAccounts().get(i);
+						break;
+					}
+				}
+				if(i == bank.getBankAccounts().size())
+				{
+					textParseError("Could not find account", "Please enter a valid account number");
+				}
+				else
+				{
+					new AccountGUI(bA, bank, true);
+				}
+		
 		}
 	}	
 	private final class EditPersonalInfo implements ActionListener {
@@ -161,7 +191,7 @@ public class ManagerPageGUI {
 			
 		}
 	}
-	private final class SearchAccount implements ActionListener {
+/*	private final class SearchAccount implements ActionListener {
 		
 		private SearchAccount(){
 			
@@ -175,7 +205,7 @@ public class ManagerPageGUI {
 			//assign bankaccount to bA and uncomment following line
 			//new AccountGUI(bA, bank, true);
 		}
-	}
+	}*/
 	private final class PendingAccounts implements ActionListener {
 		
 		private PendingAccounts(){

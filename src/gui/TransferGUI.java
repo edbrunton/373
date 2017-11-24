@@ -18,6 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import Accounts.BankAccount;
+import Accounts.Transaction;
 import Hardware.Bank;
 import People.Customer;
 public class TransferGUI {
@@ -90,7 +91,7 @@ public class TransferGUI {
 		public void actionPerformed(ActionEvent e)
 		{
 			
-			double amountUsable;
+			double amountUsable = -1;
 			boolean validInput = true;
 			try {
 				String amount = c0.getText().replace("$", "");
@@ -106,7 +107,7 @@ public class TransferGUI {
 				textParseError("Invalid Amount", "Please enter an amount greater than $0.00");
 			}
 			int accountNum;
-			
+			int i =-10;
 			try {
 				String accountNumberInput = c1.getText();
 				if(adminaccess && 
@@ -116,7 +117,8 @@ public class TransferGUI {
 					accountNum = 0;
 				}
 				accountNum = Integer.parseInt(accountNumberInput);
-				int i = 0;
+				
+				
 				for(i=0; i<bank.getBankAccounts().size(); i++)
 				{
 					if(bank.getBankAccounts().get(i).getAccountNumber() == accountNum)
@@ -134,9 +136,18 @@ public class TransferGUI {
 				textParseError("Invalid Account Number", "Please enter a valid account number");
 			}
 			if(validInput) {
-				//accountNum is Account number
-				//amountUsable is Amount
-				//TODO Ryan; transfer amount
+				if(destinationAccount == null)
+				{
+					destinationAccount = bank.getBankAccounts().get(i);
+				}
+				else
+				{
+					originAccount = bank.getBankAccounts().get(i);
+				}
+				destinationAccount.setBalance(amountUsable+destinationAccount.getBalance());   
+				originAccount.setBalance(originAccount.getBalance()-amountUsable);
+				destinationAccount.getTransactions().add(new Transaction(amountUsable, "Moved $" + amountUsable + " from account " + originAccount.getAccountNumber()));
+				originAccount.getTransactions().add(new Transaction(0-amountUsable, "Moved $" + amountUsable + " to account " + destinationAccount.getAccountNumber()));
 			}
 		}
 	}

@@ -28,6 +28,7 @@ public class Bank  implements Serializable{
 	private int currentAccountNum;
 	private int currentCustomerNum;
 	private int currentEmployeeNum;
+	private BankPolicy bankPolicy;
 	//Constructors
 	public Bank() {
 		address = "Default";
@@ -47,6 +48,7 @@ public class Bank  implements Serializable{
 		currentAccountNum = 1;
 		currentCustomerNum = 1;
 		currentEmployeeNum =1;
+		setBankPolicy(new BankPolicy(0.00001, 100, 0.2599, 0.0599));
 	}
 	//this constructor is going to cause serious issues. Employeees, customers and accounts need to be added one by one
 	/*public Bank(String a, int rN, ArrayList<Employee> eS, ArrayList<Customer> cS, ArrayList<BankAccount> bS, ArrayList<Mortgage> mS, double mR, double mP, BankAccount money) {
@@ -154,6 +156,18 @@ public class Bank  implements Serializable{
 	public int getCurrentEmployeeNum() {
 		currentEmployeeNum -= 1;
 		return currentEmployeeNum-1;
+	}
+
+
+
+	public BankPolicy getBankPolicy() {
+		return bankPolicy;
+	}
+
+
+
+	public void setBankPolicy(BankPolicy bankPolicy) {
+		this.bankPolicy = bankPolicy;
 	}
 	
 	

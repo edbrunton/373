@@ -8,7 +8,6 @@ public class SavingsAccount extends BankAccount  implements Serializable{
 
 	//Fields
 	private double interestRate;
-	private double balance;
 	private double minBalance;
 	
 	//Constructors

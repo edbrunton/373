@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class MonthlyButton implements Serializable{
 	//Fields
 	private Date date;
-	
+	//tbh, this was a very poorly made class
 	//Constructor
 	public MonthlyButton() {
 		date = new Date();	

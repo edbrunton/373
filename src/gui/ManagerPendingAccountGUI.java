@@ -20,6 +20,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import Accounts.BankAccount;
+import Accounts.CheckingAccount;
+import Accounts.CreditCard;
+import Accounts.Mortgage;
+import Accounts.SavingsAccount;
 import Hardware.Bank;
 import People.Customer;
 import People.Employee;
@@ -196,6 +200,27 @@ public class ManagerPendingAccountGUI {
 			JLabel b6 = new JLabel("     ");
 			JLabel b7 = new JLabel("     ");
 			JLabel dName = new JLabel("Account Info: ");
+			String accountInfo ="";
+			if(bA instanceof CheckingAccount)
+			{
+				accountInfo += "Checking Account";
+			}
+			else if(bA instanceof SavingsAccount)
+			{
+				accountInfo += "Savings Account";
+			}
+			else if(bA instanceof CreditCard)
+			{
+				accountInfo += "Credit Card";
+			}
+			else if(bA instanceof Mortgage)
+			{
+				accountInfo += "Mortgage";
+			}
+			else
+			{
+				accountInfo += "Master Account";
+			}
 			JLabel dTF = new JLabel("Account Info Summery"); //TODO Ryan. Need method to get pending account's info in a single line
 			JLabel b8 = new JLabel("     ");
 			JLabel b9 = new JLabel("     ");

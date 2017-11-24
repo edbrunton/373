@@ -58,7 +58,6 @@ public class ClientPageGUI {
 				System.out.println("User has the account");
 				System.out.println(account);
 				new AccountGUI(bA, bank, false);
-				//TODO Edward launch account page
 			}
 		}
 	}
