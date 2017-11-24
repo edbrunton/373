@@ -6,7 +6,7 @@ import People.Customer;
 public class ManagerClientAccountGUI {
 
 	public ManagerClientAccountGUI(Customer customer, Bank myBank) {
-		// TODO Auto-generated constructor stub
+		//Not used, delete at some point?
 	}
 
 }

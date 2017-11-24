@@ -199,7 +199,7 @@ public class AccountGUI {
 				}
 				else if(bankaccount instanceof CreditCard)
 				{
-			//		bankaccount.getOwner().setCreditCard(null);//TODO Ryan. Make the setter and uncomment
+					bankaccount.getOwner().setCreditCard(null);
 				}
 				else if(bankaccount instanceof Mortgage)
 				{
@@ -212,9 +212,8 @@ public class AccountGUI {
 				//deletes person if they bno longer have accounts
 				if (bankaccount.getOwner().getMortgage() == null &&
 					bankaccount.getOwner().getCheckingAccount() == null &&
-					bankaccount.getOwner().getSavingsAccount() == null //&&
-					//bankaccount.getOwner().getCreditCard() == null//TODO Ryan. need this getter please; uncomment when done
-				)
+					bankaccount.getOwner().getSavingsAccount() == null &&
+					bankaccount.getOwner().getCreditCard() == null)
 				{
 					bank.getCustomers().remove(bankaccount.getOwner());
 				}

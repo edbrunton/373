@@ -26,6 +26,8 @@ public class Bank  implements Serializable{
 	private ArrayList<Person> pendingPeople;
 	private ArrayList<Person> suspendedAccounts;
 	private int currentAccountNum;
+	private int currentCustomerNum;
+	private int currentEmployeeNum;
 	//Constructors
 	public Bank() {
 		address = "Default";
@@ -43,8 +45,11 @@ public class Bank  implements Serializable{
 		banksBankAccount = new BankAccount(this);//if problems, look here
 		banksBankAccount.setVisible(true);
 		currentAccountNum = 1;
+		currentCustomerNum = 1;
+		currentEmployeeNum =1;
 	}
-	public Bank(String a, int rN, ArrayList<Employee> eS, ArrayList<Customer> cS, ArrayList<BankAccount> bS, ArrayList<Mortgage> mS, double mR, double mP, BankAccount money) {
+	//this constructor is going to cause serious issues. Employeees, customers and accounts need to be added one by one
+	/*public Bank(String a, int rN, ArrayList<Employee> eS, ArrayList<Customer> cS, ArrayList<BankAccount> bS, ArrayList<Mortgage> mS, double mR, double mP, BankAccount money) {
 		address = a;
 		routingNumber = rN;
 		employees = eS;
@@ -54,7 +59,7 @@ public class Bank  implements Serializable{
 		monthlyRevenue = mR;
 		monthlyProfit = mP;
 		banksBankAccount = money;
-	}
+	}*/
 	
 	
 	
@@ -142,11 +147,14 @@ public class Bank  implements Serializable{
 		currentAccountNum +=1;
 		return currentAccountNum-1;
 	}
-	
-	
-	
-	
-	
+	public int getCurrentCustomerNum() {
+		currentCustomerNum += 1;
+		return currentCustomerNum-1;
+	}
+	public int getCurrentEmployeeNum() {
+		currentEmployeeNum -= 1;
+		return currentEmployeeNum-1;
+	}
 	
 	
 }

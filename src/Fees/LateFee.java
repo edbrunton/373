@@ -13,20 +13,15 @@ public class LateFee extends Fee  implements Serializable{
 		this.setAmount(0);
 		
 	}
-	
-
 	public LateFee(Date feeDate, double amnt) {
 		super.setDate(feeDate);
 		this.setAmount(amnt);
 		
 	}
-
 	public double getAmount() {
 		
-		return amount;
-		
+		return amount;	
 	}
-
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}

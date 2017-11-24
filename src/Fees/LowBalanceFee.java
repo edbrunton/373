@@ -11,13 +11,10 @@ public LowBalanceFee() {
 	super.setDate(new Date());
 	this.setAmount(0);
 }
-
 public LowBalanceFee(Date feeDate, double amnt) {
 	super.setDate(feeDate);
 	this.setAmount(amnt);
 }
-
-
 public double getAmount() {
 	return Amount;
 }

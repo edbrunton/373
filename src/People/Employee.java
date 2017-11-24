@@ -2,6 +2,7 @@ package People;
 
 import java.io.Serializable;
 
+import Hardware.Bank;
 import Hardware.Date;
 import Hardware.Record;
 import Hardware.UserLogin;
@@ -13,25 +14,20 @@ public class Employee extends Person  implements Serializable{
 	private Record paperWork;
 	
 	//Constructors
-	public Employee() {
+	//cause serious issues. Employee number needs to be assigned based on bank upon creation
+	/*public Employee() {
 		employeeNumber = -1;
 		paperWork = new Record();
 	}
 	public Employee(int eN) {
 		employeeNumber = eN;
 		paperWork = new Record();
-	}
-	public Employee(String firstName, String lastName, String SS, String add, int zC, Date bD, long pN,
-			int eN, UserLogin login) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.socialSecurityNumber = SS;
-		this.address = add;
-		this.zipCode = zC;
-		this.birthday = bD;
-		this.phoneNumber = pN;
-		this.login = login;
-		employeeNumber = eN;
+	}*/
+	public Employee(Bank holdingBank, String firstName, String lastName, String SS, String address, int zipcode, 
+			Date birthday, long phoneNum, UserLogin userLogin) {
+		super(holdingBank, firstName, lastName, SS, 
+				address, zipcode, birthday, phoneNum, userLogin);
+		employeeNumber = holdingBank.getCurrentEmployeeNum();
 		paperWork = new Record();
 	}
 	

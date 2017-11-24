@@ -36,7 +36,7 @@ public class Mortgage extends BankAccount  implements Serializable{
 		setTerm(30);
 		paymentAccount = cA;
 		month = 1;
-		setMonthlyPayment();//TODO Ryan. Needs to be calculated, not just set -- Took out, to calculate
+		setMonthlyPayment();
 		cA.setDirectDeposit(monthlyPayment); //Direct deposit to be set for monthly payment
 
 	}

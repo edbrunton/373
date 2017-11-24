@@ -250,21 +250,17 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 				if(bank.getEmployees().size() == 0 && accountType.compareTo("Manager") == 0)
 				{
 					
-					bank.getEmployees().add(new Employee(firstName, lastName, 
-							SS, address, zipcode, 
-							temp	, phoneNum, 1, new UserLogin(email, password)));
+					bank.getEmployees().add(new Employee(bank, firstName, lastName, 
+							SS, address, zipcode, temp	, phoneNum, new UserLogin(email, password)));//first employee
 				}
 				else if(accountType.compareTo("Manager") == 0) {
-					bank.getPendingPeople().add(new Employee(firstName, lastName, 
-							SS, address, zipcode, 
-							temp	, phoneNum, bank.getEmployees().size()+1, 
-							new UserLogin(email, password)));
+					bank.getPendingPeople().add(new Employee(bank, firstName, lastName, 
+							SS, address, zipcode, temp	, phoneNum, new UserLogin(email, password)));
 				}
 				else
 				{
-					Customer c = new Customer(firstName, lastName, 
-							SS, address, zipcode, 
-							temp	, phoneNum, 
+					Customer c = new Customer(bank, firstName, lastName, 
+							SS, address, zipcode, temp	, phoneNum, 
 							new UserLogin(email, password));
 					if(accountType.compareTo("Savings") == 0)
 					{

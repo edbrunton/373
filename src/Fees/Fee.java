@@ -25,6 +25,6 @@ public abstract class  Fee implements Serializable {
 	}
 	
 	public void addToMonthlyStatement() {
-		//TODO
+		//TODO Ryan
 	}
 }

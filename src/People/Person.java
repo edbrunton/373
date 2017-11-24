@@ -2,6 +2,7 @@ package People;
 
 import java.io.Serializable;
 
+import Hardware.Bank;
 import Hardware.Date;
 import Hardware.UserLogin;
 
@@ -15,6 +16,7 @@ protected int zipCode;
 protected Date birthday;
 protected long phoneNumber;
 protected UserLogin login;
+protected Bank holdingBank;
 public Date getBirthday() {
 	return birthday;
 }
@@ -28,7 +30,8 @@ public void setLogin(UserLogin login) {
 	this.login = login;
 }
 //Constructors
-public Person() {
+//Probably will cause serious issues
+/*public Person() {
 	firstName = "Default";
 	lastName = "Default";
 	socialSecurityNumber = "null";
@@ -36,8 +39,8 @@ public Person() {
 	zipCode = -1;
 	birthday = new Date();
 	phoneNumber = -1;
-}
-public Person(String firstName, String lastName, String SS, String add, int zC, Date bD, long pN) {
+}*/
+public Person(Bank holdingBank, String firstName, String lastName, String SS, String add, int zC, Date bD, long pN, UserLogin userLogin) {
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.socialSecurityNumber = SS;
@@ -45,6 +48,8 @@ public Person(String firstName, String lastName, String SS, String add, int zC, 
 	this.zipCode = zC;
 	this.birthday = bD;
 	this.phoneNumber = pN;
+	this.holdingBank = holdingBank;
+	this.login = userLogin;
 }
 
 

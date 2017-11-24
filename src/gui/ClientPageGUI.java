@@ -107,7 +107,7 @@ public class ClientPageGUI {
 		JButton b7 = new JButton("Open New Account");
 		b7.addActionListener(new OpenNewAccount(bank, customer));
 		JButton b1 = new JButton("Credit Card");
-	//	b1.addActionListener(new LoadAccount(customer.getCreditCard(), "Credit Card")); //TODO Ryan uncomment when credit card getter made
+		b1.addActionListener(new LoadAccount(customer.getCreditCard(), "Credit Card"));
 		addAt(a0, 0, 0);
 		addAt(d0, 0, 3);
 		addAt(e0, 0, 1);
