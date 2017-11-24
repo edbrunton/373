@@ -9,7 +9,7 @@ import People.Customer;
 public class BankAccount  implements Serializable {
 
 	//Fields
-	protected double accountNumber;
+	protected int accountNumber;
 	protected ArrayList<MonthlyStatement> monthlyStatements;
 	protected ArrayList<Transaction> transactions;
 	protected Customer owner;
@@ -26,10 +26,10 @@ public class BankAccount  implements Serializable {
 	public void addMonthlyStatement(MonthlyStatement mS){
 		monthlyStatements.add(mS);
 	}
-	public double getAccountNumber() {
+	public int getAccountNumber() {
 		return accountNumber;
 	}
-	public void setAccountNumber(double accountNumber) {
+	public void setAccountNumber(int accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 	public ArrayList<MonthlyStatement> getMonthlyStatements() {

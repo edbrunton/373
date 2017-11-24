@@ -72,8 +72,8 @@ public class AccountGUI {
 		JLabel d0 = new JLabel("     ");
 		JLabel f0 = new JLabel("     ");
 		JLabel b0 = new JLabel("Transactions: ");
-		JButton e0 = new JButton("Make Transfer");
-		e0.addActionListener(new Transfer());
+		JButton e0 = new JButton("Transfer to this account");
+		e0.addActionListener(new Transfer(true));
 		JButton e1 = new JButton("View Statement");
 		e1.addActionListener(new ViewStatment());
 		JButton e2 = new JButton("Edit Personal Info");//only for manager, check that
@@ -86,8 +86,8 @@ public class AccountGUI {
 	//	b7.addActionListener(new OpenAccount());
 		//JButton b1 = new JButton("Search");
 	//	b1.addActionListener(new SearchAccount());
-		//JButton monthylButton = new JButton("Monthly Button");
-		//monthylButton.addActionListener(new AdvanceMonth());
+		JButton monthylButton = new JButton("Transfer from this account");
+		monthylButton.addActionListener(new Transfer(false));
 		listModel = new DefaultListModel<String>();
 		list = new JList<String>(listModel);
 		JScrollPane scroll = new JScrollPane(list);
@@ -105,7 +105,10 @@ public class AccountGUI {
 		addAt(f0, 0, 5);
 		//addAt(b1, 1, 2, 2);
 		addAt(e1, 2, 4);
-		//addAt(monthylButton, 3, 4);
+		if(!(account instanceof Mortgage || account instanceof CreditCard))
+		{
+			addAt(monthylButton, 3, 4);
+		}
 		addAt(e2, 5, 4);
 		addAt(e3, 6, 4);
 	//	addAt(b7, 7, 1);
@@ -114,13 +117,14 @@ public class AccountGUI {
 		frame.setVisible(true);
 	}
 	private final class Transfer implements ActionListener {
-		
-		private Transfer(){
+		private boolean isTransferTo;
+		private Transfer(boolean isTransferTo){
+			this.isTransferTo = isTransferTo;
 		}
 
 		public void actionPerformed(ActionEvent e)
 		{
-			new TransferGUI();
+			new TransferGUI(bank, bankaccount, isTransferTo, adminaccess);
 		}
 	}
 	private final class ViewStatment implements ActionListener {

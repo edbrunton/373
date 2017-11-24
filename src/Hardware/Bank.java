@@ -25,7 +25,7 @@ public class Bank  implements Serializable{
 	private ArrayList<BankAccount> pendingAccounts;
 	private ArrayList<Person> pendingPeople;
 	private ArrayList<Person> suspendedAccounts;
-	private double currentAccountNum;
+	private int currentAccountNum;
 	//Constructors
 	public Bank() {
 		address = "Default";
@@ -138,7 +138,7 @@ public class Bank  implements Serializable{
 	public void setSuspendedAccounts(ArrayList<Person> suspendedAccounts) {
 		this.suspendedAccounts = suspendedAccounts;
 	}
-	public double getCurrentAccountNum() {
+	public int getCurrentAccountNum() {
 		currentAccountNum +=1;
 		return currentAccountNum-1;
 	}
