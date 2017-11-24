@@ -2,7 +2,7 @@ package Hardware;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+//We can probably delete this class; seems useless
 public class Record  implements Serializable{
 //Fields
 private ArrayList<String> discrepencies;

@@ -311,9 +311,9 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 					}
 					if(accountType.compareTo("Mortgage") == 0)
 					{
-						CheckingAccount CA =new CheckingAccount(bank, 0.0, 0.0);
+						CheckingAccount CA =new CheckingAccount(bank, 0.0, 0.0);//TODO Ryan figure out to do your direct deposit thing
 						CA.setVisible(true);
-						Mortgage M = new Mortgage(bank, loanAmount, loanAmount,bank.getBankPolicy().getMortgageInterestRate(), CA);//TODO Ryan figure out to do your direct deposit thing
+						Mortgage M = new Mortgage(bank, loanAmount, loanAmount,bank.getBankPolicy().getMortgageInterestRate(), CA);
 						M.setVisible(true);
 						c.setMortgage(M);
 					}

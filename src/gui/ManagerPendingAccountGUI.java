@@ -203,25 +203,29 @@ public class ManagerPendingAccountGUI {
 			String accountInfo ="";
 			if(bA instanceof CheckingAccount)
 			{
-				accountInfo += "Checking Account";
+				CheckingAccount tempCheckingAccount = (CheckingAccount)bA;
+				accountInfo += "Checking Account" + tempCheckingAccount.getAccountNumber() + " with deposit $" + tempCheckingAccount.getBalance();
 			}
 			else if(bA instanceof SavingsAccount)
 			{
-				accountInfo += "Savings Account";
+				SavingsAccount tempSavAccount = (SavingsAccount)bA;
+				accountInfo += "Savings Account " + tempSavAccount.getAccountNumber() + " with deposit $" + tempSavAccount.getBalance();
 			}
 			else if(bA instanceof CreditCard)
 			{
-				accountInfo += "Credit Card";
+				CreditCard tempCreditCard = (CreditCard)bA;
+				accountInfo += "Credit Card " + tempCreditCard.getAccountNumber() + " with limit $" + tempCreditCard.getLimit();
 			}
 			else if(bA instanceof Mortgage)
 			{
-				accountInfo += "Mortgage";
+				Mortgage tempmortgage= (Mortgage)bA;
+				accountInfo += "Mortgage " +tempmortgage.getAccountNumber() + " with principle $" + tempmortgage.getPrincipal();
 			}
 			else
 			{
 				accountInfo += "Master Account";
 			}
-			JLabel dTF = new JLabel("Account Info Summery"); //TODO Ryan. Need method to get pending account's info in a single line
+			JLabel dTF = new JLabel(accountInfo);
 			JLabel b8 = new JLabel("     ");
 			JLabel b9 = new JLabel("     ");
 			JLabel b10 = new JLabel("     ");
@@ -312,7 +316,7 @@ public class ManagerPendingAccountGUI {
 			JLabel b6 = new JLabel("     ");
 			JLabel b7 = new JLabel("     ");
 			JLabel dName = new JLabel("Account Info: ");
-			JLabel dTF = new JLabel("Account Info Summery"); //TODO Ryan. Need method to get pending account's info in a single line
+			JLabel dTF = new JLabel("Account Info Summery");
 			JLabel b8 = new JLabel("     ");
 			JLabel b9 = new JLabel("     ");
 			JLabel b10 = new JLabel("     ");
