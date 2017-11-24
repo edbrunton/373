@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-//added this comment to push 
-=======
 
->>>>>>> ac9c67c68409a566fa7b84784de63e5b898b5866
 package Accounts;
 
 import java.io.Serializable;
@@ -19,7 +15,24 @@ public class MonthlyStatement  implements Serializable{
 	private BankAccount accnt;
 	
 	public MonthlyStatement() {
-		this.begBalance = 0;
+		if(this.accnt instanceof SavingsAccount) {
+			SavingsAccount sa = (SavingsAccount)this.accnt;
+	this.begBalance = sa.getBalance() -(sa.getBalance() * (sa.getInterestRate()/1200));
+		}
+		
+		if(this.accnt instanceof CheckingAccount) {
+			CheckingAccount ca = (CheckingAccount)this.accnt;
+			
+		
+		for(Transaction t : ca.getTransactions()) {
+			if(t.getType()== "Deposit") {
+			this.begBalance = this.begBalance - t.getAmmount();
+			}
+			if(t.getType()== "Direct Deposit") {
+				this.begBalance = this.begBalance - t.getAmmount();
+				}
+		}
+		}
 		this.endBalance = 0;
 		this.monthAndYear = "January 2018";
 		this.accnt = null;
@@ -37,7 +50,18 @@ public class MonthlyStatement  implements Serializable{
 		
 	}
 	public void addFee(Fee newFee) {// can it discern different fees?
-		this.fees.add(newFee);
+		if(newFee instanceof LateFee) {
+		    LateFee lf = (LateFee)newFee;
+			this.fees.add(lf);
+		}
+		if(newFee instanceof LowBalanceFee) {
+			LowBalanceFee lbf = (LowBalanceFee)newFee;
+			this.fees.add(lbf);
+		}
+		if(newFee instanceof TransferFee) {
+			TransferFee tf = (TransferFee)newFee;
+			this.fees.add(tf);
+		}
 	}
 	
 	public void setBegBalance(double begBal) {
@@ -87,7 +111,7 @@ public class MonthlyStatement  implements Serializable{
 			
 		}
 		System.out.print(sb);
-		sb.setLength(0);//Clears the StringBuilder to avoid printing unwanted stuff
+		sb.setLength(0);//Clears the StringBuilder to avoid printing unwanted stuffs
 
 	}
 	
@@ -161,10 +185,10 @@ public class MonthlyStatement  implements Serializable{
 		for(Transaction t : this.accnt.getTransactions()) {
 			sb.append(t+"\n");
 			}
-		if(this.accnt.type() == "SavingsAccount") {
-			
+		if(this.accnt instanceof SavingsAccount) {
+			SavingsAccount sa = (SavingsAccount)this.accnt;
 			sb.append("Interest gained for: "+monthAndYear+"\n");
-			sb.append(this.accnt.monthlyInterest());
+			sb.append(sa.getBalance() * (sa.getInterestRate()/1200));
 			}
 		
 	
