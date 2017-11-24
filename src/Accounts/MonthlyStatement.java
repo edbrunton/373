@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 //added this comment to see if it will add change to staging area
+=======
+
+>>>>>>> ac9c67c68409a566fa7b84784de63e5b898b5866
 package Accounts;
 
 import java.io.Serializable;
