@@ -28,7 +28,7 @@ public class EditPersonalInfoGUI {
 	private JTextField c1;
 	private JTextField c2;
 	private JTextField c3;
-	private JTextField c4;
+	private JTextField c4;//whitespace
 	private JTextField c5;
 	//private JPasswordField f3;
 	private JTextField f4;
