@@ -1,21 +1,5 @@
+
 package Accounts;
-
-import java.io.Serializable;
-
-public class MonthlyStatement  implements Serializable{
-	//stringbuilder 
-	//code a print String with transactions and fees
-	//if savings account show interest gained
-	//show beggining of month and end of month balance
-	// include month name and year
-	
-	
-	
-	
-	
-	
-}
-/*package Accounts;
 
 import java.io.Serializable;
 import java.util.*;
@@ -48,7 +32,7 @@ public class MonthlyStatement  implements Serializable{
 		this.accnt = accnt;
 		
 	}
-	public void addFee(Fee newFee) {
+	public void addFee(Fee newFee) {// can it discern different fees?
 		this.fees.add(newFee);
 	}
 	
@@ -104,10 +88,10 @@ public class MonthlyStatement  implements Serializable{
 	}
 	
 	public void printInterest() {
-		if(this.accnt.type() == "SavingsAccount") {
-			
+		if(this.accnt instanceof SavingsAccount ) {
+			SavingsAccount sa = (SavingsAccount)this.accnt;
 			sb.append("Interest gained for: "+monthAndYear+"\n");
-			sb.append(this.accnt.monthlyInterest());
+			sb.append(sa.getBalance() * (sa.getInterestRate()/1200));
 			System.out.print(sb);
 			sb.setLength(0); // Clears StringBuilder to avoid printing unwanted stuff
 			
@@ -116,16 +100,40 @@ public class MonthlyStatement  implements Serializable{
 		}
 	}
 	
-	public double calcEndBal() {
-		//double endBal = this.begBalance;
+	public double calcEndBal() {// subtract amounts or add? 
+		this.endBalance = this.begBalance;
         for(Transaction t :this.accnt.getTransactions()) {
-        	endBalance = endBalance + t.getAmmount();
+        	endBalance = endBalance - t.getAmmount();
         }
-        for(Fee f : this.fees) {
-        	endBalance = endBalance +f.getAmount();
+        	for(Fee f : this.fees) {
+        		if(f instanceof LateFee) {
+        			LateFee lf = (LateFee)f;
+        			endBalance = endBalance - lf.getAmount();
+        		}
+        		if(f instanceof LowBalanceFee) {
+        			LowBalanceFee lbf = (LowBalanceFee)f;
+        			endBalance = endBalance -lbf.getAmount();
+        		}
+        		if(f instanceof TransferFee) {
+        			TransferFee tf = (TransferFee)f;
+        			endBalance = endBalance -tf.getAmount();
+        		}
         }
-        if(this.accnt.type()=="SavingsAccount") {
-        	endBalance = endBalance +this.accnt.monthlyInterest();
+        if(this.accnt instanceof SavingsAccount) {
+        	SavingsAccount sa = (SavingsAccount)this.accnt;
+        	endBalance = endBalance +(sa.getBalance() * (sa.getInterestRate()/1200));
+        }
+        if(this.accnt instanceof CheckingAccount) { // add comment
+        	CheckingAccount ca = (CheckingAccount)this.accnt;
+        	for(Transaction t : ca.getTransactions()) {
+        		if(t.getType()=="Direct Deposit") {
+        			endBalance = endBalance +t.getAmmount() ;
+        		}
+        		if(t.getType()=="Deposit") {
+        			endBalance = endBalance +t.getAmmount();
+        			}
+        	}
+        		
         }
         return endBalance;
 	}	
@@ -170,4 +178,3 @@ public class MonthlyStatement  implements Serializable{
 	
 }
 }
-*/
