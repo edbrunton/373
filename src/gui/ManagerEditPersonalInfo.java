@@ -24,6 +24,7 @@ import Hardware.Date;
 import Hardware.UserLogin;
 import People.Customer;
 import People.Employee;
+import People.Person;
 
 public class ManagerEditPersonalInfo {
 	private JDialog frame;
@@ -39,10 +40,22 @@ public class ManagerEditPersonalInfo {
 	private JPasswordField f5;
 	private JTextField f6;
 	private Employee emp1;
+	private Customer cust1;
+	public ManagerEditPersonalInfo(Customer cust, Bank bank1)
+	{
+		bank = bank1;
+		cust1 =cust;
+		frame = new JDialog (new JFrame(), "Edit " + cust.getFirstName() + " " + cust.getLastName() + "'s Account Info");
+		buidGUI();
+	}
 	public ManagerEditPersonalInfo(Employee emp, Bank bank1) {
 		bank = bank1;
 		emp1 = emp;
-		frame = new JDialog (new JFrame(), "Edit Account Info");
+		frame = new JDialog (new JFrame(), "Edit " + emp.getFirstName() + " " + emp.getLastName() + "'s Account Info");
+		buidGUI();
+	}
+	public void buidGUI()
+	{
 		frame.setSize(500, 900);
 		inputs = frame.getContentPane();
 		inputs.setLayout (new GridBagLayout());
@@ -120,7 +133,7 @@ public class ManagerEditPersonalInfo {
 			{
 				valid =false;
 				String title = "Error First Name Not Valid";
-				String message ="Enter a valid first name, scum";
+				String message ="Enter a valid first name";
 				textParseError(title, message);
 			}
 			String lastName = c2.getText();
@@ -134,7 +147,7 @@ public class ManagerEditPersonalInfo {
 			{
 				valid = false;
 				String title = "Error Last Name Not Valid";
-				String message ="Enter a valid last name, scum";
+				String message ="Enter a valid last name";
 				textParseError(title, message);
 			}
 			String address = c3.getText();
@@ -149,7 +162,7 @@ public class ManagerEditPersonalInfo {
 			{
 				valid = false;
 				String title = "Error Address Not Valid";
-				String message ="Enter a valid address, scum";
+				String message ="Enter a valid address";
 				textParseError(title, message);
 			}
 			int zipcode = 0;
@@ -164,7 +177,7 @@ public class ManagerEditPersonalInfo {
 			{
 				valid = false;
 				String title = "Error Zipcode Not Valid";
-				String message ="Enter a valid zipcode, scum";
+				String message ="Enter a valid zipcode";
 				textParseError(title, message);
 			}
 			long phoneNum = 0;
@@ -181,7 +194,7 @@ public class ManagerEditPersonalInfo {
 			{
 				valid = false;
 				String title = "Error Phone Number Not Valid";
-				String message ="Enter a valid phone number, scum";
+				String message ="Enter a valid phone number";
 				textParseError(title, message);
 			}
 		//	String SSPreCheck = f3.getPassword().toString();
@@ -199,7 +212,16 @@ public class ManagerEditPersonalInfo {
 						if(bank.getCustomers().get(i).getLogin().getUsername().compareTo(email) == 0)
 						{
 							preExisting = true;
+							if(cust1 != null && cust1.getLogin().getUsername().compareTo(email) == 0)
+							{
+								//user is not changing email
+							}
+							else
+							{
 							throw new Exception("error");
+							}
+							
+							}
 						}
 					}
 					for(int i = 0; i < bank.getEmployees().size(); i++)
@@ -207,7 +229,7 @@ public class ManagerEditPersonalInfo {
 						if(bank.getEmployees().get(i).getLogin().getUsername().compareTo(email) == 0)
 						{
 							preExisting = true;
-							if(emp1.getLogin().getUsername().compareTo(email) == 0)
+							if(emp1 != null && emp1.getLogin().getUsername().compareTo(email) == 0)
 							{
 								//user is not changing email
 							}
@@ -218,12 +240,11 @@ public class ManagerEditPersonalInfo {
 							
 							}
 					}
-				}
 			}
 			catch(Exception p){
 				valid = false;
 				String title = "Error Email Address Not Valid";
-				String message ="Enter a valid Email Address number, scum";
+				String message ="Enter a valid Email Address number";
 				if(preExisting == true)
 				{
 					title = "Email already registered";
@@ -255,7 +276,7 @@ public class ManagerEditPersonalInfo {
 			catch(Exception p){
 				valid = false;
 				String title = "Error Social Security Number Not Valid";
-				String message = SS + "Enter a valid Social Security number, scum";
+				String message = SS + "Enter a valid Social Security number";
 				textParseError(title, message);
 			}
 			int[] dateParts = null;
@@ -278,21 +299,43 @@ public class ManagerEditPersonalInfo {
 			catch(Exception p){
 				valid = false;
 				String title = "Error Birthday Not Valid";
-				String message = "Enter a valid Birthday, scum";
+				String message = "Enter a valid Birthday";
 				textParseError(title, message);
 			}
 			if(valid == true)
 			{
-				Date temp = new Date(dateParts[0], dateParts[2], dateParts[1]);
-				emp1.setSocialSecurityNumber(SS);
-				emp1.setAddress(address);
-				emp1.setBirthday(temp);
-				emp1.setFirstName(firstName);
-				emp1.setLastName(lastName);
-				emp1.getLogin().setPassword(password);
-				emp1.getLogin().setUsername(email);
-				emp1.setZipCode(zipcode);
-				emp1.setPhoneNumber(phoneNum);
+				if(emp1 != null)
+				{
+					Employee changingPerson = emp1;
+					Date temp = new Date(dateParts[0], dateParts[2], dateParts[1]);
+					changingPerson.setSocialSecurityNumber(SS);
+					changingPerson.setAddress(address);
+					changingPerson.setBirthday(temp);
+					changingPerson.setFirstName(firstName);
+					changingPerson.setLastName(lastName);
+					changingPerson.getLogin().setPassword(password);
+					changingPerson.getLogin().setUsername(email);
+					changingPerson.setZipCode(zipcode);
+					changingPerson.setPhoneNumber(phoneNum);
+				}
+				else if(cust1 != null)
+				{
+					Customer changingPerson = cust1;
+					Date temp = new Date(dateParts[0], dateParts[2], dateParts[1]);
+					changingPerson.setSocialSecurityNumber(SS);
+					changingPerson.setAddress(address);
+					changingPerson.setBirthday(temp);
+					changingPerson.setFirstName(firstName);
+					changingPerson.setLastName(lastName);
+					changingPerson.getLogin().setPassword(password);
+					changingPerson.getLogin().setUsername(email);
+					changingPerson.setZipCode(zipcode);
+					changingPerson.setPhoneNumber(phoneNum);
+				}
+				else
+				{
+					System.out.println("Error: did not get a person");
+				}
 				frame.dispose();
 			}
 		}

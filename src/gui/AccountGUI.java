@@ -34,11 +34,13 @@ public class AccountGUI {
 	private JDialog frame;
 	private DefaultListModel<String> listModel;
 	private JList<String> list;
-	private JDialog frameTemp; 
-	public AccountGUI(BankAccount account, Bank bank)
+	private JDialog frameTemp;
+	private boolean adminaccess;
+	public AccountGUI(BankAccount account, Bank bank, boolean adminaccess)
 	{
 		this.setBank(bank);
 		this.setBankaccount(account);
+		this.adminaccess = adminaccess;
 		System.out.println("Bank and Client info loaded");
 		String windowTitle = account.getOwner().getFirstName() + " " + account.getOwner().getLastName() + "'s ";
 		//for Bank's account, getOwner may throw an error. Needs to be resolved at some point
@@ -84,13 +86,13 @@ public class AccountGUI {
 	//	b7.addActionListener(new OpenAccount());
 		//JButton b1 = new JButton("Search");
 	//	b1.addActionListener(new SearchAccount());
-		JButton monthylButton = new JButton("Monthly Button");
-		monthylButton.addActionListener(new AdvanceMonth());
+		//JButton monthylButton = new JButton("Monthly Button");
+		//monthylButton.addActionListener(new AdvanceMonth());
 		listModel = new DefaultListModel<String>();
 		list = new JList<String>(listModel);
 		JScrollPane scroll = new JScrollPane(list);
 		addAt(scroll, 2, 1, 4, 2);
-		c0 = new JTextField(10);
+		//c0 = new JTextField(10);
 		listModel.addElement("new");//example of how to have a search element
 	//	System.out.println("Removing trial element");
 		listModel.remove(0);
@@ -103,7 +105,7 @@ public class AccountGUI {
 		addAt(f0, 0, 5);
 		//addAt(b1, 1, 2, 2);
 		addAt(e1, 2, 4);
-		addAt(monthylButton, 3, 4);
+		//addAt(monthylButton, 3, 4);
 		addAt(e2, 5, 4);
 		addAt(e3, 6, 4);
 	//	addAt(b7, 7, 1);
@@ -138,7 +140,14 @@ public class AccountGUI {
 
 		public void actionPerformed(ActionEvent e)
 		{
-			new ManagerEditPersonalInfo(employee, bank);
+			if(adminaccess)
+			{
+				new ManagerEditPersonalInfo(bankaccount.getOwner(), bank);
+			}
+			else
+			{
+				new EditPersonalInfoGUI(bankaccount.getOwner(), bank);
+			}
 		}
 	}	
 	private final class DeleteAccount implements ActionListener {
@@ -173,9 +182,45 @@ public class AccountGUI {
 
 		public void actionPerformed(ActionEvent e)
 		{
-			bank.getEmployees().remove(employee);//TODO modify to customer
-			frameTemp.dispose();
-			frame.dispose();
+			if(adminaccess)
+			{
+				bank.getBankAccounts().remove(bankaccount);
+				if(bankaccount instanceof CheckingAccount)
+				{
+					bankaccount.getOwner().setCheckingAccount(null);
+				}
+				else if(bankaccount instanceof SavingsAccount)
+				{
+					bankaccount.getOwner().setSavingsAccount(null);
+				}
+				else if(bankaccount instanceof CreditCard)
+				{
+			//		bankaccount.getOwner().setCreditCard(null);//TODO Ryan. Make the setter and uncomment
+				}
+				else if(bankaccount instanceof Mortgage)
+				{
+					bankaccount.getOwner().setMortgage(null);
+				}
+				else
+				{
+					System.out.println("Surely an error, cannot delete bank");
+				}
+				//deletes person if they bno longer have accounts
+				if (bankaccount.getOwner().getMortgage() == null &&
+					bankaccount.getOwner().getCheckingAccount() == null &&
+					bankaccount.getOwner().getSavingsAccount() == null //&&
+					//bankaccount.getOwner().getCreditCard() == null//TODO Ryan. need this getter please; uncomment when done
+				)
+				{
+					bank.getCustomers().remove(bankaccount.getOwner());
+				}
+				frameTemp.dispose();
+				frame.dispose();
+			}
+			else
+			{
+				textParseError("Permission Denied", "Please contact a banker to do this action");
+			}
 		}
 	}
 	private void addAt(JScrollPane scroll, int row, int column, int rowSpan, int colSpan) {
