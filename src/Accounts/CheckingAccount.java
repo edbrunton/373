@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import Hardware.Bank;
+import MonthlyStatement.CheckingAccountMonthlyStatement;
 import Hardware.*;
 public class CheckingAccount extends BankAccount  implements Serializable{
 

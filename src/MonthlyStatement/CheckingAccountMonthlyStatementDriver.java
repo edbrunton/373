@@ -1,6 +1,7 @@
-package Accounts;
+package MonthlyStatement;
 
 
+import Accounts.CheckingAccount;
 import Hardware.Bank;
 import Hardware.Date;
 import Hardware.Fee;
@@ -28,3 +29,4 @@ public class CheckingAccountMonthlyStatementDriver {
     m1.printMonthlyStatement();
 	}
 }
+

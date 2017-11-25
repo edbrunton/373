@@ -1,4 +1,4 @@
-package Accounts;
+package MonthlyStatement;
 
 public class MortgageMonthlyStatement {
 

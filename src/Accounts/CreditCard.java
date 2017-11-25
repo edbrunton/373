@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import Hardware.Bank;
 import Hardware.Fee;
 import Hardware.Transaction;
+import MonthlyStatement.CreditCardMonthlyStatement;
 
 public class CreditCard extends BankAccount  implements Serializable{
 
@@ -18,6 +19,7 @@ public class CreditCard extends BankAccount  implements Serializable{
 	//Constructors
 	public CreditCard(Bank bank) {
 		super(bank);
+		minMonthlyPayment = 15;
 		interestRate = 0;
 		balance = 0;
 		limit = 0;
@@ -28,6 +30,8 @@ public class CreditCard extends BankAccount  implements Serializable{
 		interestRate = iR;
 		balance = b;
 		limit = l;
+		minMonthlyPayment = (balance*interestRate) + (0.01*balance);;
+		
 		C1 = CA;
 	}	
 	//Methods
@@ -71,11 +75,15 @@ public class CreditCard extends BankAccount  implements Serializable{
 		this.balance = this.balance + newFee.getAmount();
 	}
 	public void monthlyPayment() {// we should allow for more than min payment.
-		minMonthlyPayment = (balance*interestRate) + (0.01*balance);
+		//minMonthlyPayment = (balance*interestRate) + (0.01*balance);
+		if(minMonthlyPayment >= balance) {
+			minMonthlyPayment = balance;
+		}
 		balance = balance - minMonthlyPayment;
 		C1.withdraw(minMonthlyPayment);
 		super.holdingBank.getBanksBankAccount().setBalance(super.holdingBank.getBanksBankAccount().getBalance() + minMonthlyPayment);
-
+		Transaction t2 = new Transaction(minMonthlyPayment, "Payment");// added transaction
+		this.transactions.add(t2);                                      // of Payment type
 	}
 	
 	
