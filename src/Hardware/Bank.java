@@ -11,7 +11,7 @@ import People.Person;
 
 public class Bank  implements Serializable{
 	
-	//Fields
+	//Fields Ryan Raettig
 	private String address;
 	private int routingNumber;
 	private ArrayList<Employee> employees;
@@ -148,6 +148,10 @@ public class Bank  implements Serializable{
 	public int getCurrentAccountNum() {
 		currentAccountNum +=1;
 		return currentAccountNum-1;
+	}
+	public void setCurrentAccountNum(int newAccountNumber) {
+		this.currentAccountNum = newAccountNumber;
+		
 	}
 	public int getCurrentCustomerNum() {
 		currentCustomerNum += 1;

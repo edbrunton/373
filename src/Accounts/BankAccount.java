@@ -20,9 +20,11 @@ import Hardware.*
 	public BankAccount(Bank bank) {
 		holdingBank = bank;
 		accountNumber = holdingBank.getCurrentAccountNum();
+		holdingBank.setCurrentAccountNum(accountNumber + 1);
 		monthlyStatements = new ArrayList<CheckingAccountMonthlyStatement>();
 		transactions = new ArrayList<Transaction>();
 		setVisible(false);
+		bank.getBankAccounts().add(this);
 	}	
 	public void addMonthlyStatement(CheckingAccountMonthlyStatement mS){
 		monthlyStatements.add(mS);
