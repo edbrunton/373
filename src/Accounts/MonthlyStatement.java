@@ -1,4 +1,4 @@
-//comment to chss
+
 package Accounts;
 
 import java.io.Serializable;
@@ -15,13 +15,25 @@ public class MonthlyStatement  implements Serializable{
 	private BankAccount accnt;
 	
 	public MonthlyStatement() {
-		if(this.accnt instanceof SavingsAccount) {
-			SavingsAccount sa = (SavingsAccount)this.accnt;
+		this.begBalance = 0;
+		this.endBalance = 0;
+		this.monthAndYear = "January 2018";
+		this.accnt = null;
+		this.setFees(null);
+		this.sb = null;
+		
+	}
+	public MonthlyStatement(String monthAndYear, BankAccount accnt) {
+		this.sb = null;
+		this.fees = null;
+		this.begBalance = accnt.getBalance();
+		if(accnt instanceof SavingsAccount) {
+			SavingsAccount sa = (SavingsAccount)accnt;
 	this.begBalance = sa.getBalance() -(sa.getBalance() * (sa.getInterestRate()/1200));
 		}
 		
-		if(this.accnt instanceof CheckingAccount) {
-			CheckingAccount ca = (CheckingAccount)this.accnt;
+		if(accnt instanceof CheckingAccount) {
+			CheckingAccount ca = (CheckingAccount)accnt;
 			
 		
 		for(Transaction t : ca.getTransactions()) {
@@ -31,23 +43,30 @@ public class MonthlyStatement  implements Serializable{
 			if(t.getType()== "Direct Deposit") {
 				this.begBalance = this.begBalance - t.getAmmount();
 				}
+			if(t.getType() == "withdraw") {
+				this.begBalance = this.begBalance + t.getAmmount();
+			}
 		}
 		}
-		this.endBalance = 0;
-		this.monthAndYear = "January 2018";
-		this.accnt = null;
-		this.setFees(null);
-		this.sb = null;
 		
-	}
-	public MonthlyStatement(StringBuilder sb, ArrayList<Fee> fees, double begBalance, double endBalance, String monthAndYear, BankAccount accnt) {
-		this.sb = sb;
-		this.fees = fees;
-		this.begBalance = begBalance;
-		this.endBalance = endBalance;
 		this.monthAndYear = monthAndYear;
-		this.accnt = accnt;
-		
+		if(accnt instanceof CheckingAccount) {
+		CheckingAccount ca = (CheckingAccount)accnt;
+		this.accnt = ca;
+		}
+		if(accnt instanceof CreditCard) {
+			CreditCard cc = (CreditCard)accnt;
+			this.accnt = cc;
+			}
+		if(accnt instanceof Mortgage) {
+			Mortgage m = (Mortgage)accnt;
+			this.accnt = m;
+			}
+		if(accnt instanceof SavingsAccount) {
+			SavingsAccount ca = (SavingsAccount)accnt;
+			this.accnt = ca;
+			}
+		this.endBalance = 0;
 	}
 	public void addFee(Fee newFee) {// can it discern different fees?
 		if(newFee instanceof LateFee) {
@@ -129,7 +148,7 @@ public class MonthlyStatement  implements Serializable{
 	}
 	
 	public double calcEndBal() {// subtract amounts or add? 
-		this.endBalance = this.begBalance;
+		endBalance = this.begBalance;
         for(Transaction t :this.accnt.getTransactions()) {
         	endBalance = endBalance - t.getAmmount();
         }
@@ -160,6 +179,9 @@ public class MonthlyStatement  implements Serializable{
         		if(t.getType()=="Deposit") {
         			endBalance = endBalance +t.getAmmount();
         			}
+        		if(t.getType() == "withdraw") {
+    				endBalance = endBalance - t.getAmmount();
+    			}
         	}
         		
         }
