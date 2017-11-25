@@ -18,8 +18,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import Accounts.BankAccount;
-import Accounts.Transaction;
 import Hardware.Bank;
+import Hardware.Transaction;
 import People.Customer;
 public class TransferGUI {
 	private Container inputs;

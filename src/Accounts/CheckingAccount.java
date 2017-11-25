@@ -3,7 +3,7 @@ package Accounts;
 import java.io.Serializable;
 
 import Hardware.Bank;
-
+import Hardware.*;
 public class CheckingAccount extends BankAccount  implements Serializable{
 
 	//Fields

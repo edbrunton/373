@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 import Hardware.Bank;
 import People.Customer;
-
-public class BankAccount  implements Serializable {
+import Hardware.*
+;public class BankAccount  implements Serializable {
 
 	//Fields
 	protected int accountNumber;
-	protected ArrayList<MonthlyStatement> monthlyStatements;
+	protected ArrayList<CheckingAccountMonthlyStatement> monthlyStatements;
 	protected ArrayList<Transaction> transactions;
 	protected Customer owner;
 	protected boolean visible; //needs to be false until valid
@@ -20,11 +20,11 @@ public class BankAccount  implements Serializable {
 	public BankAccount(Bank bank) {
 		holdingBank = bank;
 		accountNumber = holdingBank.getCurrentAccountNum();
-		monthlyStatements = new ArrayList<MonthlyStatement>();
+		monthlyStatements = new ArrayList<CheckingAccountMonthlyStatement>();
 		transactions = new ArrayList<Transaction>();
 		setVisible(false);
 	}	
-	public void addMonthlyStatement(MonthlyStatement mS){
+	public void addMonthlyStatement(CheckingAccountMonthlyStatement mS){
 		monthlyStatements.add(mS);
 	}
 	public int getAccountNumber() {
@@ -33,10 +33,10 @@ public class BankAccount  implements Serializable {
 	public void setAccountNumber(int accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-	public ArrayList<MonthlyStatement> getMonthlyStatements() {
+	public ArrayList<CheckingAccountMonthlyStatement> getMonthlyStatements() {
 		return monthlyStatements;
 	}
-	public void setMonthlyStatements(ArrayList<MonthlyStatement> monthlyStatements) {
+	public void setMonthlyStatements(ArrayList<CheckingAccountMonthlyStatement> monthlyStatements) {
 		this.monthlyStatements = monthlyStatements;
 	}
 	public ArrayList<Transaction> getTransactions() {
