@@ -8,7 +8,7 @@ import Fees.*;
 import Hardware.*;
 public class MonthlyStatement  implements Serializable{
 
-	private StringBuilder sb = new StringBuilder();
+	private StringBuilder sb;
 	private ArrayList<Fee> fees;
 	private double begBalance, endBalance;
 	private String monthAndYear;
@@ -18,14 +18,14 @@ public class MonthlyStatement  implements Serializable{
 		this.begBalance = 0;
 		this.endBalance = 0;
 		this.monthAndYear = "January 2018";
-		this.accnt = null;
-		this.setFees(null);
-		this.sb = null;
+		Bank b1 = new Bank();
+		this.accnt = new BankAccount(b1);
+		this.fees = new ArrayList<Fee>();
+		this.sb = new StringBuilder();
 		
 	}
-	public MonthlyStatement(String monthAndYear, BankAccount accnt) {
-		this.sb = null;
-		this.fees = null;
+	
+	public double calcBegBal() {           //calculates beginning balance by negating transactions which have directly modified balance already(used in constructor)
 		this.begBalance = accnt.getBalance();
 		if(accnt instanceof SavingsAccount) {
 			SavingsAccount sa = (SavingsAccount)accnt;
@@ -43,30 +43,43 @@ public class MonthlyStatement  implements Serializable{
 			if(t.getType()== "Direct Deposit") {
 				this.begBalance = this.begBalance - t.getAmmount();
 				}
-			if(t.getType() == "withdraw") {
+			if(t.getType() == "Withdraw") {
 				this.begBalance = this.begBalance + t.getAmmount();
 			}
 		}
 		}
 		
-		this.monthAndYear = monthAndYear;
+		return this.begBalance;
+	}
+	
+	public void castAccountType(BankAccount accnt) { //determines the account type and sets the field accordingly(used in constructor). Possibly should be private?
 		if(accnt instanceof CheckingAccount) {
-		CheckingAccount ca = (CheckingAccount)accnt;
-		this.accnt = ca;
-		}
-		if(accnt instanceof CreditCard) {
-			CreditCard cc = (CreditCard)accnt;
-			this.accnt = cc;
-			}
-		if(accnt instanceof Mortgage) {
-			Mortgage m = (Mortgage)accnt;
-			this.accnt = m;
-			}
-		if(accnt instanceof SavingsAccount) {
-			SavingsAccount ca = (SavingsAccount)accnt;
+			CheckingAccount ca = (CheckingAccount)accnt;
 			this.accnt = ca;
 			}
-		this.endBalance = 0;
+			if(accnt instanceof CreditCard) {
+				CreditCard cc = (CreditCard)accnt;
+				this.accnt = cc;
+				}
+			if(accnt instanceof Mortgage) {
+				Mortgage m = (Mortgage)accnt;
+				this.accnt = m;
+				}
+			if(accnt instanceof SavingsAccount) {
+				SavingsAccount ca = (SavingsAccount)accnt;
+				this.accnt = ca;
+				}
+	}
+	public MonthlyStatement(String monthAndYear, BankAccount accnt) {
+		this.castAccountType(accnt);
+		this.sb = null;
+		this.fees = null;
+		this.begBalance=this.calcBegBal();
+		this.endBalance = accnt.getBalance();
+		this.monthAndYear = monthAndYear;
+		
+		 
+		
 	}
 	public void addFee(Fee newFee) {// can it discern different fees?
 		if(newFee instanceof LateFee) {
