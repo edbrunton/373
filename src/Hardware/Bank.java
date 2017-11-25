@@ -149,6 +149,10 @@ public class Bank  implements Serializable{
 		currentAccountNum +=1;
 		return currentAccountNum-1;
 	}
+	public void setCurrentAccountNum(int newAccountNumber) {
+		this.currentAccountNum = newAccountNumber;
+		
+	}
 	public int getCurrentCustomerNum() {
 		currentCustomerNum += 1;
 		return currentCustomerNum-1;
