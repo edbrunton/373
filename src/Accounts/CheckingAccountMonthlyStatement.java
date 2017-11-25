@@ -49,7 +49,7 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 		return this.monthAndYear;
 	}
 	
-	/* this is the no arg constructor. */
+	/* this function is the no arg constructor. */
 	public CheckingAccountMonthlyStatement() {  
 		this.begBalance = 0;
 		this.endBalance = 0;
