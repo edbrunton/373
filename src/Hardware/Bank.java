@@ -12,6 +12,7 @@ import People.Person;
 public class Bank  implements Serializable{
 	
 	//Fields Ryan Raettig
+	private Date date;
 	private String address;
 	private int routingNumber;
 	private ArrayList<Employee> employees;
@@ -49,6 +50,7 @@ public class Bank  implements Serializable{
 		currentCustomerNum = 1;
 		currentEmployeeNum =1;
 		setBankPolicy(new BankPolicy(0.00001, 100, 0.2599, 0.0599));
+		date = new Date(12, 17, 1); //December 1st, 2017
 	}
 	//this constructor is going to cause serious issues. Employeees, customers and accounts need to be added one by one
 	/*public Bank(String a, int rN, ArrayList<Employee> eS, ArrayList<Customer> cS, ArrayList<BankAccount> bS, ArrayList<Mortgage> mS, double mR, double mP, BankAccount money) {
@@ -172,6 +174,18 @@ public class Bank  implements Serializable{
 
 	public void setBankPolicy(BankPolicy bankPolicy) {
 		this.bankPolicy = bankPolicy;
+	}
+
+
+
+	public Date getDate() {
+		return date;
+	}
+
+
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
 	

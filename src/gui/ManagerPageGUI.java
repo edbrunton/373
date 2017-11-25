@@ -161,10 +161,11 @@ public class ManagerPageGUI {
 		public void actionPerformed(ActionEvent e)
 		{
 			
-			//TODO Implement the monthly push here TODO Ryan
-			//add monthly button to bank
-			//MonthlyButton temp = new MonthlyButton();
-			//temp.pushMonthlyButton();
+
+			MonthlyButton MB = new MonthlyButton(bank);
+			MB.pushMonthlyButton();
+			
+			
 			textParseError("Month Advanced", "The Monthly Button has been sucessfully pressed");
 			
 		}
@@ -191,7 +192,7 @@ public class ManagerPageGUI {
 			
 		}
 	}
-/*	private final class SearchAccount implements ActionListener {
+	private final class SearchAccount implements ActionListener {
 		
 		private SearchAccount(){
 			
@@ -199,13 +200,17 @@ public class ManagerPageGUI {
 
 		public void actionPerformed(ActionEvent e)
 		{
-		//TODO Ryan. 
-			//go through all customer accounts, search first names, last names, emails and account numbers; return email + acccount number
-			//if a spoken in class just using bankaccount number
 			//assign bankaccount to bA and uncomment following line
-			//new AccountGUI(bA, bank, true);
+			
+			
+			
+			
+			new AccountGUI(bA, bank, true);
+			  
+			  
+			 
 		}
-	}*/
+	}
 	private final class PendingAccounts implements ActionListener {
 		
 		private PendingAccounts(){

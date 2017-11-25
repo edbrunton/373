@@ -14,8 +14,8 @@ public class MonthlyButton implements Serializable{
 	public MonthlyButton() {
 		date = new Date();	
 	}
-	public MonthlyButton(Date d, Bank B) {
-		date = d;
+	public MonthlyButton(Bank B) {
+		date = monthlyBank.getDate();
 		monthlyBank = B;
 	}
 	
@@ -35,7 +35,7 @@ public class MonthlyButton implements Serializable{
 		else {
 		this.date.setMonth(this.date.getMonth() + 1);
 		}
-		
+		monthlyBank.setDate(date);
 		
 		for(int i = 0; i < this.monthlyBank.getBankAccounts().size(); i++) {
 			//savings account monthly interest
