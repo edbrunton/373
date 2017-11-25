@@ -10,7 +10,6 @@ public class Mortgage extends BankAccount  implements Serializable{
 	private double originialAmmount;
 	private double principal;
 	private double interestRate;
-
 	private double monthlyPayment;
 	private int term;
 	private CheckingAccount paymentAccount;
@@ -18,6 +17,7 @@ public class Mortgage extends BankAccount  implements Serializable{
 	
 	//Constructors
 	public Mortgage(Bank bank) {
+		
 		super(bank);
 		setOriginialAmmount(0);
 		setPrincipal(0);
@@ -30,6 +30,7 @@ public class Mortgage extends BankAccount  implements Serializable{
 	}
 	public Mortgage(Bank bank, double oA, double p, double iR, CheckingAccount cA) {
 		super(bank);
+		bank.getBanksBankAccount().setBalance(bank.getBanksBankAccount().getBalance() - oA);
 		setOriginialAmmount(oA);
 		setPrincipal(p);
 		setInterestRate(iR);
@@ -96,5 +97,7 @@ public class Mortgage extends BankAccount  implements Serializable{
 		balance = originialAmmount*(((Math.pow(h,360)) - (Math.pow(h, month)))/(Math.pow(h, 360)- 1));
 		principal = originialAmmount - balance;
 		month++;	
+		super.holdingBank.getBanksBankAccount().setBalance(super.holdingBank.getBanksBankAccount().getBalance() + monthlyPayment);
+
 	}
 }

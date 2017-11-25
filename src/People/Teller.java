@@ -15,6 +15,7 @@ public class Teller extends Employee{
 	//Fields
 	private double hourlyPay;
 	private int monthlyHours;
+	private double monthlyPayCheck;
 	
 	//Constructors
 	/*public Teller() {
@@ -41,7 +42,15 @@ public class Teller extends Employee{
 	public void setMonthlyHours(int monthlyHours) {
 		this.monthlyHours = monthlyHours;
 	}
-	
+	public void setMonthlyPayCheck() {
+		monthlyPayCheck = hourlyPay*monthlyHours;
+	}
+	public double getMonthlyPayCheck() {
+		return monthlyPayCheck;
+	}
+	public void setMonthlyPayCheck(double monthlyPayCheck) {
+		this.monthlyPayCheck = monthlyPayCheck;
+	}
 	
 	
 	
