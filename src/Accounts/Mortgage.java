@@ -1,6 +1,7 @@
 package Accounts;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import Hardware.Bank;
 
@@ -14,6 +15,7 @@ public class Mortgage extends BankAccount  implements Serializable{
 	private int term;
 	private CheckingAccount paymentAccount;
 	private int month;
+	private ArrayList<MortgageMonthlyStatement> monthlyStatements;
 	
 	//Constructors
 	public Mortgage(Bank bank) {
@@ -43,6 +45,15 @@ public class Mortgage extends BankAccount  implements Serializable{
 	}
 	
 	//Methods
+	public void addMonthlyStatement(MortgageMonthlyStatement mS){
+		monthlyStatements.add(mS);
+	}
+	public void setMonthlyStatements(ArrayList<MortgageMonthlyStatement> mS) {
+		this.monthlyStatements = mS;
+	}
+	public ArrayList<MortgageMonthlyStatement> getMonthlyStatements() {
+		return this.monthlyStatements;
+	}
 	public double getOriginialAmmount() {
 		return originialAmmount;
 	}

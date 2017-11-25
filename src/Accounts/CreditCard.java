@@ -1,6 +1,7 @@
 package Accounts;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import Hardware.Bank;
 
@@ -11,6 +12,7 @@ public class CreditCard extends BankAccount  implements Serializable{
 	private double limit;
 	private double minMonthlyPayment;
 	private CheckingAccount C1;
+	protected ArrayList<CreditCardMonthlyStatement> monthlyStatements;
 	//Constructors
 	public CreditCard(Bank bank) {
 		super(bank);
@@ -27,6 +29,9 @@ public class CreditCard extends BankAccount  implements Serializable{
 		C1 = CA;
 	}	
 	//Methods
+	public void addMonthlyStatement(CreditCardMonthlyStatement mS){
+		monthlyStatements.add(mS);
+	}
 	public double getInterestRate() {
 		return interestRate;
 	}
@@ -35,6 +40,12 @@ public class CreditCard extends BankAccount  implements Serializable{
 	}
 	public double getLimit() {
 		return limit;
+	}
+	public void setMonthlyStatements(ArrayList<CreditCardMonthlyStatement> mS) {
+		this.monthlyStatements = mS;
+	}
+	public ArrayList<CreditCardMonthlyStatement> getMonthlyStatements() {
+		return this.monthlyStatements;
 	}
 	public void setLimit(double limit) {
 		this.limit = limit;

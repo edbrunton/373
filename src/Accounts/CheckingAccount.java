@@ -1,6 +1,7 @@
 package Accounts;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import Hardware.Bank;
 import Hardware.*;
@@ -8,7 +9,7 @@ public class CheckingAccount extends BankAccount  implements Serializable{
 
 	//Fields
 	private double directDeposit;//TODO Ryan: he is 100% in charge of this
-	
+	protected ArrayList<CheckingAccountMonthlyStatement> monthlyStatements;
 	
 	//Constructors
 	public CheckingAccount(Bank bank) {
@@ -27,6 +28,10 @@ public class CheckingAccount extends BankAccount  implements Serializable{
 	
 	
 	//Methods
+	
+	public void addMonthlyStatement(CheckingAccountMonthlyStatement mS){
+		monthlyStatements.add(mS);
+	}
 	public void Deposit(double d) {
 		balance = balance + d;
 		super.getTransactions().add(new Transaction(d, "Deposit"));
@@ -55,7 +60,12 @@ public class CheckingAccount extends BankAccount  implements Serializable{
 	public void setDirectDeposit(double directDeposit) {
 		this.directDeposit = directDeposit;
 	}
-	
+	public void setMonthlyStatements(ArrayList<CheckingAccountMonthlyStatement> mS) {
+		this.monthlyStatements = mS;
+	}
+	public ArrayList<CheckingAccountMonthlyStatement> getMonthlyStatements() {
+		return this.monthlyStatements;
+	}
 	
 	
 }

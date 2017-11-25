@@ -10,7 +10,7 @@ import Hardware.*
 
 	//Fields
 	protected int accountNumber;
-	protected ArrayList<CheckingAccountMonthlyStatement> monthlyStatements;
+	//protected ArrayList<CheckingAccountMonthlyStatement> monthlyStatements;
 	protected ArrayList<Transaction> transactions;
 	protected Customer owner;
 	protected boolean visible; //needs to be false until valid
@@ -21,26 +21,26 @@ import Hardware.*
 		holdingBank = bank;
 		accountNumber = holdingBank.getCurrentAccountNum();
 		holdingBank.setCurrentAccountNum(accountNumber + 1);
-		monthlyStatements = new ArrayList<CheckingAccountMonthlyStatement>();
+//		monthlyStatements = new ArrayList<CheckingAccountMonthlyStatement>();
 		transactions = new ArrayList<Transaction>();
 		setVisible(false);
 		bank.getBankAccounts().add(this);
 	}	
-	public void addMonthlyStatement(CheckingAccountMonthlyStatement mS){
+/*	public void addMonthlyStatement(CheckingAccountMonthlyStatement mS){
 		monthlyStatements.add(mS);
-	}
+	}*/
 	public int getAccountNumber() {
 		return accountNumber;
 	}
 	public void setAccountNumber(int accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-	public ArrayList<CheckingAccountMonthlyStatement> getMonthlyStatements() {
+	/*public ArrayList<CheckingAccountMonthlyStatement> getMonthlyStatements() {
 		return monthlyStatements;
-	}
-	public void setMonthlyStatements(ArrayList<CheckingAccountMonthlyStatement> monthlyStatements) {
+	}*/
+	/*public void setMonthlyStatements(ArrayList<CheckingAccountMonthlyStatement> monthlyStatements) {
 		this.monthlyStatements = monthlyStatements;
-	}
+	}*/
 	public ArrayList<Transaction> getTransactions() {
 		return transactions;
 	}

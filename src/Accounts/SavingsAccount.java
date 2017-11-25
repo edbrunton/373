@@ -1,6 +1,7 @@
 package Accounts;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import Hardware.Bank;
 
@@ -9,7 +10,8 @@ public class SavingsAccount extends BankAccount  implements Serializable{
 	//Fields
 	private double interestRate;
 	private double minBalance;
-	
+	protected ArrayList<SavingsAccountMonthlyStatement> monthlyStatements;
+
 	//Constructors
 	public SavingsAccount(Bank bank) {
 		super(bank);
@@ -25,6 +27,15 @@ public class SavingsAccount extends BankAccount  implements Serializable{
 	}
 	
 	//Methods
+	public void addMonthlyStatement(SavingsAccountMonthlyStatement mS){
+		monthlyStatements.add(mS);
+	}
+	public void setMonthlyStatements(ArrayList<SavingsAccountMonthlyStatement> mS) {
+		this.monthlyStatements = mS;
+	}
+	public ArrayList<SavingsAccountMonthlyStatement> getMonthlyStatements() {
+		return this.monthlyStatements;
+	}
 	public double getMinBalance() {
 		return minBalance;
 	}
