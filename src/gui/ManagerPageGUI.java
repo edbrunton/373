@@ -201,11 +201,11 @@ public class ManagerPageGUI {
 		public void actionPerformed(ActionEvent e)
 		{
 			//assign bankaccount to bA and uncomment following line
+			//BankAccount bA= new BankAccount(bank);
 			
 			
 			
-			
-			new AccountGUI(bA, bank, true);
+			//new AccountGUI(bA, bank, true);
 			  
 			  
 			 
