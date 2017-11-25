@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import Hardware.Bank;
+import Hardware.Transaction;
 
 public class CreditCard extends BankAccount  implements Serializable{
 
@@ -50,11 +51,20 @@ public class CreditCard extends BankAccount  implements Serializable{
 	public void setLimit(double limit) {
 		this.limit = limit;
 	}
+/*	created getter and setter for minMonthlyPayment
+*/	public void setMinMonthlyPayment(double mmp) {
+		this.minMonthlyPayment = mmp;
+	}
+	public double getMinMonthlyPayment() {
+		return this.minMonthlyPayment;
+	}
 	public void purchase(double spent) {
 		balance = balance + spent;
 		super.holdingBank.getBanksBankAccount().setBalance(super.holdingBank.getBanksBankAccount().getBalance() - spent);
+		Transaction t1 = new Transaction(spent, "Purchase");// added transaction
+		this.transactions.add(t1);                          // of Purchase type 
 	}
-	public void monthlyPayment() {
+	public void monthlyPayment() {// we should allow for more than min payment.
 		minMonthlyPayment = (balance*interestRate) + (0.01*balance);
 		balance = balance - minMonthlyPayment;
 		C1.withdraw(minMonthlyPayment);
