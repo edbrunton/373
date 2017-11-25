@@ -12,6 +12,7 @@ import Hardware.*
 	protected int accountNumber;
 	//protected ArrayList<CheckingAccountMonthlyStatement> monthlyStatements;
 	protected ArrayList<Transaction> transactions;
+	protected ArrayList<Fee> fees;
 	protected Customer owner;
 	protected boolean visible; //needs to be false until valid
 	protected Bank holdingBank;
@@ -25,10 +26,15 @@ import Hardware.*
 		transactions = new ArrayList<Transaction>();
 		setVisible(false);
 		bank.getBankAccounts().add(this);
+		this.fees = new ArrayList<Fee>();
 	}	
 /*	public void addMonthlyStatement(CheckingAccountMonthlyStatement mS){
 		monthlyStatements.add(mS);
 	}*/
+	public void addFee(Fee newFee) {
+		this.fees.add(newFee);
+		this.balance = this.balance - newFee.getAmount();
+	}
 	public int getAccountNumber() {
 		return accountNumber;
 	}
@@ -64,5 +70,11 @@ import Hardware.*
 	}
 	public void setBalance(double balance) {
 		this.balance = balance;
+	}
+	public ArrayList<Fee> getFees() {
+		return this.fees;
+	}
+	public void setFees(ArrayList<Fee> fees) {
+		this.fees = fees;
 	}
 }

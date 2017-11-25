@@ -9,7 +9,7 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 /*The Checking Account Monthly statement currently has a StringBuilder for printing to GUI's, an ArrayList of Fees,
    a beginning and ending balance a monthandYear field and an associated checking account*/
 	private StringBuilder sb;
-	private ArrayList<Fee> fees;
+	//private ArrayList<Fee> fees;
 	private double begBalance, endBalance;
 	private String monthAndYear;
 	private CheckingAccount accnt;
@@ -22,12 +22,12 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 		return this.begBalance;
 	}
 	
-	public void setFees(ArrayList<Fee> fees) {
+/*	public void setFees(ArrayList<Fee> fees) {
 		this.fees = fees;
-	}
-	public ArrayList<Fee> getFee(){
+	}*/
+	/*public ArrayList<Fee> getFees(){
 		return this.fees;
-	}
+	}*/
 	
 	public double getEndBalance() {
 		return endBalance;
@@ -56,7 +56,7 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 		this.monthAndYear = "January 2018";
 		Bank b1 = new Bank();
 		this.accnt = new CheckingAccount(b1);
-		this.fees = new ArrayList<Fee>();
+	//	this.fees = new ArrayList<Fee>();
 		this.sb = new StringBuilder();
 		
 	}
@@ -64,7 +64,7 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 	public CheckingAccountMonthlyStatement(String monthAndYear, CheckingAccount ca) { 
 		this.accnt = ca; 
 		this.sb = new StringBuilder();
-		this.fees = new ArrayList<Fee>();
+	//	this.fees = new ArrayList<Fee>();
 		this.calcBegBal(ca);
 		this.endBalance = ca.getBalance();
 		this.monthAndYear = monthAndYear;
@@ -91,18 +91,18 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 	
 	
 /*this function adds a fee to the fee arrayList and updates the ending balance accordingly*/	
-	public void addFee(Fee newFee) {
+	/*public void addFee(Fee newFee) {
 		this.fees.add(newFee);
 		this.endBalance = this.endBalance - newFee.getAmount();
 		
-	}
+	}*/
 	
 	
   /* this function is useful if we only want to print fees*/  
 	public void printFees() {
 	
 	sb.append("Fees for: "+monthAndYear+"\n");
-	for(Fee f: fees) {
+	for(Fee f: accnt.fees) {
     sb.append(f.getAmount()+" "+f.getType()+"\n");	
     }
 	System.out.print(sb);
@@ -151,7 +151,7 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 		sb.append("Starting Balance for " +monthAndYear+": "+begBalance+ "\n");
 		sb.append("Ending Balance for "+monthAndYear+": "+endBalance+"\n");
 		sb.append("Fees for: "+monthAndYear+"\n");
-		for(Fee f: fees) {
+		for(Fee f: accnt.fees) {
 	    sb.append(f.getAmount()+" "+f.getType()+"\n");	
 	    
 	    }

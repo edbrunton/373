@@ -7,30 +7,31 @@ public class CreditCardMonthlyStatement {
 	   a beginning and ending balance a monthandYear field and an associated checking account*/
 		private StringBuilder sb;
 		private ArrayList<Fee> fees;
-		private double interestRate;
-		private double limit;
+		
 		private double endBalance, begBalance;
-		private double minMonthlyPayment; 
 		private String monthAndYear;
 		private CreditCard accnt;
 
 	/* lines 17 thru 50 are the getters and setter*/
 		
-		
-		public void setFees(ArrayList<Fee> fees) {
-			this.fees = fees;
+		public void setBegBalance(double begBal) {
+			this.begBalance = begBal;
 		}
-		public ArrayList<Fee> getFee(){
-			return this.fees;
+		public double getBegBalance() {
+			return this.begBalance;
 		}
-		
 		public double getEndBalance() {
 			return endBalance;
 		}
 		public void setEndBalance(double endBalance) {
 			this.endBalance = endBalance;
 		}
-		
+		public void setFees(ArrayList<Fee> fees) {
+			this.fees = fees;
+		}
+		public ArrayList<Fee> getFees(){
+			return this.fees;
+		}
 		public void setAccount(CreditCard cc) {
 			this.accnt = cc;
 		}
@@ -61,7 +62,7 @@ public class CreditCardMonthlyStatement {
 			this.sb = new StringBuilder();
 			this.fees = new ArrayList<Fee>();
 			this.calcBegBal(cc);
-			this.endBalance = ca.getBalance();
+			this.endBalance = cc.getBalance();
 			this.monthAndYear = monthAndYear;
 			
 			 
@@ -158,6 +159,7 @@ public class CreditCardMonthlyStatement {
 				}*/
 			
 		}
+		
 
 }
 

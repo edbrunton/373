@@ -13,15 +13,17 @@ public class CheckingAccountMonthlyStatementDriver {
     ca.directDeposit(); 
     ca.withdraw(100);
     ca.withdraw(10);
-    
+   
     Date d = new Date( 1,  2018, 15);
     Fee lf = new Fee(d,"Late fee" ,33);
+    
     Fee lbf = new Fee(d,"Low balance fee" ,55);
+    ca.addFee(lf);
+    ca.addFee(lbf);
     CheckingAccountMonthlyStatement m1 = new CheckingAccountMonthlyStatement("January 2018", ca);
     
 
-    m1.addFee(lf);
-    m1.addFee(lbf);
+   
     
     m1.printMonthlyStatement();
 	}
