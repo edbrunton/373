@@ -103,18 +103,19 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 	
 	
   /* this function is useful if we only want to print fees*/  
-	public void printFees() {
+	public StringBuilder printFees() {
 	
-	sb.append("Fees for: "+stateMentDate+"\n");
+		sb.setLength(0);
+		sb.append("Fees for: "+stateMentDate+"\n");
 	for(Fee f: this.accnt.getFees()) {
     sb.append(f.getAmount()+" "+f.getType()+"\n");	
     }
 	System.out.print(sb);
-	sb.setLength(0);// clears the StringBuilder to avoid printing unwanted stuff
-
+	return this.sb;
 	}
 /* this function is useful if we only want to print transactions*/  	
-	public void printTransactions() {
+	public StringBuilder printTransactions() {
+		sb.setLength(0);
 		sb.append("Transaction for: " +stateMentDate+"\n");
 		for(Transaction t : this.accnt.getTransactions()) {
 			sb.append(t+"\n");
@@ -122,7 +123,7 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 			
 		}
 		System.out.print(sb);
-		sb.setLength(0);//Clears the StringBuilder to avoid printing unwanted stuffs
+		return this.sb;
 
 	}
 	
@@ -143,15 +144,20 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
         		
         
  /* this function is useful if we only want to print beginning and ending balances*/        
-	public void printBegEndBal() {
+	public StringBuilder printBegEndBal() {
+		sb.setLength(0);
 		sb.append("Starting Balance for " +stateMentDate+": "+begBalance+ "\n");
 		sb.append("Ending Balance for "+stateMentDate+": "+endBalance+"\n");
 		System.out.print(sb);
-		sb.setLength(0);
-		
+		return this.sb;
+
 	}
 	
-	public void printMonthlyStatement() { // prints start , end balance, transactions, fees, and interest gained if savings account
+	public StringBuilder printMonthlyStatement() { // prints start , end balance, transactions, fees, and interest gained if savings account
+		sb.setLength(0);
+		sb.append("<html>MONTHLY CHECKING ACCOUNT STATEMENT</p>");
+		sb.append("<p>Account number: "+ this.accnt.getAccountNumber() + "</p>");
+		sb.append("<p>Direct deopsit amount: "+this.accnt.getDirectDeposit());
 		sb.append("<html>Starting Balance for " +stateMentDate+": "+begBalance+ "</p>");
 		sb.append("<p>Ending Balance for "+stateMentDate+": "+endBalance+"</p>");
 		sb.append("<p>Fees for: "+stateMentDate+"</p>");
@@ -169,6 +175,7 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 			sb.append("Interest gained for: "+monthAndYear+"\n");
 			sb.append(sa.getBalance() * (sa.getInterestRate()/1200));
 			}*/
-		
+		return this.sb;
+	
 	}
 }

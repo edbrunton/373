@@ -25,7 +25,7 @@ public class CreditCardMonthlyStatementDriver {
     cc.addFee(lbf);
     cc.purchase(300);
     cc.monthlyPayment();
-    CreditCardMonthlyStatement m1 = new CreditCardMonthlyStatement("January 2018", cc);
+    CreditCardMonthlyStatement m1 = new CreditCardMonthlyStatement(cc);
     
 
    

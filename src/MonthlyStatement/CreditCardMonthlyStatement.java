@@ -88,18 +88,20 @@ public class CreditCardMonthlyStatement implements Serializable {
 		
 		
 	  /* this function is useful if we only want to print fees*/  
-		public void printFees() {
-		
-		sb.append("<html>Fees for: "+stateMentDate+"</p>");
-		for(Fee f: this.accnt.getFees()) {
-	    sb.append("<p>"+f.getAmount()+" "+f.getType()+"</p>");	
-	    }
-		System.out.print(sb);
-		sb.setLength(0);// clears the StringBuilder to avoid printing unwanted stuff
+		public StringBuilder printFees() {
+			sb.setLength(0);// clears the StringBuilder to avoid printing unwanted stuff
+			sb.append("<html>Fees for: "+stateMentDate+"</p>");
+				for(Fee f: this.accnt.getFees()) {
+					sb.append("<p>"+f.getAmount()+" "+f.getType()+"</p>");	
+				}
+			System.out.print(sb);
+			return this.sb;
 
 		}
 	/* this function is useful if we only want to print transactions*/  	
-		public void printTransactions() {
+		public StringBuilder printTransactions() {
+			sb.setLength(0);//Clears the StringBuilder to avoid printing unwanted stuffs
+
 			sb.append("<html>Transaction for: " +stateMentDate+"</p>");
 			for(Transaction t : this.accnt.getTransactions()) {
 				sb.append("<p>"+t.getAmmount()+" "+t.getType()+"</p>");
@@ -107,8 +109,7 @@ public class CreditCardMonthlyStatement implements Serializable {
 				
 			}
 			System.out.print(sb);
-			sb.setLength(0);//Clears the StringBuilder to avoid printing unwanted stuffs
-
+			return this.sb;
 		}
 		
 	/*	public void printInterest() {
@@ -128,15 +129,16 @@ public class CreditCardMonthlyStatement implements Serializable {
 	        		
 	        
 	 /* this function is useful if we only want to print beginning and ending balances*/        
-		public void printBegEndBal() {
+		public StringBuilder printBegEndBal() {
+			sb.setLength(0);
 			sb.append("<p>Starting Balance for " +stateMentDate+": "+begBalance+ "</p>");
 			sb.append("<p>Ending Balance for "+stateMentDate+": "+endBalance+"</p>");
 			System.out.print(sb);
-			sb.setLength(0);
-			
+			return this.sb;
 		}
 		
-		public void printMonthlyStatement() { // prints start , end balance, transactions, fees, and interest gained if savings account
+		public StringBuilder printMonthlyStatement() { // prints start , end balance, transactions, fees, and interest gained if savings account
+			sb.setLength(0);
 			sb.append("<html>MONTHLY CREDIT CARD STATEMENT</p>");
 			sb.append("<p>Account number: "+ this.accnt.getAccountNumber() + "</p>");
 			sb.append("<p>Interest rate: "+this.accnt.getInterestRate() + "</p>");
@@ -154,13 +156,12 @@ public class CreditCardMonthlyStatement implements Serializable {
 				sb.append( "<p>"+ t.getAmmount()+" "+t.getType()+"</p>");
 				}
 			System.out.print(sb);
-			sb.setLength(0);
 			/*if(this.accnt instanceof SavingsAccount) {
 				SavingsAccount sa = (SavingsAccount)this.accnt;
 				sb.append("Interest gained for: "+stateMentDate+"</p>");
 				sb.append(sa.getBalance() * (sa.getInterestRate()/1200));
 				}*/
-			
+			return this.sb;
 		}
 		
 

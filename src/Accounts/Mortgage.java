@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import Hardware.Bank;
+import Hardware.Transaction;
 import MonthlyStatement.MortgageMonthlyStatement;
 
 public class Mortgage extends BankAccount  implements Serializable{
@@ -110,7 +111,14 @@ public class Mortgage extends BankAccount  implements Serializable{
 		principal = originialAmmount - balance;
 		month++;	
 		super.holdingBank.getBanksBankAccount().setBalance(super.holdingBank.getBanksBankAccount().getBalance() + monthlyPayment);
-		
+		Transaction t1 = new Transaction(monthlyPayment, "Payment");
+		Transaction t2 = new Transaction(monthlyPayment, "Withdraw");
+		paymentAccount.transactions.add(t2);
+		this.transactions.add(t1);
+		MortgageMonthlyStatement mms = new MortgageMonthlyStatement(this);
+		this.addMonthlyStatement(mms);
+		this.transactions.clear();
+		this.fees.clear();
 		
 		
 		
