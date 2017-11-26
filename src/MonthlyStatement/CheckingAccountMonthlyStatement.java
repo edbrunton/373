@@ -1,17 +1,18 @@
 
 package MonthlyStatement;
-
+// need to replace monthAndYear with Bank Date
 import java.io.Serializable;
 import java.util.*;
 import Accounts.*;
 import Hardware.*;
+import Hardware.Date;
 public class CheckingAccountMonthlyStatement  implements Serializable{
 /*The Checking Account Monthly statement currently has a StringBuilder for printing to GUI's, an ArrayList of Fees,
    a beginning and ending balance a monthandYear field and an associated checking account*/
 	private StringBuilder sb;
 	//private ArrayList<Fee> fees;
 	private double begBalance, endBalance;
-	private String monthAndYear;
+	private Date stateMentDate;// needs to be a date
 	private CheckingAccount accnt;
 
 /* lines 17 thru 50 are the getters and setter*/
@@ -42,18 +43,18 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 	public BankAccount getAccount() {
 		return this.accnt;
 	}
-	public void setMonthAndYear(String monthAndYear) {
-		this.monthAndYear = monthAndYear;
+	public void setStatementDate(Date stateMentDate) {
+		this.stateMentDate = stateMentDate;
 	}
-	public String getMonthAndYear() {
-		return this.monthAndYear;
+	public Date getStateMentDate() {
+		return this.stateMentDate;
 	}
 	
 	/* this function is the no arg constructor. */
 	public CheckingAccountMonthlyStatement() {  
 		this.begBalance = 0;
 		this.endBalance = 0;
-		this.monthAndYear = "January 2018";
+		this.stateMentDate = new Date();
 		Bank b1 = new Bank();
 		this.accnt = new CheckingAccount(b1);
 	//	this.fees = new ArrayList<Fee>();
@@ -61,13 +62,13 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 		
 	}
 	/* This function is the parametered constructor. It takes in the date and the account.*/
-	public CheckingAccountMonthlyStatement(String monthAndYear, CheckingAccount ca) { 
+	public CheckingAccountMonthlyStatement( CheckingAccount ca) { 
 		this.accnt = ca; 
 		this.sb = new StringBuilder();
 	//	this.fees = new ArrayList<Fee>();
 		this.calcBegBal(ca);
 		this.endBalance = ca.getBalance();
-		this.monthAndYear = monthAndYear;
+		this.stateMentDate = ca.getHoldingBank().getDate();
 		
 		 
 		
@@ -104,7 +105,7 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
   /* this function is useful if we only want to print fees*/  
 	public void printFees() {
 	
-	sb.append("Fees for: "+monthAndYear+"\n");
+	sb.append("Fees for: "+stateMentDate+"\n");
 	for(Fee f: this.accnt.getFees()) {
     sb.append(f.getAmount()+" "+f.getType()+"\n");	
     }
@@ -114,7 +115,7 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 	}
 /* this function is useful if we only want to print transactions*/  	
 	public void printTransactions() {
-		sb.append("Transaction for: " +monthAndYear+"\n");
+		sb.append("Transaction for: " +stateMentDate+"\n");
 		for(Transaction t : this.accnt.getTransactions()) {
 			sb.append(t+"\n");
 			
@@ -143,24 +144,24 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
         
  /* this function is useful if we only want to print beginning and ending balances*/        
 	public void printBegEndBal() {
-		sb.append("Starting Balance for " +monthAndYear+": "+begBalance+ "\n");
-		sb.append("Ending Balance for "+monthAndYear+": "+endBalance+"\n");
+		sb.append("Starting Balance for " +stateMentDate+": "+begBalance+ "\n");
+		sb.append("Ending Balance for "+stateMentDate+": "+endBalance+"\n");
 		System.out.print(sb);
 		sb.setLength(0);
 		
 	}
 	
 	public void printMonthlyStatement() { // prints start , end balance, transactions, fees, and interest gained if savings account
-		sb.append("Starting Balance for " +monthAndYear+": "+begBalance+ "\n");
-		sb.append("Ending Balance for "+monthAndYear+": "+endBalance+"\n");
-		sb.append("Fees for: "+monthAndYear+"\n");
+		sb.append("<html>Starting Balance for " +stateMentDate+": "+begBalance+ "</p>");
+		sb.append("<p>Ending Balance for "+stateMentDate+": "+endBalance+"</p>");
+		sb.append("<p>Fees for: "+stateMentDate+"</p>");
 		for(Fee f: accnt.getFees()) {
-	    sb.append(f.getAmount()+" "+f.getType()+"\n");	
+	    sb.append("<p>"+f.getAmount()+" "+f.getType()+"</p>");	
 	    
 	    }
-		sb.append("Transaction for: " +monthAndYear+"\n");
+		sb.append("<p>Transaction for: " +stateMentDate+"</p>");
 		for(Transaction t : this.accnt.getTransactions()) {
-			sb.append(t.getAmmount()+" "+t.getType()+"\n");
+			sb.append("<p>"+t.getAmmount()+" "+t.getType()+"</p>");
 			}
 		System.out.print(sb);
 		/*if(this.accnt instanceof SavingsAccount) {

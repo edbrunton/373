@@ -21,7 +21,7 @@ public class CheckingAccountMonthlyStatementDriver {
     Fee lbf = new Fee(d,"Low balance fee" ,55);
     ca.addFee(lf);
     ca.addFee(lbf);
-    CheckingAccountMonthlyStatement m1 = new CheckingAccountMonthlyStatement("January 2018", ca);
+    CheckingAccountMonthlyStatement m1 = new CheckingAccountMonthlyStatement(ca);
     
 
    

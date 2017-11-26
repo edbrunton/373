@@ -30,7 +30,7 @@ public class CreditCard extends BankAccount  implements Serializable{
 		interestRate = iR;
 		balance = b;
 		limit = l;
-		minMonthlyPayment = (balance*interestRate) + (0.01*balance);;
+		//minMonthlyPayment = (balance*interestRate) + (0.01*balance);;
 		
 		C1 = CA;
 	}	
@@ -75,15 +75,18 @@ public class CreditCard extends BankAccount  implements Serializable{
 		this.balance = this.balance + newFee.getAmount();
 	}
 	public void monthlyPayment() {// we should allow for more than min payment.
-		//minMonthlyPayment = (balance*interestRate) + (0.01*balance);
-		if(minMonthlyPayment >= balance) {
+		minMonthlyPayment = (balance*(interestRate/100)) + (0.01*balance);
+		/*if(minMonthlyPayment >= balance) {
 			minMonthlyPayment = balance;
-		}
+		}*/
 		balance = balance - minMonthlyPayment;
 		C1.withdraw(minMonthlyPayment);
 		super.holdingBank.getBanksBankAccount().setBalance(super.holdingBank.getBanksBankAccount().getBalance() + minMonthlyPayment);
 		Transaction t2 = new Transaction(minMonthlyPayment, "Payment");// added transaction
 		this.transactions.add(t2);                                      // of Payment type
+		CreditCardMonthlyStatement ccms = new CreditCardMonthlyStatement(this);
+		this.addMonthlyStatement(ccms);
+
 	}
 	
 	

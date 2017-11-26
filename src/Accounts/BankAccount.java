@@ -77,4 +77,10 @@ import Hardware.*
 	public void setFees(ArrayList<Fee> fees) {
 		this.fees = fees;
 	}
+	public void setHoldingBank(Bank b) {
+		this.holdingBank = b;
+	}
+	public Bank getHoldingBank() {
+		return this.holdingBank;
+	}
 }

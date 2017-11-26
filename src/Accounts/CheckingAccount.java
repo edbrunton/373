@@ -38,10 +38,13 @@ public class CheckingAccount extends BankAccount  implements Serializable{
 		super.getTransactions().add(new Transaction(d, "Deposit"));
 
 	}
-	public void directDeposit() {
+	public void directDeposit() {//this is a monthly function
 		balance = balance + directDeposit;
 		super.getTransactions().add(new Transaction(directDeposit, "Direct Deposit"));
-		
+		CheckingAccountMonthlyStatement cams = new CheckingAccountMonthlyStatement(this);
+		this.addMonthlyStatement(cams);
+		this.transactions.clear();
+		this.fees.clear();
 	}
 	public void withdraw(double w) {
 		balance = balance - w;

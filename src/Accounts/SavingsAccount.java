@@ -55,7 +55,7 @@ public class SavingsAccount extends BankAccount  implements Serializable{
 	public void setInterestRate(double interestRate) {
 		this.interestRate = interestRate;
 	}
-	public void monthlyInterest() {
+	public void monthlyInterest() {// add to transaction, this is monthly function
 		balance = balance + (balance * (interestRate/1200));
 		super.holdingBank.getBanksBankAccount().setBalance(super.holdingBank.getBanksBankAccount().getBalance() - (balance * (interestRate/1200)));
 	}

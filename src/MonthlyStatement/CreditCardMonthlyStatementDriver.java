@@ -9,7 +9,7 @@ import Hardware.Fee;
 public class CreditCardMonthlyStatementDriver {
 	public static void main (String args[]) {
 	Bank b1 = new Bank();
-	CheckingAccount ca = new CheckingAccount(b1, 30000, 350);
+	CheckingAccount ca = new CheckingAccount(b1, 30000000, 350);
     CreditCard cc = new CreditCard(b1, 20, 3000, 50000,ca);//starting balance 3000
     ca.Deposit(100);
     ca.Deposit(100);

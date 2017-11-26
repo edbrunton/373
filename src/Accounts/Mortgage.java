@@ -102,7 +102,7 @@ public class Mortgage extends BankAccount  implements Serializable{
 		double h = 1+c;
 		monthlyPayment = originialAmmount*(c*(Math.pow(h,360)))/(Math.pow(h, 359));
 	}
-	public void monthlyPayment() {
+	public void monthlyPayment() {// monthly function , add to transactions
 		paymentAccount.withdraw(monthlyPayment);
 		double c = (interestRate/100)/12;
 		double h = 1+c;
