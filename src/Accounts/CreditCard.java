@@ -79,7 +79,7 @@ public class CreditCard extends BankAccount  implements Serializable{
 		/*if(minMonthlyPayment >= balance) {
 			minMonthlyPayment = balance;
 		}*/
-		balance = balance - minMonthlyPayment;
+		balance = balance - (0.01*balance);
 		C1.withdraw(minMonthlyPayment);
 		super.holdingBank.getBanksBankAccount().setBalance(super.holdingBank.getBanksBankAccount().getBalance() + minMonthlyPayment);
 		Transaction t2 = new Transaction(minMonthlyPayment, "Payment");// added transaction

@@ -41,10 +41,15 @@ public class CheckingAccount extends BankAccount  implements Serializable{
 	public void directDeposit() {//this is a monthly function
 		balance = balance + directDeposit;
 		super.getTransactions().add(new Transaction(directDeposit, "Direct Deposit"));
+<<<<<<< HEAD
 		CheckingAccountMonthlyStatement cams = new CheckingAccountMonthlyStatement(this);
 		this.addMonthlyStatement(cams);
 		this.transactions.clear();
 		this.fees.clear();
+=======
+		
+		
+>>>>>>> 7f5e4ec5d012a4a1e7094f3d54fd8931ded535fb
 	}
 	public void withdraw(double w) {
 		balance = balance - w;
@@ -66,6 +71,7 @@ public class CheckingAccount extends BankAccount  implements Serializable{
 	}
 	public void setMonthlyStatements(ArrayList<CheckingAccountMonthlyStatement> mS) {
 		this.monthlyStatements = mS;
+		
 	}
 	public ArrayList<CheckingAccountMonthlyStatement> getMonthlyStatements() {
 		return this.monthlyStatements;
