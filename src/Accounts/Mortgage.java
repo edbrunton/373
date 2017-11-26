@@ -110,6 +110,11 @@ public class Mortgage extends BankAccount  implements Serializable{
 		principal = originialAmmount - balance;
 		month++;	
 		super.holdingBank.getBanksBankAccount().setBalance(super.holdingBank.getBanksBankAccount().getBalance() + monthlyPayment);
+		
+		
+		
+		
+		
 
 	}
 }

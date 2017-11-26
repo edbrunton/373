@@ -42,6 +42,7 @@ public class CheckingAccount extends BankAccount  implements Serializable{
 		balance = balance + directDeposit;
 		super.getTransactions().add(new Transaction(directDeposit, "Direct Deposit"));
 		
+		
 	}
 	public void withdraw(double w) {
 		balance = balance - w;
@@ -63,6 +64,7 @@ public class CheckingAccount extends BankAccount  implements Serializable{
 	}
 	public void setMonthlyStatements(ArrayList<CheckingAccountMonthlyStatement> mS) {
 		this.monthlyStatements = mS;
+		
 	}
 	public ArrayList<CheckingAccountMonthlyStatement> getMonthlyStatements() {
 		return this.monthlyStatements;
