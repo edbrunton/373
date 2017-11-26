@@ -86,6 +86,8 @@ public class CreditCard extends BankAccount  implements Serializable{
 		this.transactions.add(t2);                                      // of Payment type
 		CreditCardMonthlyStatement ccms = new CreditCardMonthlyStatement(this);
 		this.addMonthlyStatement(ccms);
+		this.transactions.clear();
+		this.fees.clear();
 
 	}
 	

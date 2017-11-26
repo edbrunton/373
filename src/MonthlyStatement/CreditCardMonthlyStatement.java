@@ -59,6 +59,7 @@ public class CreditCardMonthlyStatement implements Serializable {
 			this.endBalance = cc.getBalance();
 			this.stateMentDate = cc.getHoldingBank().getDate();
 			
+			
 			 
 			
 		}
@@ -89,9 +90,9 @@ public class CreditCardMonthlyStatement implements Serializable {
 	  /* this function is useful if we only want to print fees*/  
 		public void printFees() {
 		
-		sb.append("Fees for: "+stateMentDate+"</p>");
+		sb.append("<html>Fees for: "+stateMentDate+"</p>");
 		for(Fee f: this.accnt.getFees()) {
-	    sb.append(f.getAmount()+" "+f.getType()+"</p>");	
+	    sb.append("<p>"+f.getAmount()+" "+f.getType()+"</p>");	
 	    }
 		System.out.print(sb);
 		sb.setLength(0);// clears the StringBuilder to avoid printing unwanted stuff
@@ -99,9 +100,9 @@ public class CreditCardMonthlyStatement implements Serializable {
 		}
 	/* this function is useful if we only want to print transactions*/  	
 		public void printTransactions() {
-			sb.append("Transaction for: " +stateMentDate+"</p>");
+			sb.append("<html>Transaction for: " +stateMentDate+"</p>");
 			for(Transaction t : this.accnt.getTransactions()) {
-				sb.append(t.getAmmount()+" "+t.getType()+"</p>");
+				sb.append("<p>"+t.getAmmount()+" "+t.getType()+"</p>");
 				
 				
 			}
