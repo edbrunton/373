@@ -31,15 +31,7 @@ public class MonthlyButton implements Serializable{
 	public void pushMonthlyButton() {
 		//Every Monthly Function
 		
-		//SETS NEW MONTH
-		if(this.date.getMonth() == 12) {
-			this.date.setMonth(1);
-			this.date.setYear(this.date.getYear() + 1);
-		}
-		else {
-		this.date.setMonth(this.date.getMonth() + 1);
-		}
-		monthlyBank.setDate(date);
+
 		
 		
 		//Bank Accounts
@@ -91,7 +83,15 @@ public class MonthlyButton implements Serializable{
 				}
 				
 				
-				
+				//SETS NEW MONTH
+				if(this.date.getMonth() == 12) {
+					this.date.setMonth(1);
+					this.date.setYear(this.date.getYear() + 1);
+				}
+				else {
+				this.date.setMonth(this.date.getMonth() + 1);
+				}
+				monthlyBank.setDate(date);
 				
 				
 				
