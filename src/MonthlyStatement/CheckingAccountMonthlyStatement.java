@@ -155,7 +155,7 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 	
 	public StringBuilder printMonthlyStatement() { // prints start , end balance, transactions, fees, and interest gained if savings account
 		sb.setLength(0);
-		sb.append("<html>MONTHLY CHECKING ACCOUNT STATEMENT</p>");
+		sb.append("<html><p>MONTHLY CHECKING ACCOUNT STATEMENT</p>");
 		sb.append("<p>Account number: "+ this.accnt.getAccountNumber() + "</p>");
 		sb.append("<p>Direct deopsit amount: "+this.accnt.getDirectDeposit());
 		sb.append("<html>Starting Balance for " +stateMentDate+": "+begBalance+ "</p>");

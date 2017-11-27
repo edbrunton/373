@@ -139,7 +139,7 @@ public class CreditCardMonthlyStatement implements Serializable {
 		
 		public StringBuilder printMonthlyStatement() { // prints start , end balance, transactions, fees, and interest gained if savings account
 			sb.setLength(0);
-			sb.append("<html>MONTHLY CREDIT CARD STATEMENT</p>");
+			sb.append("<html><p>MONTHLY CREDIT CARD STATEMENT</p>");
 			sb.append("<p>Account number: "+ this.accnt.getAccountNumber() + "</p>");
 			sb.append("<p>Interest rate: "+this.accnt.getInterestRate() + "</p>");
 			sb.append("<p>Limit: "+this.accnt.getLimit() + "</p>");

@@ -134,7 +134,7 @@ public class AccountGUI {
 
 		public void actionPerformed(ActionEvent e)
 		{
-			new StatementGUI();
+			new StatementGUI(bankaccount);
 		}
 	}
 	private final class EditPersonalInfo implements ActionListener {
