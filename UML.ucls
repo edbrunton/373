@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="Accounts.CheckingAccount" project="BankingSystem" 
     file="/BankingSystem/src/Accounts/CheckingAccount.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-113" y="767"/>    
+    <position height="-1" width="-1" x="-325" y="1247"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="Accounts.CreditCard" project="BankingSystem" 
     file="/BankingSystem/src/Accounts/CreditCard.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1601" y="59"/>    
+    <position height="-1" width="-1" x="772" y="-12"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="gui.ClientPageGUI" project="BankingSystem" 
     file="/BankingSystem/src/gui/ClientPageGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1942" y="-8"/>    
+    <position height="-1" width="-1" x="1442" y="-174"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="gui.NewAccountNewCustomerGUI.SubmitApplication" project="BankingSystem" 
     file="/BankingSystem/src/gui/NewAccountNewCustomerGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1774" y="1219"/>    
+    <position height="-1" width="-1" x="2162" y="1167"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="gui.LoginGUI.AccountSubmission" project="BankingSystem" 
     file="/BankingSystem/src/gui/LoginGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2501" y="1371"/>    
+    <position height="-1" width="-1" x="2575" y="1338"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="gui.ManagerUnlockAccount" project="BankingSystem" 
     file="/BankingSystem/src/gui/ManagerUnlockAccount.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2607" y="2639"/>    
+    <position height="-1" width="-1" x="2701" y="2669"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="gui.EditPersonalInfoGUI" project="BankingSystem" 
     file="/BankingSystem/src/gui/EditPersonalInfoGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3271" y="963"/>    
+    <position height="-1" width="-1" x="3320" y="956"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -111,7 +111,7 @@
   </class>  
   <class id="13" language="java" name="gui.ManagerPendingAccountGUI" project="BankingSystem" 
     file="/BankingSystem/src/gui/ManagerPendingAccountGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1301" y="724"/>    
+    <position height="-1" width="-1" x="1033" y="928"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -129,7 +129,7 @@
   </class>  
   <class id="15" language="java" name="gui.NewAccountNewCustomerGUI" project="BankingSystem" 
     file="/BankingSystem/src/gui/NewAccountNewCustomerGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1988" y="1630"/>    
+    <position height="-1" width="-1" x="2116" y="1508"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -165,7 +165,7 @@
   </class>  
   <class id="19" language="java" name="Hardware.UserLogin" project="BankingSystem" 
     file="/BankingSystem/src/Hardware/UserLogin.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1294" y="2302"/>    
+    <position height="-1" width="-1" x="1296" y="2264"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -174,7 +174,7 @@
   </class>  
   <class id="20" language="java" name="Hardware.Date" project="BankingSystem" 
     file="/BankingSystem/src/Hardware/Date.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1644" y="2056"/>    
+    <position height="-1" width="-1" x="1618" y="2100"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -219,7 +219,7 @@
   </class>  
   <class id="25" language="java" name="People.Customer" project="BankingSystem" 
     file="/BankingSystem/src/People/Customer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="257" y="1548"/>    
+    <position height="-1" width="-1" x="701" y="1430"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -255,7 +255,7 @@
   </class>  
   <class id="29" language="java" name="gui.ManagerPageGUI.PendingAccounts" project="BankingSystem" 
     file="/BankingSystem/src/gui/ManagerPageGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2266" y="2107"/>    
+    <position height="-1" width="-1" x="2354" y="2109"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -291,7 +291,7 @@
   </class>  
   <class id="33" language="java" name="gui.LoginGUI.SaveFile" project="BankingSystem" 
     file="/BankingSystem/src/gui/LoginGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2582" y="1134"/>    
+    <position height="-1" width="-1" x="3012" y="1179"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -300,7 +300,7 @@
   </class>  
   <class id="34" language="java" name="gui.LoginGUI.SafeExit" project="BankingSystem" 
     file="/BankingSystem/src/gui/LoginGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2561" y="1240"/>    
+    <position height="-1" width="-1" x="2624" y="1117"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -318,7 +318,7 @@
   </class>  
   <class id="36" language="java" name="gui.ManagerEditPersonalInfo.EditInfo" project="BankingSystem" 
     file="/BankingSystem/src/gui/ManagerEditPersonalInfo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2149" y="-29"/>    
+    <position height="-1" width="-1" x="2048" y="-38"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -327,7 +327,7 @@
   </class>  
   <class id="37" language="java" name="gui.ManagerPageGUI.AdvanceMonth" project="BankingSystem" 
     file="/BankingSystem/src/gui/ManagerPageGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2507" y="1689"/>    
+    <position height="-1" width="-1" x="2457" y="1622"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -336,7 +336,7 @@
   </class>  
   <class id="38" language="java" name="gui.ManagerPageGUI.ActuallyDelete" project="BankingSystem" 
     file="/BankingSystem/src/gui/ManagerPageGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2740" y="1676"/>    
+    <position height="-1" width="-1" x="2713" y="1790"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -345,7 +345,7 @@
   </class>  
   <class id="39" language="java" name="gui.ManagerPendingAccountGUI.DeclineAccount" project="BankingSystem" 
     file="/BankingSystem/src/gui/ManagerPendingAccountGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1282" y="451"/>    
+    <position height="-1" width="-1" x="1494" y="437"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -354,7 +354,7 @@
   </class>  
   <class id="40" language="java" name="gui.ManagerPendingAccountGUI.ApproveAccount" project="BankingSystem" 
     file="/BankingSystem/src/gui/ManagerPendingAccountGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1575" y="729"/>    
+    <position height="-1" width="-1" x="1363" y="795"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -381,7 +381,7 @@
   </class>  
   <class id="43" language="java" name="Accounts.MortgageDriver" project="BankingSystem" 
     file="/BankingSystem/src/Accounts/MortgageDriver.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="113" x="904" y="1224"/>    
+    <position height="-1" width="-1" x="-298" y="1579"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -390,7 +390,7 @@
   </class>  
   <class id="44" language="java" name="Accounts.SavingAccountDriver" project="BankingSystem" 
     file="/BankingSystem/src/Accounts/SavingAccountDriver.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="143" x="717" y="1367"/>    
+    <position height="-1" width="-1" x="-132" y="1466"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -408,7 +408,7 @@
   </class>  
   <class id="46" language="java" name="gui.TransferGUI.MakeTransfer" project="BankingSystem" 
     file="/BankingSystem/src/gui/TransferGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="211" x="563" y="2181"/>    
+    <position height="-1" width="-1" x="1048" y="1614"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -417,7 +417,7 @@
   </class>  
   <class id="47" language="java" name="gui.TransferGUI" project="BankingSystem" 
     file="/BankingSystem/src/gui/TransferGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="369" width="294" x="563" y="1772"/>    
+    <position height="-1" width="-1" x="1292" y="1582"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -426,7 +426,7 @@
   </class>  
   <class id="48" language="java" name="gui.StatementGUI" project="BankingSystem" 
     file="/BankingSystem/src/gui/StatementGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1039" y="2033"/>    
+    <position height="-1" width="-1" x="-177" y="2017"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -435,7 +435,7 @@
   </class>  
   <class id="49" language="java" name="gui.EditPersonalInfoGUI.EditInfo" project="BankingSystem" 
     file="/BankingSystem/src/gui/EditPersonalInfoGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3040" y="836"/>    
+    <position height="-1" width="-1" x="3104" y="748"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -444,7 +444,7 @@
   </class>  
   <class id="50" language="java" name="gui.ClientPageGUI.EditPersonalInfo" project="BankingSystem" 
     file="/BankingSystem/src/gui/ClientPageGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2112" y="444"/>    
+    <position height="-1" width="-1" x="1750" y="136"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -453,7 +453,7 @@
   </class>  
   <class id="51" language="java" name="gui.ClientPageGUI.OpenNewAccount" project="BankingSystem" 
     file="/BankingSystem/src/gui/ClientPageGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1882" y="714"/>    
+    <position height="-1" width="-1" x="1420" y="204"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -462,7 +462,7 @@
   </class>  
   <class id="52" language="java" name="gui.ClientPageGUI.LoadAccount" project="BankingSystem" 
     file="/BankingSystem/src/gui/ClientPageGUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="993" y="157"/>    
+    <position height="-1" width="-1" x="465" y="-253"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -523,521 +523,847 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <nesting id="59">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="28"/>  
-  </nesting>  
-  <nesting id="60">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="30"/>  
-  </nesting>  
-  <nesting id="61">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="42"/>  
-  </nesting>  
-  <association id="62">    
-    <end type="SOURCE" refId="35" navigable="false">      
-      <attribute id="63" name="bank">        
-        <position height="0" width="0" x="478" y="6"/>      
+  <class id="59" language="java" name="MonthlyStatement.CheckingAccountMonthlyStatement" project="BankingSystem" 
+    file="/BankingSystem/src/MonthlyStatement/CheckingAccountMonthlyStatement.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="882" y="2016"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="60" language="java" name="MonthlyStatement.CheckingAccountMonthlyStatementDriver" project="BankingSystem" 
+    file="/BankingSystem/src/MonthlyStatement/CheckingAccountMonthlyStatementDriver.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="96" width="265" x="-400" y="2704"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="61" language="java" name="MonthlyStatement.CreditCardMonthlyStatement" project="BankingSystem" 
+    file="/BankingSystem/src/MonthlyStatement/CreditCardMonthlyStatement.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2040" y="2024"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="62" language="java" name="MonthlyStatement.CreditCardMonthlyStatementDriver" project="BankingSystem" 
+    file="/BankingSystem/src/MonthlyStatement/CreditCardMonthlyStatementDriver.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-394" y="1720"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="63" language="java" name="MonthlyStatement.SavingsAccountMonthlyStatement" project="BankingSystem" 
+    file="/BankingSystem/src/MonthlyStatement/SavingsAccountMonthlyStatement.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1752" y="1180"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="64" language="java" name="MonthlyStatement.MortgageMonthlyStatement" project="BankingSystem" 
+    file="/BankingSystem/src/MonthlyStatement/MortgageMonthlyStatement.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-268" y="596"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="65" language="java" name="Hardware.Fee" project="BankingSystem" file="/BankingSystem/src/Hardware/Fee.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2056" y="856"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="66" language="java" name="Hardware.MonthlyButton" project="BankingSystem" 
+    file="/BankingSystem/src/Hardware/MonthlyButton.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3316" y="1392"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="67" language="java" name="Hardware.Transaction" project="BankingSystem" 
+    file="/BankingSystem/src/Hardware/Transaction.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-404" y="-148"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="68" language="java" name="gui.NewAccountNewCustomerGUI.SelectionChanged" project="BankingSystem" 
+    file="/BankingSystem/src/gui/NewAccountNewCustomerGUI.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="189" x="-426" y="144"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="69" language="java" name="gui.NewAccountExistingCustomerGUI.SelectionChanged" project="BankingSystem" 
+    file="/BankingSystem/src/gui/NewAccountExistingCustomerGUI.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-188" y="-248"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="70" language="java" name="gui.ManagerPageGUI.SearchAccount" project="BankingSystem" 
+    file="/BankingSystem/src/gui/ManagerPageGUI.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="189" x="-70" y="-264"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="71">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="72" name="transactions">        
+        <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="64" minimum="0" maximum="1">        
-        <position height="0" width="0" x="478" y="6"/>      
+      <multiplicity id="73" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
+    <end type="TARGET" refId="67" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="65">    
-    <end type="SOURCE" refId="53"/>    
-    <end type="TARGET" refId="58"/>  
-  </nesting>  
-  <association id="66">    
+  <association id="74">    
     <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="67" name="pendingPeople">        
+      <attribute id="75" name="pendingPeople">        
         <position height="0" width="0" x="-38" y="47"/>      
       </attribute>      
-      <multiplicity id="68" minimum="0" maximum="2147483647">        
+      <multiplicity id="76" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="-38" y="47"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="69">    
-    <end type="SOURCE" refId="35"/>    
-    <end type="TARGET" refId="36"/>  
-  </nesting>  
-  <association id="70">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="71" name="bankAccounts">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </attribute>      
-      <multiplicity id="72" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="73">    
-    <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="74" name="holder">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="75" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="76">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="37"/>  
-  </nesting>  
-  <association id="77">    
-    <end type="SOURCE" refId="47" navigable="false">      
-      <attribute id="78" name="destinationAccount">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </attribute>      
-      <multiplicity id="79" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="80">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="9"/>  
-  </nesting>  
-  <association id="81">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="82" name="paperWork">        
-        <position height="0" width="0" x="-56" y="566"/>      
-      </attribute>      
-      <multiplicity id="83" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-56" y="566"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="84">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="85" name="mortgages">        
-        <position height="0" width="0" x="-44" y="-147"/>      
-      </attribute>      
-      <multiplicity id="86" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-44" y="-147"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="87">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="10"/>  
-  </nesting>  
-  <association id="88">    
-    <end type="SOURCE" refId="51" navigable="false">      
-      <attribute id="89" name="customer">        
-        <position height="0" width="0" x="-182" y="233"/>      
-      </attribute>      
-      <multiplicity id="90" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-182" y="233"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="91">    
-    <end type="SOURCE" refId="53" navigable="false">      
-      <attribute id="92" name="bankaccount">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </attribute>      
-      <multiplicity id="93" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="94">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <nesting id="95">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="39"/>  
-  </nesting>  
-  <nesting id="96">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="49"/>  
-  </nesting>  
-  <generalization id="97">    
-    <end type="SOURCE" refId="24"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <association id="98">    
-    <end type="SOURCE" refId="41" navigable="false">      
-      <attribute id="99" name="holder">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="100" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="101">    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="102" name="mortgage">        
-        <position height="0" width="0" x="-44" y="-147"/>      
-      </attribute>      
-      <multiplicity id="103" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-44" y="-147"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="104">    
-    <end type="SOURCE" refId="47" navigable="false">      
-      <attribute id="105" name="originAccount">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </attribute>      
-      <multiplicity id="106" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="107">    
-    <end type="SOURCE" refId="40" navigable="false">      
-      <attribute id="108" name="approvedAccount">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </attribute>      
-      <multiplicity id="109" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="110">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="111" name="pendingAccounts">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </attribute>      
-      <multiplicity id="112" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="113">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="52"/>  
-  </nesting>  
-  <association id="114">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="115" name="banksBankAccount">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </attribute>      
-      <multiplicity id="116" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="117">    
-    <end type="SOURCE" refId="53"/>    
-    <end type="TARGET" refId="57"/>  
-  </nesting>  
-  <nesting id="118">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="29"/>  
-  </nesting>  
-  <generalization id="119">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <nesting id="120">    
-    <end type="SOURCE" refId="53"/>    
-    <end type="TARGET" refId="56"/>  
-  </nesting>  
-  <generalization id="121">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="122">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="123" name="bank">        
-        <position height="0" width="0" x="524" y="-8"/>      
-      </attribute>      
-      <multiplicity id="124" minimum="0" maximum="1">        
-        <position height="0" width="0" x="524" y="-8"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="125">    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="126" name="login">        
-        <position height="0" width="0" x="-27" y="446"/>      
-      </attribute>      
-      <multiplicity id="127" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-27" y="446"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="128">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="129">    
-    <end type="SOURCE" refId="53" navigable="false">      
-      <attribute id="130" name="bank">        
-        <position height="0" width="0" x="49" y="38"/>      
-      </attribute>      
-      <multiplicity id="131" minimum="0" maximum="1">        
-        <position height="0" width="0" x="49" y="38"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="132">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="38"/>  
-  </nesting>  
-  <association id="133">    
-    <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="134" name="approvedAccount">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </attribute>      
-      <multiplicity id="135" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="136">    
-    <end type="SOURCE" refId="40" navigable="false">      
-      <attribute id="137" name="holder">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="138" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="139">    
+  <nesting id="77">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="50"/>  
   </nesting>  
-  <association id="140">    
-    <end type="SOURCE" refId="52" navigable="false">      
-      <attribute id="141" name="bA">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </attribute>      
-      <multiplicity id="142" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-206" y="-140"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="143">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="144" name="employees">        
-        <position height="0" width="0" x="152" y="101"/>      
-      </attribute>      
-      <multiplicity id="145" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="152" y="101"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="146">    
-    <end type="SOURCE" refId="53"/>    
-    <end type="TARGET" refId="55"/>  
+  <nesting id="78">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="42"/>  
   </nesting>  
-  <nesting id="147">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="34"/>  
-  </nesting>  
-  <generalization id="148">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="26"/>  
+  <generalization id="79">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="3"/>  
   </generalization>  
-  <nesting id="149">    
+  <nesting id="80">    
     <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="33"/>  
+    <end type="TARGET" refId="14"/>  
   </nesting>  
-  <association id="150">    
+  <nesting id="81">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="39"/>  
+  </nesting>  
+  <association id="82">    
     <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="151" name="myBank">        
+      <attribute id="83" name="myBank">        
         <position height="0" width="0" x="524" y="-8"/>      
       </attribute>      
-      <multiplicity id="152" minimum="0" maximum="1">        
+      <multiplicity id="84" minimum="0" maximum="1">        
         <position height="0" width="0" x="524" y="-8"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="21" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="153">    
-    <end type="SOURCE" refId="35" navigable="false">      
-      <attribute id="154" name="emp1">        
-        <position height="0" width="0" x="101" y="58"/>      
+  <association id="85">    
+    <end type="SOURCE" refId="66" navigable="false">      
+      <attribute id="86" name="date">        
+        <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="155" minimum="0" maximum="1">        
-        <position height="0" width="0" x="101" y="58"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="156">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="157" name="customers">        
-        <position height="0" width="0" x="-492" y="-276"/>      
-      </attribute>      
-      <multiplicity id="158" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-492" y="-276"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="159">    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="160" name="birthday">        
-        <position height="0" width="0" x="77" y="519"/>      
-      </attribute>      
-      <multiplicity id="161" minimum="0" maximum="1">        
-        <position height="0" width="0" x="77" y="519"/>      
+      <multiplicity id="87" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="20" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="162">    
-    <end type="SOURCE" refId="47"/>    
-    <end type="TARGET" refId="46"/>  
+  <nesting id="88">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="34"/>  
   </nesting>  
-  <generalization id="163">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <nesting id="164">    
+  <association id="89">    
+    <end type="SOURCE" refId="39" navigable="false">      
+      <attribute id="90" name="approvedAccount">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </attribute>      
+      <multiplicity id="91" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="92">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="29"/>  
+  </nesting>  
+  <nesting id="93">    
     <end type="SOURCE" refId="53"/>    
     <end type="TARGET" refId="54"/>  
   </nesting>  
-  <nesting id="165">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="40"/>  
-  </nesting>  
-  <nesting id="166">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="51"/>  
-  </nesting>  
-  <association id="167">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="168" name="suspendedAccounts">        
-        <position height="0" width="0" x="-38" y="47"/>      
-      </attribute>      
-      <multiplicity id="169" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-38" y="47"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="170">    
-    <end type="SOURCE" refId="51" navigable="false">      
-      <attribute id="171" name="bank">        
-        <position height="0" width="0" x="49" y="38"/>      
-      </attribute>      
-      <multiplicity id="172" minimum="0" maximum="1">        
-        <position height="0" width="0" x="49" y="38"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="173">    
-    <end type="SOURCE" refId="25"/>    
-    <end type="TARGET" refId="26"/>  
-  </generalization>  
-  <association id="174">    
-    <end type="SOURCE" refId="47" navigable="false">      
-      <attribute id="175" name="bank">        
-        <position height="0" width="0" x="49" y="38"/>      
-      </attribute>      
-      <multiplicity id="176" minimum="0" maximum="1">        
-        <position height="0" width="0" x="49" y="38"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="177">    
+  <association id="94">    
     <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="178" name="savingsAccount">        
+      <attribute id="95" name="savingsAccount">        
         <position height="0" width="0" x="-4" y="-367"/>      
       </attribute>      
-      <multiplicity id="179" minimum="0" maximum="1">        
+      <multiplicity id="96" minimum="0" maximum="1">        
         <position height="0" width="0" x="-4" y="-367"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="180">    
+  <association id="97">    
+    <end type="SOURCE" refId="53" navigable="false">      
+      <attribute id="98" name="bank">        
+        <position height="0" width="0" x="49" y="38"/>      
+      </attribute>      
+      <multiplicity id="99" minimum="0" maximum="1">        
+        <position height="0" width="0" x="49" y="38"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="100">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="69"/>  
+  </nesting>  
+  <association id="101">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="102" name="paperWork">        
+        <position height="0" width="0" x="-56" y="566"/>      
+      </attribute>      
+      <multiplicity id="103" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-56" y="566"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="104">    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="105" name="bank">        
+        <position height="0" width="0" x="49" y="38"/>      
+      </attribute>      
+      <multiplicity id="106" minimum="0" maximum="1">        
+        <position height="0" width="0" x="49" y="38"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="107">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="32"/>  
   </nesting>  
-  <nesting id="181">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="14"/>  
-  </nesting>  
-  <nesting id="182">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="31"/>  
-  </nesting>  
-  <nesting id="183">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="41"/>  
-  </nesting>  
-  <association id="184">    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="185" name="checkingAccount">        
-        <position height="0" width="0" x="-145" y="145"/>      
+  <association id="108">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="109" name="monthlyStatements">        
+        <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="186" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-145" y="145"/>      
+      <multiplicity id="110" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="64" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="111">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="30"/>  
+  </nesting>  
+  <nesting id="112">    
+    <end type="SOURCE" refId="53"/>    
+    <end type="TARGET" refId="58"/>  
+  </nesting>  
+  <association id="113">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="114" name="birthday">        
+        <position height="0" width="0" x="51" y="563"/>      
+      </attribute>      
+      <multiplicity id="115" minimum="0" maximum="1">        
+        <position height="0" width="0" x="51" y="563"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="116">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="117">    
+    <end type="SOURCE" refId="53" navigable="false">      
+      <attribute id="118" name="bankaccount">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </attribute>      
+      <multiplicity id="119" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="120">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="121" name="mortgages">        
+        <position height="0" width="0" x="-44" y="-147"/>      
+      </attribute>      
+      <multiplicity id="122" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-44" y="-147"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="123">    
+    <end type="SOURCE" refId="63" navigable="false">      
+      <attribute id="124" name="accnt">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="125" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="126">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="68"/>  
+  </nesting>  
+  <association id="127">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="128" name="customer">        
+        <position height="0" width="0" x="262" y="115"/>      
+      </attribute>      
+      <multiplicity id="129" minimum="0" maximum="1">        
+        <position height="0" width="0" x="262" y="115"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="130">    
+    <end type="SOURCE" refId="47"/>    
+    <end type="TARGET" refId="46"/>  
+  </nesting>  
+  <association id="131">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="132" name="customers">        
+        <position height="0" width="0" x="-48" y="-394"/>      
+      </attribute>      
+      <multiplicity id="133" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-48" y="-394"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="134">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="135" name="bank">        
+        <position height="0" width="0" x="524" y="-8"/>      
+      </attribute>      
+      <multiplicity id="136" minimum="0" maximum="1">        
+        <position height="0" width="0" x="524" y="-8"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="137">    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="138" name="destinationAccount">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </attribute>      
+      <multiplicity id="139" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="140">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="26"/>  
+  </generalization>  
+  <nesting id="141">    
+    <end type="SOURCE" refId="53"/>    
+    <end type="TARGET" refId="56"/>  
+  </nesting>  
+  <association id="142">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="143" name="monthlyStatements">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="144" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="63" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="145">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="23"/>  
+  </generalization>  
+  <association id="146">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="147" name="bankAccounts">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </attribute>      
+      <multiplicity id="148" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="149">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="150" name="checkingAccount">        
+        <position height="0" width="0" x="-357" y="625"/>      
+      </attribute>      
+      <multiplicity id="151" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-357" y="625"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="187">    
+  <nesting id="152">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="70"/>  
+  </nesting>  
+  <generalization id="153">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="26"/>  
+  </generalization>  
+  <association id="154">    
+    <end type="SOURCE" refId="65" navigable="false">      
+      <attribute id="155" name="date">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="156" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="157">    
+    <end type="SOURCE" refId="39" navigable="false">      
+      <attribute id="158" name="holder">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="159" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="160">    
+    <end type="SOURCE" refId="63" navigable="false">      
+      <attribute id="161" name="stateMentDate">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="162" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="163">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="164" name="bank">        
+        <position height="0" width="0" x="49" y="38"/>      
+      </attribute>      
+      <multiplicity id="165" minimum="0" maximum="1">        
+        <position height="0" width="0" x="49" y="38"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="166">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <nesting id="167">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="28"/>  
+  </nesting>  
+  <nesting id="168">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="40"/>  
+  </nesting>  
+  <association id="169">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="170" name="login">        
+        <position height="0" width="0" x="-25" y="408"/>      
+      </attribute>      
+      <multiplicity id="171" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-25" y="408"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="172">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <nesting id="173">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="33"/>  
+  </nesting>  
+  <association id="174">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="175" name="fees">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="176" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="65" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="177">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="23"/>  
+  </generalization>  
+  <association id="178">    
+    <end type="SOURCE" refId="59" navigable="false">      
+      <attribute id="179" name="stateMentDate">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="180" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="181">    
+    <end type="SOURCE" refId="41" navigable="false">      
+      <attribute id="182" name="holder">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="183" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="184">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="185" name="banksBankAccount">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </attribute>      
+      <multiplicity id="186" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="187">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="188" name="emp1">        
+        <position height="0" width="0" x="101" y="58"/>      
+      </attribute>      
+      <multiplicity id="189" minimum="0" maximum="1">        
+        <position height="0" width="0" x="101" y="58"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="190">    
+    <end type="SOURCE" refId="61" navigable="false">      
+      <attribute id="191" name="stateMentDate">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="192" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="193">    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="194" name="originAccount">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </attribute>      
+      <multiplicity id="195" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="196">    
+    <end type="SOURCE" refId="64" navigable="false">      
+      <attribute id="197" name="stateMentDate">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="198" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="199">    
+    <end type="SOURCE" refId="64" navigable="false">      
+      <attribute id="200" name="accnt">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="201" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="202">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="9"/>  
+  </nesting>  
+  <nesting id="203">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="37"/>  
+  </nesting>  
+  <association id="204">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="205" name="suspendedAccounts">        
+        <position height="0" width="0" x="-38" y="47"/>      
+      </attribute>      
+      <multiplicity id="206" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-38" y="47"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="207">    
+    <end type="SOURCE" refId="66" navigable="false">      
+      <attribute id="208" name="monthlyBank">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="209" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="210">    
+    <end type="SOURCE" refId="52" navigable="false">      
+      <attribute id="211" name="bA">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </attribute>      
+      <multiplicity id="212" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="213">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="49"/>  
+  </nesting>  
+  <association id="214">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="215" name="monthlyStatements">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="216" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="59" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="217">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="51"/>  
+  </nesting>  
+  <nesting id="218">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="52"/>  
+  </nesting>  
+  <association id="219">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="220" name="mortgage">        
+        <position height="0" width="0" x="-44" y="-147"/>      
+      </attribute>      
+      <multiplicity id="221" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-44" y="-147"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="222">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="31"/>  
+  </nesting>  
+  <nesting id="223">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="38"/>  
+  </nesting>  
+  <association id="224">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="225" name="monthlyStatements">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="226" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="61" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="227">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="10"/>  
+  </nesting>  
+  <association id="228">    
+    <end type="SOURCE" refId="61" navigable="false">      
+      <attribute id="229" name="accnt">        
+        <position height="0" width="0" x="68" y="95"/>      
+      </attribute>      
+      <multiplicity id="230" minimum="0" maximum="1">        
+        <position height="0" width="0" x="68" y="95"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="231">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="45"/>  
+  </nesting>  
+  <association id="232">    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="233" name="holder">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="234" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="235">    
+    <end type="SOURCE" refId="53"/>    
+    <end type="TARGET" refId="55"/>  
+  </nesting>  
+  <association id="236">    
+    <end type="SOURCE" refId="59" navigable="false">      
+      <attribute id="237" name="accnt">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="238" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="239">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="240" name="bank">        
+        <position height="0" width="0" x="478" y="6"/>      
+      </attribute>      
+      <multiplicity id="241" minimum="0" maximum="1">        
+        <position height="0" width="0" x="478" y="6"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="242">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="243" name="pendingAccounts">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </attribute>      
+      <multiplicity id="244" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="245">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="41"/>  
+  </nesting>  
+  <nesting id="246">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="36"/>  
+  </nesting>  
+  <association id="247">    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="248" name="approvedAccount">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </attribute>      
+      <multiplicity id="249" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-206" y="-140"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="250">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="251" name="employees">        
+        <position height="0" width="0" x="152" y="101"/>      
+      </attribute>      
+      <multiplicity id="252" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="152" y="101"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="253">    
+    <end type="SOURCE" refId="53"/>    
+    <end type="TARGET" refId="57"/>  
   </nesting>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    

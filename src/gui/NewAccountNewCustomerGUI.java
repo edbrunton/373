@@ -105,7 +105,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			{
 				valid =false;
 				String title = "Error First Name Not Valid";
-				String message ="Enter a valid first name, scum";
+				String message ="Enter a valid first name";
 				textParseError(title, message);
 			}
 			String lastName = c2.getText();
@@ -119,7 +119,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			{
 				valid = false;
 				String title = "Error Last Name Not Valid";
-				String message ="Enter a valid last name, scum";
+				String message ="Enter a valid last name";
 				textParseError(title, message);
 			}
 			String address = c3.getText();
@@ -134,7 +134,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			{
 				valid = false;
 				String title = "Error Address Not Valid";
-				String message ="Enter a valid address, scum";
+				String message ="Enter a valid address";
 				textParseError(title, message);
 			}
 			int zipcode = 0;
@@ -149,7 +149,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			{
 				valid = false;
 				String title = "Error Zipcode Not Valid";
-				String message ="Enter a valid zipcode, scum";
+				String message ="Enter a valid zipcode";
 				textParseError(title, message);
 			}
 			long phoneNum = 0;
@@ -166,7 +166,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			{
 				valid = false;
 				String title = "Error Phone Number Not Valid";
-				String message ="Enter a valid phone number, scum";
+				String message ="Enter a valid phone number";
 				textParseError(title, message);
 			}
 			String accountType = (String)f1.getSelectedItem();
@@ -220,7 +220,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			catch(Exception p){
 				valid = false;
 				String title = "Error Email Address Not Valid";
-				String message ="Enter a valid Email Address number, scum";
+				String message ="Enter a valid Email Address number";
 				if(preExisting == true)
 				{
 					title = "Email already registered";
@@ -252,7 +252,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			catch(Exception p){
 				valid = false;
 				String title = "Error Social Security Number Not Valid";
-				String message = SS + "Enter a valid Social Security number, scum";
+				String message = SS + "Enter a valid Social Security number";
 				textParseError(title, message);
 			}
 			int[] dateParts = null;
@@ -275,7 +275,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			catch(Exception p){
 				valid = false;
 				String title = "Error Birthday Not Valid";
-				String message = "Enter a valid Birthday, scum";
+				String message = "Enter a valid Birthday";
 				textParseError(title, message);
 			}
 			if(valid == true)
