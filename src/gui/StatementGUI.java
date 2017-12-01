@@ -3,6 +3,7 @@ package gui;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -43,7 +44,8 @@ public class StatementGUI {
 		//for Bank's account, getOwner may throw an error. Needs to be resolved at some point
 		JLabel b1 = new JLabel();
 		if(account instanceof CheckingAccount)
-		{
+		{ 
+			//CheckingAccount ca = (CheckingAccount)account;
 			CheckingAccountMonthlyStatement checkingAccount = new CheckingAccountMonthlyStatement((CheckingAccount)account);
 			b1 = new JLabel(checkingAccount.printMonthlyStatement().toString());
 			windowTitle += "Checking Account";

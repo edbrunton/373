@@ -27,6 +27,7 @@ import Hardware.*
 		setVisible(false);
 		bank.getBankAccounts().add(this);
 		this.fees = new ArrayList<Fee>();
+		owner = new Customer(holdingBank, "Jeff", "Jeffries", "ss", "Candy Cane Lane", accountNumber, new Date(), accountNumber, new UserLogin());
 	}	
 /*	public void addMonthlyStatement(CheckingAccountMonthlyStatement mS){
 		monthlyStatements.add(mS);

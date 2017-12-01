@@ -19,8 +19,9 @@ public class MonthlyButton implements Serializable{
 		date = new Date();	
 	}
 	public MonthlyButton(Bank B) {
-		date = monthlyBank.getDate();
 		monthlyBank = B;
+
+		date = monthlyBank.getDate();
 	}
 	
 	

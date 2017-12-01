@@ -16,11 +16,14 @@ public class CheckingAccount extends BankAccount  implements Serializable{
 	public CheckingAccount(Bank bank) {
 		super(bank);
 		balance = 0;
+		monthlyStatements =new ArrayList<CheckingAccountMonthlyStatement>();
+
 	}
 	public CheckingAccount(Bank bank, double b, double dD) {
 		super(bank);
 		balance = b;
 		directDeposit = dD;
+		monthlyStatements =new ArrayList<CheckingAccountMonthlyStatement>();
 	}
 	
 	
@@ -31,6 +34,9 @@ public class CheckingAccount extends BankAccount  implements Serializable{
 	//Methods
 	
 	public void addMonthlyStatement(CheckingAccountMonthlyStatement mS){
+		if(this.monthlyStatements == null) {
+			this.setMonthlyStatements(new ArrayList<CheckingAccountMonthlyStatement>());
+		}
 		monthlyStatements.add(mS);
 	}
 	public void Deposit(double d) {
