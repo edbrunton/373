@@ -239,7 +239,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			catch(Exception p){
 				valid = false;
 				String title = "Error Password Not Valid";
-				String message ="Enter a password of at least eight characters moron";
+				String message ="Enter a password of at least eight characters";
 				textParseError(title, message);
 			}
 			String SS = String.valueOf(f3.getPassword());
@@ -300,20 +300,23 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 					{
 						SavingsAccount SA = new SavingsAccount(bank, bank.getBankPolicy().getSavingsAccountinterestRate(),
 								loanAmount, bank.getBankPolicy().getSavingsAccountminBalance());
+						SA.setOwner(c);
 						SA.setVisible(true);
-						c.setSavingsAccount(SA);
+						c.setSavingsAccount(SA);// could be change to arrayList
 					}
 					if(accountType.compareTo("Checking") == 0)
 					{
 						CheckingAccount CA =new CheckingAccount(bank,loanAmount, 0.0);//TODO Ryan figure out to do your direct deposit thing
+						CA.setOwner(c);
 						CA.setVisible(true);
-						c.setCheckingAccount(CA);
+						c.setCheckingAccount(CA);// could be change to arrayList
 					}
 					if(accountType.compareTo("Mortgage") == 0)
 					{
 						CheckingAccount CA =new CheckingAccount(bank, 0.0, 0.0);//TODO Ryan figure out to do your direct deposit thing
 						CA.setVisible(true);
 						Mortgage M = new Mortgage(bank, loanAmount, loanAmount,bank.getBankPolicy().getMortgageInterestRate(), CA);
+						M.setOwner(c);
 						M.setVisible(true);
 						c.setMortgage(M);
 					}

@@ -1,11 +1,11 @@
 package People;
-
+//objects used 
 import java.io.Serializable;
 
 import Hardware.Bank;
 import Hardware.Date;
 import Hardware.UserLogin;
-
+// objects used Date, UserLogin, Bank 
 public abstract class Person  implements Serializable{
 //Fields
 protected String firstName;
@@ -17,6 +17,21 @@ protected Date birthday;
 protected long phoneNumber;
 protected UserLogin login;
 protected Bank holdingBank;
+
+public Person() { // created Person Constructor to fix an error in instantiating  
+	 firstName = "Edward";
+	 lastName = "Brunton";
+	 socialSecurityNumber = " 123-40-1234";
+	 address = " 123 Candy Cane Lane";
+	 zipCode = 12345;
+	 birthday = new Date();
+	 phoneNumber = 1231231234;
+	login = new UserLogin();
+    holdingBank = new Bank();
+
+	
+}
+
 public Date getBirthday() {
 	return birthday;
 }
@@ -31,15 +46,7 @@ public void setLogin(UserLogin login) {
 }
 //Constructors
 //Probably will cause serious issues
-/*public Person() {
-	firstName = "Default";
-	lastName = "Default";
-	socialSecurityNumber = "null";
-	address = "Default";
-	zipCode = -1;
-	birthday = new Date();
-	phoneNumber = -1;
-}*/
+
 public Person(Bank holdingBank, String firstName, String lastName, String SS, String add, int zC, Date bD, long pN, UserLogin userLogin) {
 	this.firstName = firstName;
 	this.lastName = lastName;

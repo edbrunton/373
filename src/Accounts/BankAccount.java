@@ -1,4 +1,5 @@
 package Accounts;
+//objects used: Transaction, Fee, Customer,  Bank
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,28 +11,25 @@ import Hardware.*
 
 	//Fields
 	protected int accountNumber;
-	//protected ArrayList<CheckingAccountMonthlyStatement> monthlyStatements;
 	protected ArrayList<Transaction> transactions;
 	protected ArrayList<Fee> fees;
 	protected Customer owner;
 	protected boolean visible; //needs to be false until valid
 	protected Bank holdingBank;
 	protected double balance;
+
 	//Constructors
 	public BankAccount(Bank bank) {
 		holdingBank = bank;
 		accountNumber = holdingBank.getCurrentAccountNum();
 		holdingBank.setCurrentAccountNum(accountNumber + 1);
-//		monthlyStatements = new ArrayList<CheckingAccountMonthlyStatement>();
 		transactions = new ArrayList<Transaction>();
 		setVisible(false);
 		bank.getBankAccounts().add(this);
 		this.fees = new ArrayList<Fee>();
 		owner = new Customer(holdingBank, "Jeff", "Jeffries", "ss", "Candy Cane Lane", accountNumber, new Date(), accountNumber, new UserLogin());
 	}	
-/*	public void addMonthlyStatement(CheckingAccountMonthlyStatement mS){
-		monthlyStatements.add(mS);
-	}*/
+
 	public void addFee(Fee newFee) {
 		this.fees.add(newFee);
 		this.balance = this.balance - newFee.getAmount();
@@ -42,12 +40,7 @@ import Hardware.*
 	public void setAccountNumber(int accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-	/*public ArrayList<CheckingAccountMonthlyStatement> getMonthlyStatements() {
-		return monthlyStatements;
-	}*/
-	/*public void setMonthlyStatements(ArrayList<CheckingAccountMonthlyStatement> monthlyStatements) {
-		this.monthlyStatements = monthlyStatements;
-	}*/
+	
 	public ArrayList<Transaction> getTransactions() {
 		return transactions;
 	}

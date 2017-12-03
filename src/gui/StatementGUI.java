@@ -83,9 +83,9 @@ public class StatementGUI {
 		JButton e7  = new JButton("Exit");
 		e7.addActionListener(e -> frame.dispose());
 		//c0 = new JTextField(10);
-		listModel.addElement("new");//example of how to have a search element
+//		listModel.addElement("new");//example of how to have a search element
 	//	System.out.println("Removing trial element");
-		listModel.remove(0);
+//		listModel.remove(0);
 	//	System.out.println("Trial element removed");
 		addAt(a0, 0, 0);
 		addAt(b0, 0, 1);

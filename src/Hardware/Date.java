@@ -1,5 +1,5 @@
 package Hardware;
-
+// objects used null
 import java.io.Serializable;
 
 public class Date  implements Serializable{

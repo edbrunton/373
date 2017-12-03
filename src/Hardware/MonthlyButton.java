@@ -1,5 +1,5 @@
 package Hardware;
-
+//objects used: Date, Bank 
 import java.io.Serializable;
 
 import Accounts.CheckingAccount;
@@ -9,7 +9,7 @@ import Accounts.SavingsAccount;
 import People.Banker;
 import People.Manager;
 import People.Teller;
-
+// objects contained/used Date, Bank
 public class MonthlyButton implements Serializable{
 	//Fields
 	private Date date;

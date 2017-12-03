@@ -12,8 +12,8 @@ import Hardware.UserLogin;
 
 public class Customer extends Person  implements Serializable{
 
-//Fields
-private int customerNumber;
+// objects used SavingsAccount, CheckingAccount, CreditCard, Mortgage, Bank
+private int customerNumber;// could change to ArrayLists
 private SavingsAccount savingsAccount;
 private CheckingAccount checkingAccount;
 private CreditCard creditCard;
@@ -23,7 +23,15 @@ private Mortgage mortgage;
 /*public Customer() {
 	customerNumber = ;// needs to be a value and managed somehow
 }*/
-//Deleted several constructors that didn't make logical sense// check gitrepo if they were actually needed
+public Customer(){ // used if Customer is needed to not be null, if ever used, need to set accounts and cust num
+	Bank b1 = new Bank();
+	 customerNumber = 0;
+	 savingsAccount = new SavingsAccount(b1);
+	checkingAccount = new CheckingAccount(b1);
+	 creditCard = new CreditCard(b1);
+	 mortgage = new Mortgage(b1);
+	 
+}
 public Customer(Bank holdingBank, String firstName, String lastName, String sS, String address, int zipcode, Date birthday, long phoneNum,
 		UserLogin userLogin) {
 	super(holdingBank, firstName, lastName, sS, 
@@ -34,8 +42,8 @@ public Customer(Bank holdingBank, String firstName, String lastName, String sS, 
 public int getCustomberNumber() {
 	return customerNumber;
 }
-public void setCustomberNumber(int customberNumber) {
-	this.customerNumber = customberNumber;
+public void setCustomerNumber(int customerNumber) {
+	this.customerNumber = customerNumber;
 }
 public SavingsAccount getSavingsAccount() {
 	return savingsAccount;

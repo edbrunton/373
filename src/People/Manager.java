@@ -5,7 +5,7 @@ import java.io.Serializable;
 import Hardware.Bank;
 import Hardware.Date;
 import Hardware.UserLogin;
-
+// Objects used null ,  Bank
 public class Manager extends Employee  implements Serializable{
 	
 

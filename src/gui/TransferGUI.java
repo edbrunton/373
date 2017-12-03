@@ -111,7 +111,7 @@ public class TransferGUI {
 			try {
 				String accountNumberInput = c1.getText();
 				if(adminaccess && 
-				(accountNumberInput.compareTo("cash") ==0 || accountNumberInput.compareTo("Cash")==0)
+				(accountNumberInput.compareTo("cash") == 0 || accountNumberInput.compareTo("Cash")==0)
 				)
 				{
 					accountNum = 0;

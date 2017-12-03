@@ -6,7 +6,7 @@ import Hardware.Bank;
 import Hardware.Date;
 import Hardware.Record;
 import Hardware.UserLogin;
-
+// objects used Record, Bank,
 public class Employee extends Person  implements Serializable{
 	
 	//Fields
@@ -23,6 +23,10 @@ public class Employee extends Person  implements Serializable{
 		employeeNumber = eN;
 		paperWork = new Record();
 	}*/
+	public Employee() {
+		employeeNumber = 0; // needs to be assigned based on bank upon creation 
+		paperWork = new Record();
+	}
 	public Employee(Bank holdingBank, String firstName, String lastName, String SS, String address, int zipcode, 
 			Date birthday, long phoneNum, UserLogin userLogin) {
 		super(holdingBank, firstName, lastName, SS, 

@@ -1,6 +1,6 @@
 
 package MonthlyStatement;
-// need to replace monthAndYear with Bank Date
+// objects used Checking account
 import java.io.Serializable;
 import java.util.*;
 import Accounts.*;
@@ -156,10 +156,10 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 	public StringBuilder printMonthlyStatement() { // prints start , end balance, transactions, fees, and interest gained if savings account
 		sb.setLength(0);
 		sb.append("<html><p>MONTHLY CHECKING ACCOUNT STATEMENT</p>");
-		sb.append("<p>Account number: "+ this.accnt.getAccountNumber() + "</p>");
-		sb.append("<p>Direct deopsit amount: "+this.accnt.getDirectDeposit());
-		sb.append("<html>Starting Balance for " +stateMentDate+": "+begBalance+ "</p>");
-		sb.append("<p>Ending Balance for "+stateMentDate+": "+endBalance+"</p>");
+		sb.append("<p>Account number:</p> "+ this.accnt.getAccountNumber() + "</p>");
+		sb.append("<p>Direct deopsit amount:</p> "+this.accnt.getDirectDeposit());
+		sb.append("<html>Starting Balance for " +stateMentDate+":</p>"+begBalance+ "</p>");
+		sb.append("<p>Ending Balance for "+stateMentDate+":</p>"+endBalance+"</p>");
 		sb.append("<p>Fees for: "+stateMentDate+"</p>");
 		for(Fee f: accnt.getFees()) {
 	    sb.append("<p>"+f.getAmount()+" "+f.getType()+"</p>");	
