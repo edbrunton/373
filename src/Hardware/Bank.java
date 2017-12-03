@@ -1,5 +1,5 @@
 package Hardware;
-//objects used Date, Employee, Customer, BankAccount, Mortgage, Person
+// make a method called print all 
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -10,9 +10,7 @@ import People.Employee;
 import People.Person;
 
 public class Bank  implements Serializable{
-//Objects contained/used: Date,  Employee, Customer, BankAccount, Person, Bank Policy
 	
-	private String name;
 	private Date date;
 	private String address;
 	private int routingNumber;
@@ -26,15 +24,13 @@ public class Bank  implements Serializable{
 	private BankAccount banksBankAccount;
 	private ArrayList<BankAccount> pendingAccounts;
 	private ArrayList<Person> pendingPeople;
-	private ArrayList<BankAccount> suspendedAccounts;
-	private ArrayList<Employee> loginLockedEmps;
+	private ArrayList<Person> suspendedAccounts;
 	private int currentAccountNum;
 	private int currentCustomerNum;
 	private int currentEmployeeNum;
 	private BankPolicy bankPolicy;
 	//Constructors
 	public Bank() {
-		setName("Top Notch Bank");
 		address = "Default";
 		routingNumber = -1;
 		employees = new ArrayList<Employee>();
@@ -42,7 +38,7 @@ public class Bank  implements Serializable{
 		bankAccounts = new ArrayList<BankAccount>();
 		mortgages = new ArrayList<Mortgage>();
 		pendingPeople = new ArrayList<Person>();
-		suspendedAccounts = new ArrayList<BankAccount>();
+		suspendedAccounts = new ArrayList<Person>();
 		pendingAccounts = new ArrayList<BankAccount>();
 		Assets = -1;
 		monthlyRevenue = -1;
@@ -55,99 +51,23 @@ public class Bank  implements Serializable{
 		setBankPolicy(new BankPolicy(0.00001, 100, 0.2599, 0.0599));
 		date = new Date(12, 17, 1); //December 1st, 2017
 	}
-	
-	public Bank(String name, String addr, int routNum, BankAccount money) { // created parametered constructor
-		this.setName(name);
-		address = addr;
-		routingNumber = routNum;
-		employees = new ArrayList<Employee>();
-		customers = new ArrayList<Customer>();
-		bankAccounts =  new ArrayList<BankAccount>();
-		mortgages =  new ArrayList<Mortgage>();
-		monthlyRevenue = 0;
-		monthlyProfit = 0;
+	//this constructor is going to cause serious issues. Employeees, customers and accounts need to be added one by one
+	/*public Bank(String a, int rN, ArrayList<Employee> eS, ArrayList<Customer> cS, ArrayList<BankAccount> bS, ArrayList<Mortgage> mS, double mR, double mP, BankAccount money) {
+		address = a;
+		routingNumber = rN;
+		employees = eS;
+		customers = cS;
+		bankAccounts = bS;
+		mortgages = mS;
+		monthlyRevenue = mR;
+		monthlyProfit = mP;
 		banksBankAccount = money;
-		banksBankAccount.setVisible(true);
-		pendingPeople = new ArrayList<Person>();
-		suspendedAccounts = new ArrayList<BankAccount>();
-		pendingAccounts = new ArrayList<BankAccount>();
-		Assets = -1;
-		date = new Date(12, 17, 1); //December 1st, 2017
-		setBankPolicy(new BankPolicy(0.00001, 100, 0.2599, 0.0599));
-		currentAccountNum = 1;
-		currentCustomerNum = 1;
-		currentEmployeeNum =1;
+	}*/
+	
+	
+	
+	//Methods
 
-
-
-	}
-	
-	
-	
-
-	
-	public void addEmployee(Employee emp) { // add employee
-		this.employees.add(emp);
-	}
-	public void addCustomer(Customer cust) {// add customer 
-		this.customers.add(cust);
-	}
-	public void addBankAccount(BankAccount bankAccnts) {// add bank account
-		this.bankAccounts.add(bankAccnts);
-	}
-	public void addMortgages(Mortgage mort) {//add Mortgage
-		this.mortgages.add(mort);
-	}
-	public void addPendingAccount(BankAccount pendAccnt) {// add pendingAccount
-		this.pendingAccounts.add(pendAccnt);
-	}
-	public void addPendingPerson(Person pendPers) {// add pending Person
-		this.pendingPeople.add(pendPers);
-	}
-	public void addSuspendedAccount(BankAccount suspAccnt) {// add suspended account 
-		this.suspendedAccounts.add(suspAccnt);
-	}
-	public void addLoginLockedEmp(Employee forgetFulEmp) {// add locked Employee
-		this.loginLockedEmps.add(forgetFulEmp);
-	}
-	
-	public void removeEmployee(Employee emp) { // remove employee
-		this.employees.remove(emp);
-	}
-	public void removeCustomer(Customer cust) {// remove customer 
-		this.customers.remove(cust);
-	}
-	public void removeBankAccount(BankAccount bankAccnts) {// remove bank account
-		this.bankAccounts.remove(bankAccnts);
-	}
-	public void removeMortgages(Mortgage mort) {//remove Mortgage
-		this.mortgages.remove(mort);
-	}
-	public void removePendingAccount(BankAccount pendAccnt) {// remove pendingAccount
-		this.pendingAccounts.remove(pendAccnt);
-	}
-	public void removePendingPerson(Person pendPers) {// remove pending Person
-		this.pendingPeople.remove(pendPers);
-	}
-	public void removeSuspendedAccount(BankAccount suspAccnt) {// remove suspended account 
-		this.suspendedAccounts.remove(suspAccnt);
-	}
-	public void removeLoginLockedEmp(Employee forgetFulEmp) {// remove locked Employee
-		this.loginLockedEmps.remove(forgetFulEmp);
-	}
-/* this function searches through bankAccounts field by customer name and returns the account if found, and null otherwise   
-*/	public BankAccount findAccount(Person waldo) {
-		BankAccount waldoAccount = null;
-		for(BankAccount b : bankAccounts) {
-			if((b.getOwner().getFirstName()+" "+ b.getOwner().getLastName()).compareTo(waldo.getFirstName()+" "+waldo.getLastName())==0) {
-				waldoAccount = b;
-				
-			}
-		}
-		return waldoAccount;
-	}
-	
-	// getters and setters 
 	public String getAddress() {
 		return address;
 	}
@@ -163,18 +83,27 @@ public class Bank  implements Serializable{
 	public ArrayList<Employee> getEmployees() {
 		return employees;
 	}
+	public void setEmployees(ArrayList<Employee> employees) {
+		this.employees = employees;
+	}
 	public ArrayList<Customer> getCustomers() {
 		return customers;
 	}
-	
+	public void setCustomers(ArrayList<Customer> customers) {
+		this.customers = customers;
+	}
 	public ArrayList<BankAccount> getBankAccounts() {
 		return bankAccounts;
 	}
-	
+	public void setBankAccounts(ArrayList<BankAccount> bankAccounts) {
+		this.bankAccounts = bankAccounts;
+	}
 	public ArrayList<Mortgage> getMortgages() {
 		return mortgages;
 	}
-	
+	public void setMortgages(ArrayList<Mortgage> mortgages) {
+		this.mortgages = mortgages;
+	}
 	public double getAssets() {
 		return Assets;
 	}
@@ -202,15 +131,21 @@ public class Bank  implements Serializable{
 	public ArrayList<BankAccount> getPendingAccounts() {
 		return pendingAccounts;
 	}
-	
+	public void setPendingAccounts(ArrayList<BankAccount> pendingAccounts) {
+		this.pendingAccounts = pendingAccounts;
+	}
 	public ArrayList<Person> getPendingPeople() {
 		return pendingPeople;
 	}
-	
-	public ArrayList<BankAccount> getSuspendedAccounts() {
+	public void setPendingPeople(ArrayList<Person> pendingPeople) {
+		this.pendingPeople = pendingPeople;
+	}
+	public ArrayList<Person> getSuspendedAccounts() {
 		return suspendedAccounts;
 	}
-	
+	public void setSuspendedAccounts(ArrayList<Person> suspendedAccounts) {
+		this.suspendedAccounts = suspendedAccounts;
+	}
 	public int getCurrentAccountNum() {
 		currentAccountNum +=1;
 		return currentAccountNum-1;
@@ -251,20 +186,6 @@ public class Bank  implements Serializable{
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public ArrayList<Employee> getLoginLockedEmps() {
-		return loginLockedEmps;
-	}
-
-	
 	
 	
 }

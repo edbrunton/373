@@ -81,6 +81,18 @@ public class ClientPageGUI {
 			new NewAccountExistingCustomerGUI(bank, customer);
 		}
 	}
+	private final class EditInfo implements ActionListener {
+		private Bank bank;
+		private Customer customer;
+		private EditInfo(Bank bank, Customer customer){
+			this.bank = bank;
+			this.customer = customer;
+		}
+		public void actionPerformed(ActionEvent e)
+		{
+			new EditPersonalInfoGUI(customer,bank);
+		}
+	}
 	public ClientPageGUI(Customer customer, Bank bank)
 	{
 		this.setBank(bank);
@@ -98,7 +110,7 @@ public class ClientPageGUI {
 		JButton e1 = new JButton("Savings Account");
 		e1.addActionListener(new LoadAccount(customer.getSavingsAccount(), "Savings Account"));
 		JButton e2 = new JButton("Edit Personal Info");
-		e2.addActionListener(new EditPersonalInfo());
+		e2.addActionListener(new EditInfo(bank,customer));
 		JButton e3 = new JButton("Mortgage");
 		e3.addActionListener(new LoadAccount(customer.getMortgage(), "Mortgage"));
 		JButton e7  = new JButton("Log Out");

@@ -164,9 +164,8 @@ public class ManagerPageGUI {
 
 			MonthlyButton MB = new MonthlyButton(bank);
 			MB.pushMonthlyButton();
-			// prevent out of bounds exception
-//StatementGUI newStatement = new StatementGUI(bank.getBankAccounts().get(1));	
-
+			
+			
 			textParseError("Month Advanced", "The Monthly Button has been sucessfully pressed");
 			
 		}
@@ -186,14 +185,11 @@ public class ManagerPageGUI {
 	private final class LockedAccounts implements ActionListener {
 		
 		private LockedAccounts(){
-
 		}
 
 		public void actionPerformed(ActionEvent e)
 		{
-			
-			LockedAccountsGUI.createAndShowGUI(bank);
-
+			new ManagerLockedAccountGUI(bank);
 		}
 	}
 	private final class SearchAccount implements ActionListener {

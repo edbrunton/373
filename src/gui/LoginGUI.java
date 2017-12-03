@@ -55,7 +55,7 @@ public class LoginGUI extends JFrame  implements Serializable{
 			FileOutputStream fileOut = null;
 			ObjectOutputStream objOut = null;
 			try {
-				fileOut = new FileOutputStream("bank2.ser");
+				fileOut = new FileOutputStream("bank.ser");
 				objOut = new ObjectOutputStream(fileOut);
 				objOut.writeObject(myBank);
 				objOut.close();
@@ -105,6 +105,7 @@ public class LoginGUI extends JFrame  implements Serializable{
 						}
 						else
 						{
+							customer = null;
 							myBank.getCustomers().get(i).getLogin().setConsecutiveLoginFails(myBank.getCustomers().get(i).getLogin().getConsecutiveLogins()+1);	
 							loginError("Your account info is wrong. Try again. Wrong Password");	
 						}
@@ -131,6 +132,7 @@ public class LoginGUI extends JFrame  implements Serializable{
 						else
 						{
 						//	System.out.println(myBank.getEmployees().get(i).getLogin().getPassword());
+							employee = null;
 							System.out.println(dTF.getPassword().toString());
 							myBank.getEmployees().get(i).getLogin().setConsecutiveLoginFails(myBank.getEmployees().get(i).getLogin().getConsecutiveLogins()+1);	
 							loginError("Your account info is wrong. Try again. Wrong Password");	
@@ -140,14 +142,16 @@ public class LoginGUI extends JFrame  implements Serializable{
 			}
 			if(lockedAccount)
 			{
-				if(employee == null)// check functionality , after thinking through what it should be
+				if(employee == null)
 				{
-					BankAccount b = myBank.findAccount(customer);
-					myBank.addSuspendedAccount(b);
+					myBank.getSuspendedAccounts().remove(customer);
+					myBank.getSuspendedAccounts().add(customer);
+					System.out.println("Added customer to suspended list");
 				}
 				else
 				{
-					myBank.addLoginLockedEmp(employee);
+					myBank.getSuspendedAccounts().remove(employee);
+					myBank.getSuspendedAccounts().add(employee);
 				}
 				
 				loginError("You have too many failed logins. Contact a banker");
@@ -195,7 +199,7 @@ public class LoginGUI extends JFrame  implements Serializable{
 			FileOutputStream fileOut = null;
 			ObjectOutputStream objOut = null;
 			try {
-				fileOut = new FileOutputStream("bank2.ser");
+				fileOut = new FileOutputStream("bank.ser");
 				objOut = new ObjectOutputStream(fileOut);
 				objOut.writeObject(myBank);
 				objOut.close();
@@ -383,7 +387,7 @@ public class LoginGUI extends JFrame  implements Serializable{
 		ObjectInputStream objIn = null;
 		Bank bank1 = new Bank();
 		try {
-			fileIn = new FileInputStream("bank2.ser");
+			fileIn = new FileInputStream("bank.ser");
 			objIn = new ObjectInputStream(fileIn);
 			bank1 = (Bank) objIn.readObject();
 			objIn.close();

@@ -35,7 +35,7 @@ public class ManagerUnlockAccount {
 		}
 		for(int i = 0; i < bank.getSuspendedAccounts().size(); i++)
 		{
-			approvalMessage("Locked Account", bank.getSuspendedAccounts().get(i).getOwner());
+			approvalMessage("Locked Account", bank.getSuspendedAccounts().get(i));
 		}
 	}
 	private final class UnlockAccount implements ActionListener {

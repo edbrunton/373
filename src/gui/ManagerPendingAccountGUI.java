@@ -301,7 +301,7 @@ public class ManagerPendingAccountGUI {
 		}
 		private void approvalMessage(String title, Person bA) {
 			JDialog frame = new JDialog (new JFrame(), title);//inspired by https://stackoverflow.com/questions/2665355/how-do-i-remove-the-maximize-and-minimize-buttons-from-a-jframe  
-			frame = new JDialog (new JFrame(), "Login To Bank");
+			frame = new JDialog (new JFrame(), "Pending Client Bank");
 			frame.setSize(500, 900);
 			Container inputs = frame.getContentPane();
 			inputs.setLayout (new GridBagLayout());
@@ -316,7 +316,7 @@ public class ManagerPendingAccountGUI {
 			JLabel b6 = new JLabel("     ");
 			JLabel b7 = new JLabel("     ");
 			JLabel dName = new JLabel("Account Info: ");
-			JLabel dTF = new JLabel("Account Info Summery");
+			JLabel dTF = new JLabel(bA.getLogin().getUsername());
 			JLabel b8 = new JLabel("     ");
 			JLabel b9 = new JLabel("     ");
 			JLabel b10 = new JLabel("     ");

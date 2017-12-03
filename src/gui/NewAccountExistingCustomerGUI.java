@@ -161,14 +161,15 @@ private final class SelectionChanged implements ItemListener {
 		frame.setSize(500, 900);
 		inputs = frame.getContentPane();
 		inputs.setLayout (new GridBagLayout());
-		JLabel a0 = new JLabel("  a0   ");
-		JLabel d0 = new JLabel("   d0  ");
-		JLabel g0 = new JLabel("  g0   ");
+		JLabel a0 = new JLabel("     ");
+		JLabel d0 = new JLabel("    ");
+		JLabel g0 = new JLabel("     ");
 		JLabel e0 = new JLabel("Account Info: ");
 		JLabel e1 = new JLabel("Type of Account: ");
 		e2 = new JLabel("Loan Amount (if applicable): ");
 		 f2 = new JTextField(10);
 		 f1 = new JComboBox(AccountTypes);//JTextField(10);
+		 f1.addItemListener(new SelectionChanged());
 		JButton d6 = new JButton("Submit");
 		d6.addActionListener(new SubmitApplication());
 		addAt(a0, 0, 0);
