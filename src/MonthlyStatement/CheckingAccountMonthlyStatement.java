@@ -63,11 +63,14 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 	}*/
 	/* This function is the parametered constructor. It takes in the date and the account.*/
 	public CheckingAccountMonthlyStatement( CheckingAccount ca) { 
+
 		this.accnt = ca; 
 		this.sb = new StringBuilder();
 	//	this.fees = new ArrayList<Fee>();
 		this.calcBegBal(ca);
 		this.endBalance = ca.getBalance();
+		System.out.println("Checking Account: " + ca.getAccountNumber());
+		System.out.println("Holding Bank: " + ca.getHoldingBank().getName());
 		this.stateMentDate = ca.getHoldingBank().getDate();
 		
 		 

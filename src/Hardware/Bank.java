@@ -34,8 +34,8 @@ package Hardware;
 	//Constructors
 	public Bank() {
 	setName("Top Notch Bank");
-	address = "Default";
-	routingNumber = -1;
+	address = "Default Address";
+	routingNumber = 1;
 	employees = new ArrayList<Employee>();
 	customers = new ArrayList<Customer>();
 	bankAccounts = new ArrayList<BankAccount>();
@@ -76,15 +76,7 @@ package Hardware;
 	currentAccountNum = 1;
 	currentCustomerNum = 1;
 	currentEmployeeNum =1;
-	
-	
-	
-	}
-	
-	
-	
-	
-	
+	}	
 	public void addEmployee(Employee emp) { // add employee
 	this.employees.add(emp);
 	}
@@ -106,8 +98,6 @@ package Hardware;
 	public void addSuspendedAccount(Person suspAccnt) {// add suspended account 
 	this.suspendedAccounts.add(suspAccnt);
 	}
-
-	
 	public void removeEmployee(Employee emp) { // remove employee
 	this.employees.remove(emp);
 	}
@@ -135,7 +125,6 @@ package Hardware;
 	for(BankAccount b : bankAccounts) {
 	if((b.getOwner().getFirstName()+" "+ b.getOwner().getLastName()).compareTo(waldo.getFirstName()+" "+waldo.getLastName())==0) {
 	waldoAccount = b;
-	
 	}
 	}
 	return waldoAccount;
@@ -227,9 +216,6 @@ package Hardware;
 	public BankPolicy getBankPolicy() {
 	return bankPolicy;
 	}
-	
-	
-	
 	public void setBankPolicy(BankPolicy bankPolicy) {
 	this.bankPolicy = bankPolicy;
 	}

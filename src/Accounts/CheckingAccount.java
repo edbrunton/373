@@ -17,11 +17,12 @@ public class CheckingAccount extends BankAccount  implements Serializable{
 		super(bank);
 		balance = 0;
 		monthlyStatements =new ArrayList<CheckingAccountMonthlyStatement>();
-
+		System.out.println("If this is printing, mortage made a checking acocunt");
 	}
 	public CheckingAccount(Bank bank, double b, double dD) {
 		super(bank);
 		balance = b;
+		System.out.println("Checking account has initial balance of " + b);
 		directDeposit = dD;
 		monthlyStatements =new ArrayList<CheckingAccountMonthlyStatement>();
 	}
