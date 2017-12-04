@@ -15,27 +15,19 @@ public class MonthlyButton implements Serializable{
 	private Date date;
 	private Bank monthlyBank;
 	//Constructor
-	public MonthlyButton() {
+	/*public MonthlyButton() {
 		date = new Date();	
-	}
+	}*/
 	public MonthlyButton(Bank B) {
 		monthlyBank = B;
 
 		date = monthlyBank.getDate();
+		System.out.println(date);
 	}
-	
-	
-	
-	
-	
 	//Methods
 	public void pushMonthlyButton() {
 		//Every Monthly Function
-		
-
-		
-		
-		//Bank Accounts
+	//Bank Accounts
 		for(int i = 0; i < this.monthlyBank.getBankAccounts().size(); i++) {
 			//savings account monthly interest
 			if (this.monthlyBank.getBankAccounts().get(i).getClass() == SavingsAccount.class ) {
@@ -61,9 +53,8 @@ public class MonthlyButton implements Serializable{
 				CreditCard C2 = (CreditCard) this.monthlyBank.getBankAccounts().get(i);
 				C2.monthlyPayment();
 				this.monthlyBank.getBankAccounts().set(i, C2);
-			}
-			
-			
+			}	
+		}
 			//Employee paychecks
 			for(int j = 0; j<this.monthlyBank.getEmployees().size(); j++) {
 				if(this.monthlyBank.getEmployees().get(j).getClass() == Banker.class) {
@@ -80,48 +71,21 @@ public class MonthlyButton implements Serializable{
 					Teller teller1 = (Teller) this.monthlyBank.getEmployees().get(j);
 					teller1.setMonthlyPayCheck();
 					this.monthlyBank.getBanksBankAccount().setBalance(this.monthlyBank.getBanksBankAccount().getBalance() - teller1.getMonthlyPayCheck());
-
-				}
-				
-				
+				}							
 				//SETS NEW MONTH
-				if(this.date.getMonth() == 12) {
-					this.date.setMonth(1);
-					this.date.setYear(this.date.getYear() + 1);
-				}
-				else {
-				this.date.setMonth(this.date.getMonth() + 1);
-				}
-				monthlyBank.setDate(date);
 				
-				
-				
-				
-				
-				
-				
+					
+			}	
+			if(this.date.getMonth() == 12) {
+				this.date.setMonth(1);
+				this.date.setYear(this.date.getYear() + 1);
 			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		}
+			else {
+				this.date.setMonth(this.date.getMonth() + 1);
+			}
+			monthlyBank.setDate(date);	
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 	}
 
 	public Date getDate() {
