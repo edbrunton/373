@@ -158,8 +158,8 @@ public class SavingsAccountMonthlyStatement  implements Serializable{
 		sb.append("<html>MONTHLY SAVINGS ACCOUNT STATEMENT</p>");
 		sb.append("<p>Account number: "+ this.accnt.getAccountNumber() + "</p>");
 		sb.append("<p>Interest rate: "+this.accnt.getInterestRate());
-		sb.append("Minimum Balance: "+ this.accnt.getMinBalance());
-		sb.append("Starting balance for " +stateMentDate+": "+begBalance+ "</p>");
+		sb.append("<p>Minimum Balance: "+ this.accnt.getMinBalance());
+		sb.append("<p>Starting balance for " +stateMentDate+": "+begBalance+ "</p>");
 		sb.append("<p>Ending balance for "+stateMentDate+": "+endBalance+"</p>");
 		sb.append("<p>Fees for: "+stateMentDate+"</p>");
 		for(Fee f: accnt.getFees()) {

@@ -45,7 +45,9 @@ public int getDay() {
 public void setDay(int day) {
 	this.day = day;
 }
-
+public String toString() {
+	return month + "/" + day + "/" + year;
+}
 
 
 
