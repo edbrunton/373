@@ -43,7 +43,7 @@ public class CreditCardMonthlyStatement implements Serializable {
 		}
 		
 		/* this function is the no arg constructor. */
-		public CreditCardMonthlyStatement() {  
+	/*	public CreditCardMonthlyStatement() {  
 			this.begBalance = 0;
 			this.endBalance = 0;
 			this.stateMentDate = new Date();
@@ -51,7 +51,7 @@ public class CreditCardMonthlyStatement implements Serializable {
 			this.accnt = new CreditCard(b1);
 			this.sb = new StringBuilder();
 			
-		}
+		}*/
 		/* This function is the parametered constructor. It takes in the date and the account.*/
 		public CreditCardMonthlyStatement( CreditCard cc) { 
 			this.accnt = cc; 

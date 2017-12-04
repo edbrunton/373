@@ -17,14 +17,14 @@ public class CreditCard extends BankAccount  implements Serializable{
 	private CheckingAccount C1;
 	protected ArrayList<CreditCardMonthlyStatement> monthlyStatements;
 	//Constructors
-	public CreditCard(Bank bank) {
+/*	public CreditCard(Bank bank) {
 		super(bank);
 		minMonthlyPayment = 15;
 		interestRate = 0;
 		balance = 0;
 		limit = 0;
 		C1 = new CheckingAccount(bank);
-	}
+	}*/
 	public CreditCard(Bank bank, double iR, double b, double l, CheckingAccount CA) {
 		super(bank);
 		interestRate = iR;

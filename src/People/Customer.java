@@ -23,7 +23,7 @@ private Mortgage mortgage;
 /*public Customer() {
 	customerNumber = ;// needs to be a value and managed somehow
 }*/
-public Customer(){ // used if Customer is needed to not be null, if ever used, need to set accounts and cust num
+/*public Customer(){ // used if Customer is needed to not be null, if ever used, need to set accounts and cust num
 	Bank b1 = new Bank();
 	 customerNumber = 0;
 	 savingsAccount = new SavingsAccount(b1);
@@ -31,7 +31,7 @@ public Customer(){ // used if Customer is needed to not be null, if ever used, n
 	 creditCard = new CreditCard(b1);
 	 mortgage = new Mortgage(b1);
 	 
-}
+}*/
 public Customer(Bank holdingBank, String firstName, String lastName, String sS, String address, int zipcode, Date birthday, long phoneNum,
 		UserLogin userLogin) {
 	super(holdingBank, firstName, lastName, sS, 

@@ -20,7 +20,7 @@ public class Mortgage extends BankAccount  implements Serializable{
 	private ArrayList<MortgageMonthlyStatement> monthlyStatements;
 	
 	//Constructors
-	public Mortgage(Bank bank) {
+/*	public Mortgage(Bank bank) {
 		
 		super(bank);
 		setOriginialAmmount(0);
@@ -31,7 +31,7 @@ public class Mortgage extends BankAccount  implements Serializable{
 		setTerm(30);
 		month = 1;
 		paymentAccount = new CheckingAccount(bank);
-	}
+	}*/
 	public Mortgage(Bank bank, double oA, double p, double iR, CheckingAccount cA) {
 		super(bank);
 		bank.getBanksBankAccount().setBalance(bank.getBanksBankAccount().getBalance() - oA);

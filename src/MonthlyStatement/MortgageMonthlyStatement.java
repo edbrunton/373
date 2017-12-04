@@ -43,7 +43,7 @@ public class MortgageMonthlyStatement  implements Serializable{
 	}
 	
 	/* this function is the no arg constructor. */
-	public MortgageMonthlyStatement() {  
+/*	public MortgageMonthlyStatement() {  
 		this.begBalance = 0;
 		this.endBalance = 0;
 		this.stateMentDate = new Date();
@@ -52,7 +52,7 @@ public class MortgageMonthlyStatement  implements Serializable{
 	//	this.fees = new ArrayList<Fee>();
 		this.sb = new StringBuilder();
 		
-	}
+	}*/
 	/* This function is the parametered constructor. It takes in the date and the account.*/
 	public MortgageMonthlyStatement( Mortgage m) { 
 		this.accnt = m; 

@@ -176,6 +176,7 @@ public class NewAccountNewCustomerGUI extends JFrame   {
 			{
 				try {
 					loanAmount = Double.parseDouble(loanAmountIn);
+					System.out.println("Initial amount is " + loanAmount);
 					if (loanAmount <= 0)
 					{
 						throw new Exception("error");

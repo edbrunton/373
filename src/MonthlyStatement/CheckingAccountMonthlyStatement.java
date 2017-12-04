@@ -51,7 +51,7 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 	}
 	
 	/* this function is the no arg constructor. */
-	public CheckingAccountMonthlyStatement() {  
+/*	public CheckingAccountMonthlyStatement() {  
 		this.begBalance = 0;
 		this.endBalance = 0;
 		this.stateMentDate = new Date();
@@ -60,7 +60,7 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 	//	this.fees = new ArrayList<Fee>();
 		this.sb = new StringBuilder();
 		
-	}
+	}*/
 	/* This function is the parametered constructor. It takes in the date and the account.*/
 	public CheckingAccountMonthlyStatement( CheckingAccount ca) { 
 		this.accnt = ca; 
@@ -156,9 +156,9 @@ public class CheckingAccountMonthlyStatement  implements Serializable{
 	public StringBuilder printMonthlyStatement() { // prints start , end balance, transactions, fees, and interest gained if savings account
 		sb.setLength(0);
 		sb.append("<html><p>MONTHLY CHECKING ACCOUNT STATEMENT</p>");
-		sb.append("<p>Account number:</p> "+ this.accnt.getAccountNumber() + "</p>");
-		sb.append("<p>Direct deopsit amount:</p> "+this.accnt.getDirectDeposit());
-		sb.append("<html>Starting Balance for " +stateMentDate+":</p>"+begBalance+ "</p>");
+		sb.append("<p>Account number: "+ this.accnt.getAccountNumber() + "</p>");
+		sb.append("<p>Direct deopsit amount: "+this.accnt.getDirectDeposit() + "</p>");
+		sb.append("<html>Starting Balance for " +stateMentDate+": "+begBalance+ "</p>");
 		sb.append("<p>Ending Balance for "+stateMentDate+":</p>"+endBalance+"</p>");
 		sb.append("<p>Fees for: "+stateMentDate+"</p>");
 		for(Fee f: accnt.getFees()) {
