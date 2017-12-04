@@ -84,42 +84,41 @@ private final class SelectionChanged implements ItemListener {
 
 		public void actionPerformed(ActionEvent e)
 		{
+			System.out.println("Starting Application Submission");
 			boolean valid = true;
 			String accountType = (String)f1.getSelectedItem();
 			String loanAmountIn = f2.getText();
 			double loanAmount = -1;
-			if(accountType.compareTo("Mortgage") == 0)
-			{
-				try {
-					loanAmount = Double.parseDouble(loanAmountIn);
-					if (loanAmount <= 0)
-					{
-						throw new Exception("error");
-					}
-				}
-				catch(Exception p)
+			try {
+				loanAmount = Double.parseDouble(loanAmountIn);
+				if (loanAmount <= 0)
 				{
-					valid = false;
-					String title = "Error Loan Amount Not Valid";
-					String message ="Enter a valid loan amount";
-					textParseError(title, message);
+					throw new Exception("error");
 				}
+			}
+			catch(Exception p)
+			{
+				valid = false;
+				String title = "Amount Not Valid";
+				String message ="Enter a valid loan amount";
+				textParseError(title, message);
 			}
 			if(valid == true)
 			{
+				System.out.println("Account appears valid");
 				BankAccount tempBA = null;
-					if(accountType.compareTo("Savings") == 0 && customer.getSavingsAccount().equals(null))
+					if(accountType.compareTo("Savings") == 0 && customer.getSavingsAccount()==null)
 					{
 						tempBA = new SavingsAccount(bank, bank.getBankPolicy().getSavingsAccountinterestRate(),
 								loanAmount, bank.getBankPolicy().getSavingsAccountminBalance());
 						customer.setSavingsAccount((SavingsAccount)tempBA);
 					}
-					if(accountType.compareTo("Checking") == 0 && customer.getCheckingAccount().equals(null))
+					if(accountType.compareTo("Checking") == 0 && customer.getCheckingAccount()==null)
 					{
 						tempBA = new CheckingAccount(bank,loanAmount, 0.0);//TODO Ryan figure out to do your direct deposit thing
 						customer.setCheckingAccount((CheckingAccount)tempBA);
 					}
-					if(accountType.compareTo("Mortgage") == 0 && customer.getCheckingAccount().equals(null))
+					if(accountType.compareTo("Mortgage") == 0 && customer.getCheckingAccount()==null)
 					{
 						CheckingAccount tempCA = new CheckingAccount(bank, 0.0, 0.0);//TODO Ryan figure out to do your direct deposit thing
 						customer.setCheckingAccount(tempCA);
@@ -127,16 +126,17 @@ private final class SelectionChanged implements ItemListener {
 						tempBA =new Mortgage(bank, loanAmount, loanAmount,bank.getBankPolicy().getMortgageInterestRate(), tempCA);
 						customer.setMortgage((Mortgage)tempBA);
 					}
-					if(tempBA.equals(null))
+					if(tempBA==null)
 					{
 						textParseError("Account Exists", "You already have this type of account");
 					}
 					else
 					{
 						bank.getPendingAccounts().add(tempBA);	
+						frame.dispose();
 					}
 				}
-				frame.dispose();
+				
 			}
 		}
 
